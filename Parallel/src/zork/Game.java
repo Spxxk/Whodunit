@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
+  public static HashMap<String, Item> itemList = new HashMap<String, Item>();
 
   private Parser parser;
   private Room currentRoom;
@@ -22,11 +23,31 @@ public class Game {
   public Game() {
     try {
       initRooms("src\\zork\\data\\rooms.json");
+      initItems("src\\zork\\data\\items.json");
       currentRoom = roomMap.get("Bedroom");
     } catch (Exception e) {
       e.printStackTrace();
     }
     parser = new Parser();
+  }
+
+  private void initItems(String fileName) throws Exception {
+    Path path = Path.of(fileName);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonItems = (JSONArray) json.get("items");
+
+    for (Object itemObj : jsonItems) {
+      String itemName = (String) ((JSONObject) itemObj).get("name");
+      String itemId = (String) ((JSONObject) itemObj).get("id");
+      Integer itemWeight = Integer.parseInt(((JSONObject) itemObj).get("weight") + "");
+      Boolean isOpenable = (Boolean) ((JSONObject) itemObj).get("isOpenable");
+      Item item = new Item(itemWeight, itemName, isOpenable);
+
+      itemList.put(itemId, item);
+    }
   }
 
   private void initRooms(String fileName) throws Exception {

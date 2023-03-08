@@ -1,5 +1,5 @@
 package zork.commands;
-import zork.data.*;
+
 import zork.*;
 
 public class Drop extends Item {

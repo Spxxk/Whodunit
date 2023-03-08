@@ -6,6 +6,7 @@ public class Room {
 
   private String roomName;
   private String description;
+  private Inventory items;
   private ArrayList<Exit> exits;
 
   public ArrayList<Exit> getExits() {
@@ -14,6 +15,14 @@ public class Room {
 
   public void setExits(ArrayList<Exit> exits) {
     this.exits = exits;
+  }
+
+  public Inventory getRoomItems() {
+    return items;
+  }
+
+  public void setRoomItems() {
+
   }
 
   /**

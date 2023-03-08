@@ -4,6 +4,12 @@
       "id": "Hallway",
       "name": "Hallway",
       "description": "You are in a long hallway. There are family pictures on all of the walls.",
+      "weight": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
       "exits": [
         {
           "isLocked": false,
@@ -22,6 +28,12 @@
       "id": "Bedroom",
       "name": "Bedroom",
       "description": "You are in a large bedroom",
+      "weight": 150,
+      "items": [
+        {
+          "id": "Master Room Key" 
+        }
+      ],
       "exits": [
         {
           "isLocked": false,
@@ -44,6 +56,12 @@
       "id": "Bathroom",
       "name": "Bathroom",
       "description": "You are in a blue bathroom",
+      "weight": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
       "exits": [
         {
           "isLocked": true,
@@ -62,6 +80,12 @@
       "id": "Closet",
       "name": "Closet",
       "description": "You are in the closet. It is dark.",
+      "weight": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
       "exits": [
         {
           "isLocked": false,

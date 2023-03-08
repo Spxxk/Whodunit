@@ -22,8 +22,8 @@ public class Game {
    */
   public Game() {
     try {
-      initRooms("src\\zork\\data\\rooms.json");
       initItems("src\\zork\\data\\items.json");
+      initRooms("src\\zork\\data\\rooms.json");
       currentRoom = roomMap.get("Bedroom");
     } catch (Exception e) {
       e.printStackTrace();
@@ -62,9 +62,18 @@ public class Game {
       Room room = new Room();
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
+      int roomWeight = Integer.parseInt(((JSONObject) roomObj).get("weight") + "");
       String roomDescription = (String) ((JSONObject) roomObj).get("description");
       room.setDescription(roomDescription);
       room.setRoomName(roomName);
+
+      JSONArray jsonItems = (JSONArray) ((JSONObject) roomObj).get("items");
+      Inventory roomItems = new Inventory(roomWeight);
+      for(Object itemObj : jsonItems) {
+        if(((JSONObject) itemObj).get("id") != null) {
+          roomItems.addItem(itemList.get((String) ((JSONObject) itemObj).get("id")));
+        }
+      }
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();

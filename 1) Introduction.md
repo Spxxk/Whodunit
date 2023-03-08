@@ -1,6 +1,6 @@
 # Parellel
 
-The role-playing video game Parallel was created by Owen Chen, Omer Hussein, Cyrus Abhary, and Weicheng Pan. The game was written by Owen cheng and designed by Cyrus Abhary, Omer Hussein, and Owen Chen.
+The role-playing video game Parallel was created by Owen Chen, Omer Hussein, Cyrus Abhary, and Weicheng Pan. The game was written by Owen Chen and designed by Cyrus Abhary, Omer Hussein, and Owen Chen.
 
 Parallel takes place in a fictional city's seaside area, which is still recovering from a bombing that occurred decades prior to the start of the game. Players take on the role of an alcoholic detective sloving a murder investigation. He begins to remember details of what transpired the night before and the current forces attempting to influence the city of Slovoke as the investigation progresses. Parallel was created for the most outstanding teacher, "Mr. Deslauries."
 

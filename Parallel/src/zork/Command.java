@@ -14,6 +14,10 @@ public class Command {
     this.secondWord = secondWord;
   }
 
+  public Command(String name) {
+    commandWord = name;
+  }
+
   /**
    * Return the command word (the first word) of this command. If the command was
    * not understood, the result is null.

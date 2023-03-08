@@ -1,10 +1,24 @@
 {
     "items": [
         {
-            "id": "Master Room Key",
-            "name": "Master Room Key",
-            "weight": 1,
+            "id": "Room Card",
+            "name": "Room Card",
+            "weight": 0.1,
+            "isOpenable": false
+        }  ,
+        {
+            "id": "Rope",
+            "name": "Rope",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "Gun",
+            "name": "Gun",
+            "weight": 2,
             "isOpenable": false
         }
     ]
 }
+
+

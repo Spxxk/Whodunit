@@ -1,0 +1,10 @@
+{
+    "items": [
+        {
+            "id": "Master Room Key",
+            "name": "Master Room Key",
+            "weight": 1,
+            "isOpenable": false
+        }
+    ]
+}

@@ -42,7 +42,7 @@ public class Game {
     for (Object itemObj : jsonItems) {
       String itemName = (String) ((JSONObject) itemObj).get("name");
       String itemId = (String) ((JSONObject) itemObj).get("id");
-      Integer itemWeight = Integer.parseInt(((JSONObject) itemObj).get("weight") + "");
+      Double itemWeight = Double.parseDouble(((JSONObject) itemObj).get("weight") + "");
       Boolean isOpenable = (Boolean) ((JSONObject) itemObj).get("isOpenable");
       Item item = new Item(itemWeight, itemName, isOpenable);
 
@@ -62,13 +62,13 @@ public class Game {
       Room room = new Room();
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
-      int roomWeight = Integer.parseInt(((JSONObject) roomObj).get("weight") + "");
+      int roomCapacity = Integer.parseInt(((JSONObject) roomObj).get("capacity") + "");
       String roomDescription = (String) ((JSONObject) roomObj).get("description");
       room.setDescription(roomDescription);
       room.setRoomName(roomName);
 
       JSONArray jsonItems = (JSONArray) ((JSONObject) roomObj).get("items");
-      Inventory roomItems = new Inventory(roomWeight);
+      Inventory roomItems = new Inventory(roomCapacity);
       for(Object itemObj : jsonItems) {
         if(((JSONObject) itemObj).get("id") != null) {
           roomItems.addItem(itemList.get((String) ((JSONObject) itemObj).get("id")));

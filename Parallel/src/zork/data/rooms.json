@@ -4,7 +4,7 @@
       "id": "Hallway",
       "name": "Hallway",
       "description": "You are in a long hallway. There are family pictures on all of the walls.",
-      "weight": 150,
+      "capacity": 150,
       "items": [
         {
           "id": null
@@ -28,7 +28,7 @@
       "id": "Bedroom",
       "name": "Bedroom",
       "description": "You are in a large bedroom",
-      "weight": 150,
+      "capacity": 150,
       "items": [
         {
           "id": "Room Card" 
@@ -56,7 +56,7 @@
       "id": "Bathroom",
       "name": "Bathroom",
       "description": "You are in a blue bathroom",
-      "weight": 150,
+      "capacity": 150,
       "items": [
         {
           "id": null
@@ -80,7 +80,7 @@
       "id": "Closet",
       "name": "Closet",
       "description": "You are in the closet. It is dark.",
-      "weight": 150,
+      "capacity": 150,
       "items": [
         {
           "id": null

@@ -10,10 +10,10 @@ public class AttributesPresets { // why are we passing stuff in? i dont understa
     // intellect is index 0, psyche is index 1, physique is index 2, motorics is index 3
 
     public void Thinker(){
-        stats[0] = 5;
-        stats[1] = 1;
-        stats[2] = 2;
-        stats[3] = 4;
+        stats[0] = 5; // intellect
+        stats[1] = 1; // psyche
+        stats[2] = 2; // physique
+        stats[3] = 4; // motorics
     }
     public void Sensitive(){
         stats[0] = 1;

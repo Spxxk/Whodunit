@@ -13,6 +13,7 @@ public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
   public static HashMap<String, Item> itemList = new HashMap<String, Item>();
+  public static Inventory playerInventory = new Inventory(100);
 
   private Parser parser;
   private Room currentRoom;
@@ -145,7 +146,13 @@ public class Game {
         return true; // signal that we want to quit
     } else if (commandWord.equals("eat")) {
       System.out.println("Do you really think you should be eating at a time like this?");
-    }
+    } else if(commandWord.equals("drop")) {
+      if(command.hasSecondWord()) {
+          System.out.println("ok, dropping");
+        }
+      }
+      else 
+        System.out.println("Drop what?");
     return false;
   }
 

@@ -14,8 +14,8 @@ public class Command {
     this.secondWord = secondWord;
   }
 
-  public Command(String name) {
-    commandWord = name;
+  public Command(String command) {
+    commandWord = command;
   }
 
   /**

@@ -1,6 +1,8 @@
 package zork.commands;
 import java.util.Scanner;
 
+import zork.data.Player;
+
 public class Asker extends AttributesPresets {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -9,6 +11,7 @@ public class Asker extends AttributesPresets {
         int max = 4;
         int min = 0;
         int[] Attributes = {1,1,1,1};
+        Player F = new Player();
         for(int i = 0; i < 4; i++){
             System.out.println("You have " + totalPoints + " points left, please choose how many points allocated to " + A2[i] + "!");
             int number = myObj.nextInt();
@@ -23,6 +26,10 @@ public class Asker extends AttributesPresets {
         System.out.println("PSY = " + Attributes[1]);
         System.out.println("FYS = " + Attributes[2]);
         System.out.println("MOT = " + Attributes[3]);
+        F.PlayerAttribute[0] = Attributes[0];
+        F.PlayerAttribute[1] = Attributes[1];
+        F.PlayerAttribute[2] = Attributes[2];
+        F.PlayerAttribute[3] = Attributes[3];
     }
 }
 

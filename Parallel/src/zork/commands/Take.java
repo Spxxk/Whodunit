@@ -1,10 +1,13 @@
 package zork.commands;
 
 import zork.*;
-import java.util.ArrayList;
 
-public class Take extends Command {
-    public Take(String command) {
-        super(command);
+public class Take {
+    public static void takeItem(Item item) {
+        Inventory rm = Game.currentRoom.getRoomItems();
+        if(Game.currentRoom.getRoomItems().getInventory().contains(item) && item.getWeight() + Game.playerInventory.getCurrentWeight() <= Game.playerInventory.getMaxWeight()) {
+            Game.playerInventory.addItem(item);
+            rm.removeItem(item); Game.currentRoom.setRoomItems(rm);
+        }
     }
 }

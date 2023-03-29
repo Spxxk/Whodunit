@@ -1,5 +1,7 @@
 package zork;
 
+import zork.commands.Take;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,9 +16,9 @@ public class Game {
 	public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 	public static HashMap<String, Item> itemList = new HashMap<String, Item>();
 	public static Inventory playerInventory = new Inventory(100);
+	public static Room currentRoom;
 
 	private Parser parser;
-	private Room currentRoom;
 
 	/**
 	 * Create the game and initialise its internal map.
@@ -75,6 +77,7 @@ public class Game {
 					roomItems.addItem(itemList.get((String) ((JSONObject) itemObj).get("id")));
 				}
 			}
+			room.setRoomItems(roomItems);
 
 			JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
 			ArrayList<Exit> exits = new ArrayList<Exit>();
@@ -149,10 +152,35 @@ public class Game {
 		} else if(commandWord.equals("drop")) {
 			if(command.hasSecondWord()) {
 					
+			}
+			else {
+				System.out.println("Drop what?");
+				Command newCommand;
+				//for dropping items
+			}
+		}
+		else if(commandWord.equals("take")) {
+			try {
+				for (Item item : currentRoom.getRoomItems().getInventory()) {
+					if(command.getSecondWord().equals(item.getName()))
+						Take.takeItem(item);
 				}
 			}
-			else 
-				System.out.println("Drop what?");
+			catch(NullPointerException e) {
+				System.out.println("Take what?");
+			}
+		}
+		else if(commandWord.equals("l") || commandWord.equals("look")) {
+			try {
+				for (Item item : currentRoom.getRoomItems().getInventory()) {
+					System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
+				}
+				System.out.println();
+			}
+			catch(NullPointerException e) {
+				System.out.println("The room is empty.");
+			}
+		}
 		return false;
 	}
 

@@ -30,11 +30,19 @@ public class Inventory {
         }
     }
 
+    public boolean removeItem(Item item) {
+        return items.remove(item);
+    }
+
 	public Item getItem(int index) {
 		return items.get(index);
 	}
     
     public ArrayList<Item> getInventory() {
         return items;
+    }
+
+    public void setItems(ArrayList<Item> items) {
+        this.items = items;
     }
 }

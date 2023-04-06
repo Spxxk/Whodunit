@@ -1,7 +1,7 @@
 package zork.data;
 
 public class Player {
-    String name = "Frank";
+    String name = "Frank Page";
     int weight = 190; //All of these values are in pounds
     int capacity = 75;
     int[] inventory = new int [10];

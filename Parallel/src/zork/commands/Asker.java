@@ -7,12 +7,12 @@ public class Asker extends AttributesPresets {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         String[] A2 = {"Intellect" , "Psyche" , "Physical" , "Motorics"};
-        int totalPoints = 8;
-        int max = 4;
+        int totalPoints = 30;
+        int max = 10;
         int min = 0;
-        int[] Attributes = {1,1,1,1};
+        int[] Attributes = {0,0,0,0};
         Player F = new Player();
-        for(int i = 0; i < 4; i++){
+        for(int i = 0; i < 10; i++){
             System.out.println("You have " + totalPoints + " points left, please choose how many points allocated to " + A2[i] + "!");
             int number = myObj.nextInt();
             while(number<min || number > max || totalPoints-number < 0){

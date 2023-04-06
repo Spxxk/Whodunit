@@ -21,8 +21,8 @@ public class Room {
         return items;
     }
     
-    public void setRoomItems() {
-        
+    public void setRoomItems(Inventory items) {
+        this.items = items;
     }
     
     /**

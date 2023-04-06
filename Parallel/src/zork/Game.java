@@ -1,5 +1,7 @@
 package zork;
 
+import zork.commands.Take;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,9 +16,9 @@ public class Game {
 	public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 	public static HashMap<String, Item> itemList = new HashMap<String, Item>();
 	public static Inventory playerInventory = new Inventory(100);
+	public static Room currentRoom;
 
 	private Parser parser;
-	private Room currentRoom;
 
 	/**
 	 * Create the game and initialise its internal map.
@@ -75,6 +77,7 @@ public class Game {
 					roomItems.addItem(itemList.get((String) ((JSONObject) itemObj).get("id")));
 				}
 			}
+			room.setRoomItems(roomItems);
 
 			JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
 			ArrayList<Exit> exits = new ArrayList<Exit>();
@@ -134,25 +137,62 @@ public class Game {
 			return false;
 		}
 
+		Command com;
 		String commandWord = command.getCommandWord();
 		if (commandWord.equals("help"))
 			printHelp();
 		else if (commandWord.equals("go"))
 			goRoom(command);
 		else if (commandWord.equals("quit")) {
-			if (command.hasSecondWord())
+			if (command.hasStatement())
 				System.out.println("Quit what?");
 			else
 				return true; // signal that we want to quit
 		} else if (commandWord.equals("eat")) {
 			System.out.println("Do you really think you should be eating at a time like this?");
 		} else if(commandWord.equals("drop")) {
-			if(command.hasSecondWord()) {
+			if(command.hasStatement()) {
 					
+			}
+			else {
+				System.out.println("Drop what?");
+				Command newCommand;
+				//for dropping items
+			}
+		}
+		else if(commandWord.equals("take")) {
+			try {
+				for (int i = 0; i < currentRoom.getRoomItems().getInventory().size(); i++) {
+					Item item = currentRoom.getRoomItems().getInventory().get(i);
+					if(command.getStatement().toLowerCase().equals(item.getName().toLowerCase())) {
+						com = new Take(item, currentRoom.getRoomItems(), playerInventory);
+
+						Inventory[] newInvs = ((Take) com).takeItem();
+						currentRoom.setRoomItems(newInvs[0]); playerInventory = newInvs[1];
+					}	
 				}
 			}
-			else 
-				System.out.println("Drop what?");
+			catch(NullPointerException e) {
+				System.out.println("Take what?");
+			}
+		}
+		else if(commandWord.equals("l") || commandWord.equals("look")) {
+			try {
+				for (Item item : currentRoom.getRoomItems().getInventory()) {
+					System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
+				}
+				System.out.println();
+			}
+			catch(NullPointerException e) {
+				System.out.println("The room is empty.");
+			}
+		}
+		else if(commandWord.equals("i") || commandWord.equals("inventory")) {
+			for (Item item : playerInventory.getInventory()) {
+				System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
+			}
+			System.out.println();
+		}
 		return false;
 	}
 
@@ -175,13 +215,13 @@ public class Game {
 	 * otherwise print an error message.
 	 */
 	private void goRoom(Command command) {
-		if (!command.hasSecondWord()) {
+		if (!command.hasStatement()) {
 			// if there is no second word, we don't know where to go...
 			System.out.println("Go where?");
 			return;
 		}
 
-		String direction = command.getSecondWord();
+		String direction = command.getStatement();
 
 		// Try to leave current room.
 		Room nextRoom = currentRoom.nextRoom(direction);

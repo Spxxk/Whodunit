@@ -3,8 +3,8 @@ package zork.commands;
 import zork.*;
 
 public class Take extends Command {
-    Item item;
-    Inventory inv_take, inv_recieve;
+    private Item item;
+    private Inventory inv_take, inv_recieve;
 
     public Take(Item item, Inventory inv_take, Inventory inv_recieve) {
         super(item);

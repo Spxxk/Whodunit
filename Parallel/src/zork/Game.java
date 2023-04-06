@@ -169,6 +169,8 @@ public class Game {
 
 						Inventory[] newInvs = ((Take) com).takeItem();
 						currentRoom.setRoomItems(newInvs[0]); playerInventory = newInvs[1];
+
+						System.out.println("You picked up a " + item.getName() + ".");
 					}	
 				}
 			}
@@ -177,15 +179,15 @@ public class Game {
 			}
 		}
 		else if(commandWord.equals("l") || commandWord.equals("look")) {
-			try {
-				for (Item item : currentRoom.getRoomItems().getInventory()) {
-					System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
-				}
-				System.out.println();
+			boolean isEmpty = true;
+			for (Item item : currentRoom.getRoomItems().getInventory()) {
+				isEmpty = false;
+				System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
 			}
-			catch(NullPointerException e) {
+			if(isEmpty)
 				System.out.println("The room is empty.");
-			}
+			else
+				System.out.println();
 		}
 		else if(commandWord.equals("i") || commandWord.equals("inventory")) {
 			for (Item item : playerInventory.getInventory()) {

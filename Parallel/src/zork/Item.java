@@ -43,4 +43,12 @@ public class Item extends OpenableObject {
         this.isOpenable = isOpenable;
     }
     
+    public static String arrayToString(String[] arr) {
+        String result = "";
+        for (int i = 1; i < arr.length; i++) {
+            result = (i == 1) ? arr[1] : result + " " + arr[i];
+        }
+
+        return result;
+    }
 }

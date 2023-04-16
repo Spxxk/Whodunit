@@ -1,6 +1,9 @@
 package zork;
 
+import zork.exceptions.CommandNotFoundException;
+
 import zork.commands.Take;
+import zork.commands.Bag;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -16,6 +19,7 @@ public class Game {
 	public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 	public static HashMap<String, Item> itemList = new HashMap<String, Item>();
 	public static Inventory playerInventory = new Inventory(100);
+	private static Game game = new Game();
 	public static Room currentRoom;
 
 	private Parser parser;
@@ -32,6 +36,10 @@ public class Game {
 			e.printStackTrace();
 		}
 		parser = new Parser();
+	}
+
+	public static Game getCurrentGame() {
+		return game;
 	}
 
 	private void initItems(String fileName) throws Exception {
@@ -101,18 +109,20 @@ public class Game {
 	public void play() {
 		printWelcome();
 
-		boolean finished = false;
-		while (!finished) {
+		while (true) {
 			Command command;
 			try {
 				command = parser.getCommand();
-				finished = processCommand(command);
-			} catch (IOException e) {
+				processCommand(command.getCommand(), parser.getArguments());
+				// processCommand(command, new String[] {parser.getCommand().getCommandWord()});
+			// } catch (IOException e) {
+			// 	e.printStackTrace();
+			}
+			catch (CommandNotFoundException e) {
 				e.printStackTrace();
 			}
 
 		}
-		System.out.println("Thank you for playing.  Good bye.");
 	}
 
 	/**
@@ -131,71 +141,95 @@ public class Game {
 	 * Given a command, process (that is: execute) the command. If this command ends
 	 * the game, true is returned, otherwise false is returned.
 	 */
-	private boolean processCommand(Command command) {
-		if (command.isUnknown()) {
-			System.out.println("I don't know what you mean...");
-			return false;
-		}
+	// private boolean processCommand(Command command) {
+	// 	if (command.isUnknown()) {
+	// 		System.out.println("I don't know what you mean...");
+	// 		return false;
+	// 	}
 
-		Command com;
-		String commandWord = command.getCommandWord();
-		if (commandWord.equals("help"))
-			printHelp();
-		else if (commandWord.equals("go"))
-			goRoom(command);
-		else if (commandWord.equals("quit")) {
-			if (command.hasStatement())
-				System.out.println("Quit what?");
-			else
-				return true; // signal that we want to quit
-		} else if (commandWord.equals("eat")) {
-			System.out.println("Do you really think you should be eating at a time like this?");
-		} else if(commandWord.equals("drop")) {
-			if(command.hasStatement()) {
+	// 	Command com;
+	// 	String commandWord = command.getCommandWord();
+	// 	if (commandWord.equals("help"))
+	// 		printHelp();
+	// 	else if (commandWord.equals("go"))
+	// 		goRoom(command);
+	// 	else if (commandWord.equals("quit")) {
+	// 		if (command.hasStatement())
+	// 			System.out.println("Quit what?");
+	// 		else
+	// 			return true; // signal that we want to quit
+	// 	} else if (commandWord.equals("eat")) {
+	// 		System.out.println("Do you really think you should be eating at a time like this?");
+	// 	} else if(commandWord.equals("drop")) {
+	// 		if(command.hasStatement()) {
 					
-			}
-			else {
-				System.out.println("Drop what?");
-				Command newCommand;
-				//for dropping items
-			}
-		}
-		else if(commandWord.equals("take")) {
-			try {
-				for (int i = 0; i < currentRoom.getRoomItems().getInventory().size(); i++) {
-					Item item = currentRoom.getRoomItems().getInventory().get(i);
-					if(command.getStatement().toLowerCase().equals(item.getName().toLowerCase())) {
-						com = new Take(item, currentRoom.getRoomItems(), playerInventory);
+	// 		}
+	// 		else {
+	// 			System.out.println("Drop what?");
+	// 			Command newCommand;
+	// 			//for dropping items
+	// 		}
+	// 	}
+	// 	else if(commandWord.equals("take")) {
+	// 		try {
+	// 			for (int i = 0; i < currentRoom.getRoomItems().getInventory().size(); i++) {
+	// 				Item item = currentRoom.getRoomItems().getInventory().get(i);
+	// 				if(command.getStatement().toLowerCase().equals(item.getName().toLowerCase())) {
+	// 					com = new Take(item, currentRoom.getRoomItems(), playerInventory);
 
-						Inventory[] newInvs = ((Take) com).takeItem();
-						currentRoom.setRoomItems(newInvs[0]); playerInventory = newInvs[1];
+	// 					Inventory[] newInvs = ((Take) com).takeItem();
+	// 					currentRoom.setRoomItems(newInvs[0]); playerInventory = newInvs[1];
 
-						System.out.println("You picked up a " + item.getName() + ".");
-					}	
-				}
-			}
-			catch(NullPointerException e) {
-				System.out.println("Take what?");
-			}
+	// 					System.out.println("You picked up a " + item.getName() + ".");
+	// 				}	
+	// 			}
+	// 		}
+	// 		catch(NullPointerException e) {
+	// 			System.out.println("Take what?");
+	// 		}
+	// 	}
+	// 	else if(commandWord.equals("l") || commandWord.equals("look")) {
+	// 		boolean isEmpty = true;
+	// 		for (Item item : currentRoom.getRoomItems().getInventory()) {
+	// 			isEmpty = false;
+	// 			System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
+	// 		}
+	// 		if(isEmpty)
+	// 			System.out.println("The room is empty.");
+	// 		else
+	// 			System.out.println();
+	// 	}
+	// 	else if(commandWord.equals("i") || commandWord.equals("inventory")) {
+	// 		for (Item item : playerInventory.getInventory()) {
+	// 			System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
+	// 		}
+	// 		System.out.println();
+	// 	}
+	// 	return false;
+	// }
+
+	/**
+	 * Given a command, process it. Prints out the return value of runCommand().
+	 * @param com (Command)
+	 * @param args (String[])
+	 * @return void
+	 */
+	private void processCommand(String name, String[] args) {
+		Command c = new Command();
+		switch(name.toLowerCase()) {
+			case "take":
+				c = new Take();
+				break;
+			case "i":
+				//rolls down to the next case
+			case "inventory":
+				//rolls down to the next case
+			case "bag":
+				c = new Bag(); // activates for i, inventory and bag (its pretty smart)
+				break;
 		}
-		else if(commandWord.equals("l") || commandWord.equals("look")) {
-			boolean isEmpty = true;
-			for (Item item : currentRoom.getRoomItems().getInventory()) {
-				isEmpty = false;
-				System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
-			}
-			if(isEmpty)
-				System.out.println("The room is empty.");
-			else
-				System.out.println();
-		}
-		else if(commandWord.equals("i") || commandWord.equals("inventory")) {
-			for (Item item : playerInventory.getInventory()) {
-				System.out.print(item.getName() + ", "); // just a rough copy dont mald we can change this later.
-			}
-			System.out.println();
-		}
-		return false;
+
+		c.runCommand(args);
 	}
 
 	// implementations of user commands:
@@ -204,35 +238,35 @@ public class Game {
 	 * Print out some help information. Here we print some stupid, cryptic message
 	 * and a list of the command words.
 	 */
-	private void printHelp() {
-		System.out.println("You are lost. You are alone. You wander");
-		System.out.println("around at Monash Uni, Peninsula Campus.");
-		System.out.println();
-		System.out.println("Your command words are:");
-		parser.showCommands();
-	}
+	// private void printHelp() {
+	// 	System.out.println("You are lost. You are alone. You wander");
+	// 	System.out.println("around at Monash Uni, Peninsula Campus.");
+	// 	System.out.println();
+	// 	System.out.println("Your command words are:");
+	// 	parser.showCommands();
+	// }
 
 	/**
 	 * Try to go to one direction. If there is an exit, enter the new room,
 	 * otherwise print an error message.
 	 */
-	private void goRoom(Command command) {
-		if (!command.hasStatement()) {
-			// if there is no second word, we don't know where to go...
-			System.out.println("Go where?");
-			return;
-		}
+	// private void goRoom(Command command) {
+	// 	if (!command.hasStatement()) {
+	// 		// if there is no second word, we don't know where to go...
+	// 		System.out.println("Go where?");
+	// 		return;
+	// 	}
 
-		String direction = command.getStatement();
+	// 	String direction = command.getStatement();
 
-		// Try to leave current room.
-		Room nextRoom = currentRoom.nextRoom(direction);
+	// 	// Try to leave current room.
+	// 	Room nextRoom = currentRoom.nextRoom(direction);
 
-		if (nextRoom == null)
-			System.out.println("There is no door!");
-		else {
-			currentRoom = nextRoom;
-			System.out.println(currentRoom.longDescription());
-		}
-	}
+	// 	if (nextRoom == null)
+	// 		System.out.println("There is no door!");
+	// 	else {
+	// 		currentRoom = nextRoom;
+	// 		System.out.println(currentRoom.longDescription());
+	// 	}
+	// }
 }

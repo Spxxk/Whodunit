@@ -1,23 +1,29 @@
 package zork.commands;
 
-import zork.*;
+import zork.Game;
+import zork.Command;
+
+import zork.Item;
+import zork.Inventory;
 
 public class Take extends Command {
-    private Item item;
-    private Inventory inv_take, inv_recieve;
+    @Override
+    public void runCommand(String[] args) {
+        for (Item item : Game.currentRoom.getRoomItems().getInventory()) {
+            if(Item.arrayToString(args).equalsIgnoreCase(item.getName())) {
+                Inventory inv_recieve = Game.playerInventory;
+                Inventory inv_take = Game.currentRoom.getRoomItems();
 
-    public Take(Item item, Inventory inv_take, Inventory inv_recieve) {
-        super(item);
+                int weight = inv_recieve.getCurrentWeight();
+                inv_recieve.setCurrentWeight(weight);
 
-        this.item = item;
-        this.inv_take = inv_take;
-        this.inv_recieve = inv_recieve;
-    }
+                inv_take.removeItem(item);
+                inv_recieve.addItem(item);
 
-    public Inventory[] takeItem() {
-        inv_take.removeItem(item);
-        inv_recieve.addItem(item);
-
-        return new Inventory[] { inv_take, inv_recieve };
+                System.out.println("You picked up a " + item.getName() + " from the ground.");
+                return;
+            }
+        }
+        System.out.println("No item was taken.");
     }
 }

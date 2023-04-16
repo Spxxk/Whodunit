@@ -1,19 +1,20 @@
 package zork;
 
 import java.util.Scanner;
+import zork.exceptions.CommandNotFoundException;
 
 public class Parser {
-    private CommandWords commands; // holds all valid command words
+    private String[] args;
     private Scanner in;
     
     public Parser() {
-        commands = new CommandWords();
         in = new Scanner(System.in);
     }
     
-    public Command getCommand() throws java.io.IOException {
+    public Command getCommand() throws CommandNotFoundException {
         String inputLine = "";
         String[] words;
+        Command com = new Command();
         
         System.out.print("> "); // print prompt
         
@@ -21,21 +22,16 @@ public class Parser {
         
         words = inputLine.split(" ");
         
-        String word1 = words[0];
-        String word2 = null;
-        if (words.length > 1)
-            word2 = inputLine.replaceAll(words[0] + " ", "");
-        
-        if (commands.isCommand(word1))
-            return new Command(word1, word2);
-        else
-            return new Command(null, word2);
+        if(!CommandWords.checkWord(words[0]))
+            throw new CommandNotFoundException(words[0]);
+
+        com.setCommand(words[0]);
+        args = words;
+
+        return com;
     }
-    
-    /**
-    * Print out a list of valid command words.
-    */
-    public void showCommands() {
-        commands.showAll();
+
+    public String[] getArguments() {
+        return args;
     }
 }

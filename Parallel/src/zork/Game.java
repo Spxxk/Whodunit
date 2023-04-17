@@ -110,10 +110,10 @@ public class Game {
 		printWelcome();
 
 		while (true) {
-			Command command;
+			String command;
 			try {
 				command = parser.getCommand();
-				processCommand(command.getCommand(), parser.getArguments());
+				processCommand(command, parser.getArguments());
 				// processCommand(command, new String[] {parser.getCommand().getCommandWord()});
 			// } catch (IOException e) {
 			// 	e.printStackTrace();
@@ -215,10 +215,11 @@ public class Game {
 	 * @return void
 	 */
 	private void processCommand(String name, String[] args) {
-		Command c = new Command();
+		Command c;
 		switch(name.toLowerCase()) {
 			case "take":
 				c = new Take();
+				c.runCommand(args);
 				break;
 			case "i":
 				//rolls down to the next case
@@ -226,10 +227,9 @@ public class Game {
 				//rolls down to the next case
 			case "bag":
 				c = new Bag(); // activates for i, inventory and bag (its pretty smart)
+				c.runCommand(args);
 				break;
 		}
-
-		c.runCommand(args);
 	}
 
 	// implementations of user commands:

@@ -6,8 +6,8 @@ import zork.Command;
 import zork.Item;
 import zork.Inventory;
 
-public class Take extends Command {
-    @Override
+public class Take implements Command {
+
     public void runCommand(String[] args) {
         for (Item item : Game.currentRoom.getRoomItems().getInventory()) {
             if(Item.arrayToString(args).equalsIgnoreCase(item.getName())) {
@@ -26,4 +26,5 @@ public class Take extends Command {
         }
         System.out.println("No item was taken.");
     }
+
 }

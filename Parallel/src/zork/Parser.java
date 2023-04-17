@@ -11,10 +11,10 @@ public class Parser {
         in = new Scanner(System.in);
     }
     
-    public Command getCommand() throws CommandNotFoundException {
+    public String getCommand() throws CommandNotFoundException {
         String inputLine = "";
         String[] words;
-        Command com = new Command();
+        String c = new String();
         
         System.out.print("> "); // print prompt
         
@@ -25,10 +25,10 @@ public class Parser {
         if(!CommandWords.checkWord(words[0]))
             throw new CommandNotFoundException(words[0]);
 
-        com.setCommand(words[0]);
+        c = words[0];
         args = words;
 
-        return com;
+        return c;
     }
 
     public String[] getArguments() {

@@ -3,8 +3,8 @@ package zork.commands;
 import zork.Command;
 import zork.Game;
 
-public class Bag extends Command {
-    @Override
+public class Bag implements Command {
+
     public void runCommand(String[] args) {
         int i;
         for (i = 0; i < Game.playerInventory.getInventory().size(); i++) {
@@ -17,4 +17,5 @@ public class Bag extends Command {
 
         System.out.println();
     }
+
 }

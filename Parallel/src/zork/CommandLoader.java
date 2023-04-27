@@ -12,15 +12,11 @@ public class CommandLoader {
             Class<?>[] classes = getClasses("zork.commands");
 
             for (Class<?> c : classes) {
-                System.out.println("---");
-                System.out.println(c.getSimpleName());
                 commands.put(c.getSimpleName().toLowerCase(), (Command) c.getConstructors()[0].newInstance());
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
-        
+        }        
     }
 
     public static Command getCommand(String n) {

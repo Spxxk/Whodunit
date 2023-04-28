@@ -42,7 +42,7 @@
         },
         {
           "isLocked": false,
-          "direction": "SouthEast",
+          "direction": "Southeast",
           "adjacentRoom": "Bathroom"
         },
         {

@@ -1,0 +1,7 @@
+*.class
+.idea
+.vscode
+out
+Parallel/.vscode/
+Parellel.iml
+Parallel/Parallel.iml

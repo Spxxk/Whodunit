@@ -3,9 +3,12 @@ package zork.commands;
 import zork.Command;
 import zork.Game;
 
-public class Bag implements Command {
+public class Bag extends Command {
 
-    public void runCommand(String[] args) {
+    public Bag() { super("Bag"); }
+
+
+    public void runCommand(String... args) {
         int i;
         for (i = 0; i < Game.playerInventory.getInventory().size(); i++) {
             if(i > 0)

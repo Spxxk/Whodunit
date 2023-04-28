@@ -1,4 +1,4 @@
-package zork.commands;
+package zork.Garbage;
 
 import zork.*;
 

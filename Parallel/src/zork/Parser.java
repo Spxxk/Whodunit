@@ -1,37 +1,20 @@
 package zork;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import zork.exceptions.CommandNotFoundException;
 
 public class Parser {
-    private String[] args;
-    private Scanner in;
-    
-    public Parser() {
-        in = new Scanner(System.in);
-    }
-    
-    public String getCommand() throws CommandNotFoundException {
-        String inputLine = "";
-        String[] words;
-        String c = new String();
-        
+    private static Scanner in = new Scanner(System.in);
+
+    public static CommandContext getCommand() throws CommandNotFoundException {
+        String inputLine, words[];
+
         System.out.print("> "); // print prompt
         
         inputLine = in.nextLine();
-        
         words = inputLine.split(" ");
-        
-        if(!CommandWords.checkWord(words[0]))
-            throw new CommandNotFoundException(words[0]);
 
-        c = words[0];
-        args = words;
-
-        return c;
-    }
-
-    public String[] getArguments() {
-        return args;
+        return new CommandContext(words[0], Arrays.copyOfRange(words, 1, words.length));
     }
 }

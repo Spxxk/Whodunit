@@ -1,14 +1,14 @@
 package zork.exceptions;
 
 public class CommandNotFoundException extends Exception {
-    String error;
+    String context;
 
     public CommandNotFoundException(String e) {
-        error = e;
+        context = e;
     }
 
     @Override
     public void printStackTrace() {
-        System.out.println("Invalid Command.");
+        System.out.printf("Invalid Command '%s'.\n", context);
     }
 }

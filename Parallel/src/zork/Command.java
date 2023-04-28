@@ -7,5 +7,5 @@ public abstract class Command {
 
     public String getName() { return name; }
 
-    public abstract void runCommand(String[] args);
+    public abstract void runCommand(String... args);
 }

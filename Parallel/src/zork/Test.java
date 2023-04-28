@@ -7,7 +7,6 @@ public class Test {
         
         CommandContext context = new CommandContext("Omch", new String[]{"ooo ooo aaa aaa"});
 
-
         context.runCommand("slimch");
     }
 }

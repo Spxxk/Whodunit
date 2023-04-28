@@ -1,6 +1,9 @@
 package zork;
 
 import java.util.*;
+
+import zork.exceptions.CommandNotFoundException;
+
 import java.io.*;
 import java.net.URL;
 
@@ -19,8 +22,13 @@ public class CommandLoader {
         }        
     }
 
-    public static Command getCommand(String n) {
-        return commands.get(n.toLowerCase());
+    public static Command getCommand(String n) throws CommandNotFoundException {
+        Command c = commands.get(n.toLowerCase());
+
+        if (c == null) 
+            throw new CommandNotFoundException(n);
+
+        return c;
     }
 
     public static Class<?>[] getClasses(String packageName) throws ClassNotFoundException, IOException {

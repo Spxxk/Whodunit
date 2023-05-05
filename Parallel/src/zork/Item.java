@@ -62,8 +62,8 @@ public class Item extends OpenableObject {
     
     public static String arrayToString(String[] arr) {
         String result = "";
-        for (int i = 1; i < arr.length; i++) {
-            result = (i == 1) ? arr[1] : result + " " + arr[i];
+        for (int i = 0; i < arr.length; i++) {
+            result = (i == 0) ? arr[0] : result + " " + arr[i];
         }
 
         return result;

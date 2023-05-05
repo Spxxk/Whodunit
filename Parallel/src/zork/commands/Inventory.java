@@ -26,7 +26,5 @@ public class Inventory extends Command {
         }
 
         System.out.println();
-
     }
-
 }

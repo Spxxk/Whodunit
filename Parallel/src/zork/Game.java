@@ -2,10 +2,6 @@ package zork;
 
 import zork.exceptions.CommandNotFoundException;
 
-import zork.commands.Take;
-import zork.commands.Bag;
-
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -53,7 +49,7 @@ public class Game {
 			String itemId = (String) ((JSONObject) itemObj).get("id");
 			Double itemWeight = Double.parseDouble(((JSONObject) itemObj).get("weight") + "");
 			Boolean isOpenable = (Boolean) ((JSONObject) itemObj).get("isOpenable");
-			Item item = new Item(itemWeight, itemName, isOpenable);
+			Item item = new Item(itemName, itemWeight, isOpenable);
 
 			itemList.put(itemId, item);
 		}

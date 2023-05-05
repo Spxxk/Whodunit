@@ -1,22 +1,39 @@
 package zork;
 
-import java.util.ArrayList;
-
 public class Item extends OpenableObject {
     private double weight;
     private String name;
     private boolean isOpenable;
+
+    private final double HASH; 
     
-    public Item(double weight, String name, boolean isOpenable) {
+    public Item(String name, double weight, boolean isOpenable) {
         this.weight = weight;
         this.name = name;
         this.isOpenable = isOpenable;
+
+        HASH = Math.random();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+
+        if (!(o instanceof Item)) return false;
+
+        Item i = (Item) o;
+
+        return HASH == i.getHash() && name.equals(i.getName()) && weight == i.getWeight();
     }
     
     public void open() {
         if (!isOpenable)
-        System.out.println("The " + name + " cannot be opened.");
+            System.out.println("The " + name + " cannot be opened.");
         
+    }
+
+    public double getHash() {
+        return HASH;
     }
     
     public double getWeight() {

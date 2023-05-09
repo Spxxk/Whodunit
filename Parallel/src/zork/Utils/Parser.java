@@ -1,4 +1,4 @@
-package zork;
+package zork.Utils;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
 package zork.commands;
 
-import zork.Command;
+import zork.Proto.Command;
 
 public class Omch extends Command {
     public Omch() { super("Omch"); }

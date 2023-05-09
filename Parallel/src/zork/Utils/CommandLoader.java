@@ -1,7 +1,8 @@
-package zork;
+package zork.Utils;
 
 import java.util.*;
 
+import zork.Proto.Command;
 import zork.exceptions.CommandNotFoundException;
 
 import java.io.*;

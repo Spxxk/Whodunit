@@ -1,4 +1,4 @@
-package zork;
+package zork.Proto;
 
 public class Item extends OpenableObject {
     private double weight;

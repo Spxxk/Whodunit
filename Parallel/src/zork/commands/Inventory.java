@@ -2,9 +2,9 @@ package zork.commands;
 
 import java.util.ArrayList;
 
-import zork.Command;
 import zork.Game;
-import zork.Item;
+import zork.Proto.Command;
+import zork.Proto.Item;
 
 public class Inventory extends Command {
 

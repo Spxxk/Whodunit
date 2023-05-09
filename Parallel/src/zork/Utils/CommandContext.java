@@ -1,7 +1,7 @@
-package zork.Utils;
+package zork.utils;
 
-import zork.Proto.Command;
 import zork.exceptions.CommandNotFoundException;
+import zork.proto.Command;
 
 public class CommandContext {
     private final Command command;

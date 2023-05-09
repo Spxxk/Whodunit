@@ -1,4 +1,4 @@
-package zork.Proto;
+package zork.proto;
 
 import java.util.ArrayList;
 

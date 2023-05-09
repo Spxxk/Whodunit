@@ -1,12 +1,12 @@
 package zork;
 
-import zork.Proto.Exit;
-import zork.Proto.Inventory;
-import zork.Proto.Item;
-import zork.Proto.Room;
-import zork.Utils.CommandLoader;
-import zork.Utils.Parser;
 import zork.exceptions.CommandNotFoundException;
+import zork.proto.Exit;
+import zork.proto.Inventory;
+import zork.proto.Item;
+import zork.proto.Room;
+import zork.utils.CommandLoader;
+import zork.utils.Parser;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

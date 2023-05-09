@@ -1,6 +1,6 @@
 package zork.commands;
 
-import zork.Proto.Command;
+import zork.proto.Command;
 
 public class Roll extends Command {
     public Roll() { super("Roll"); }

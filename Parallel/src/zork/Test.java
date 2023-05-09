@@ -1,8 +1,8 @@
 package zork;
 
-import zork.Utils.CommandContext;
-import zork.Utils.CommandLoader;
 import zork.exceptions.CommandNotFoundException;
+import zork.utils.CommandContext;
+import zork.utils.CommandLoader;
 
 public class Test {
     public static void main(String[] args) {

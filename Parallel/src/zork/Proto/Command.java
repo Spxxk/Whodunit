@@ -1,4 +1,4 @@
-package zork.Proto;
+package zork.proto;
 
 public abstract class Command {
     private final String name;

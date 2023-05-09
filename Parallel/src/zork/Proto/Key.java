@@ -1,4 +1,4 @@
-package zork.Proto;
+package zork.proto;
 
 public class Key extends Item {
     private String keyId;

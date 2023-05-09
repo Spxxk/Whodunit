@@ -3,8 +3,8 @@ package zork.commands;
 import java.util.ArrayList;
 
 import zork.Game;
-import zork.Proto.Command;
-import zork.Proto.Item;
+import zork.proto.Command;
+import zork.proto.Item;
 
 public class Look extends Command {
     

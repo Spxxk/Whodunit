@@ -1,9 +1,9 @@
 package zork.commands;
 
 import zork.Game;
-import zork.Proto.Command;
-import zork.Proto.Inventory;
-import zork.Proto.Item;
+import zork.proto.Command;
+import zork.proto.Inventory;
+import zork.proto.Item;
 
 public class Take extends Command {
 

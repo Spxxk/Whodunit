@@ -1,21 +1,31 @@
 package zork;
 
-import zork.exceptions.CommandNotFoundException;
-import zork.utils.CommandContext;
-import zork.utils.CommandLoader;
+import zork.utils.Timer;
 
 public class Test {
-    public static void main(String[] args) {
-        CommandLoader.init();
-        
-        CommandContext context = null;
+    public static Timer c = new Timer(10);
 
+    public static void f() {
         try {
-            context = new CommandContext("omch", new String[]{"ooo ooo aaa aaa"});
-        } catch (CommandNotFoundException e) {
+            System.out.println("---");
+            System.out.println(c.timeElapsed());
+            System.out.println(c.isOver());
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+    }
+    public static void main(String[] args) throws InterruptedException {
 
-        context.runCommand("slimch");
+        c.start();
+
+        f();
+
+        Thread.sleep(5000);
+
+        f();
+
+        Thread.sleep(5000);
+
+        f();
     }
 }

@@ -8,10 +8,8 @@ import zork.proto.Command;
 import zork.proto.Item;
 
 public class Inventory extends Command {
-
-    public final ArgumentCount Arguments = ArgumentCount.INFINITE;
-
-    public Inventory() { super("Inventory"); }
+    
+    public Inventory() { super("Inventory", ArgumentCount.NONE); }
 
     public void runCommand(String... args) {
         ArrayList<Item> inventory = Game.playerInventory.getInventory();

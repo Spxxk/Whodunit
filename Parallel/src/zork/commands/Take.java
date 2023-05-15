@@ -1,13 +1,14 @@
 package zork.commands;
 
 import zork.Game;
+import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Inventory;
 import zork.proto.Item;
 
 public class Take extends Command {
 
-    public Take() { super("Take"); }
+    public Take() { super("Take", ArgumentCount.INFINITE); }
 
     public void runCommand(String... args) {
         for (Item item : Game.currentRoom.getRoomItems().getInventory()) {

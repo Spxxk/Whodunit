@@ -3,12 +3,13 @@ package zork.commands;
 import java.util.ArrayList;
 
 import zork.Game;
+import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Item;
 
 public class Look extends Command {
     
-    public Look() { super("Look"); }
+    public Look() { super("Look", ArgumentCount.NONE); }
 
     @Override
     public void runCommand(String... args) {

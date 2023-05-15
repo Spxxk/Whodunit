@@ -9,7 +9,7 @@ import java.io.*;
 import java.net.URL;
 
 public class CommandLoader {
-    private static Map<String, Command> commands = new HashMap<>();
+    private static final Map<String, Command> commands = new HashMap<>();
 
     public static void init() {
         try {

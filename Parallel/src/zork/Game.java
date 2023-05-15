@@ -1,17 +1,17 @@
 package zork;
 
-import zork.exceptions.CommandNotFoundException;
 import zork.proto.Exit;
 import zork.proto.Inventory;
 import zork.proto.Item;
 import zork.proto.Room;
+import zork.threads.CommandListener;
 import zork.utils.CommandLoader;
-import zork.utils.Parser;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,8 +21,11 @@ public class Game {
 	public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 	public static HashMap<String, Item> itemList = new HashMap<String, Item>();
 	public static Inventory playerInventory = new Inventory(100);
-	private static Game game = new Game();
 	public static Room currentRoom;
+
+    private static Game game = new Game();
+
+    private static final Thread cmdListener = new CommandListener();
 
 	/**
 	 * Create the game and initialise its internal map.
@@ -30,8 +33,8 @@ public class Game {
 	public Game() {
 		try {
             CommandLoader.init();
-			initItems("src\\zork\\data\\items.json");
-			initRooms("src\\zork\\data\\rooms.json");
+			initItems();
+			initRooms();
 			currentRoom = roomMap.get("Bedroom");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -42,8 +45,8 @@ public class Game {
 		return game;
 	}
 
-	private void initItems(String fileName) throws Exception {
-		Path path = Path.of(fileName);
+	private void initItems() throws Exception {
+		Path path = Path.of("src\\zork\\data\\items.json");
 		String jsonString = Files.readString(path);
 		JSONParser parser = new JSONParser();
 		JSONObject json = (JSONObject) parser.parse(jsonString);
@@ -61,8 +64,8 @@ public class Game {
 		}
 	}
 
-	private void initRooms(String fileName) throws Exception {
-		Path path = Path.of(fileName);
+	private void initRooms() throws Exception {
+		Path path = Path.of("src\\zork\\data\\rooms.json");
 		String jsonString = Files.readString(path);
 		JSONParser parser = new JSONParser();
 		JSONObject json = (JSONObject) parser.parse(jsonString);
@@ -73,7 +76,7 @@ public class Game {
 			Room room = new Room();
 			String roomName = (String) ((JSONObject) roomObj).get("name");
 			String roomId = (String) ((JSONObject) roomObj).get("id");
-			int roomCapacity = Integer.parseInt(((JSONObject) roomObj).get("capacity") + "");
+			int roomCapacity = Integer.parseInt(String.valueOf(((JSONObject) roomObj).get("capacity")));
 			String roomDescription = (String) ((JSONObject) roomObj).get("description");
 			room.setDescription(roomDescription);
 			room.setRoomName(roomName);
@@ -108,16 +111,8 @@ public class Game {
 	 */
 	public void play() {
 		printWelcome();
-
-		while (true) {
-			try {
-				Parser.getCommand().runCommand();
-			}
-			catch (CommandNotFoundException e) {
-				e.printStackTrace();
-			}
-
-		}
+		
+        cmdListener.start();
 	}
 
 	/**
@@ -131,67 +126,4 @@ public class Game {
 		System.out.println();
 		System.out.println(currentRoom.longDescription());
 	}
-
-	
-
-	/**
-	 * Given a command, process it. Prints out the return value of runCommand().
-	 * @param com (Command)
-	 * @param args (String[])
-	 * @return void
-	 */
-	// private void processCommand(CommandContext c) {
-	// 	switch(name.toLowerCase()) {
-	// 		case "take":
-	// 			c = new Take();
-	// 			c.runCommand(args);
-	// 			break;
-	// 		case "i":
-	// 			//rolls down to the next case
-	// 		case "inventory":
-	// 			//rolls down to the next case
-	// 		case "bag":
-	// 			c = new Bag(); // activates for i, inventory and bag (its pretty smart)
-	// 			c.runCommand(args);
-	// 			break;
-	// 	}
-	// }
-
-	// implementations of user commands:
-
-	/**
-	 * Print out some help information. Here we print some stupid, cryptic message
-	 * and a list of the command words.
-	 */
-	// private void printHelp() {
-	// 	System.out.println("You are lost. You are alone. You wander");
-	// 	System.out.println("around at Monash Uni, Peninsula Campus.");
-	// 	System.out.println();
-	// 	System.out.println("Your command words are:");
-	// 	parser.showCommands();
-	// }
-
-	/**
-	 * Try to go to one direction. If there is an exit, enter the new room,
-	 * otherwise print an error message.
-	 */
-	// private void goRoom(Command command) {
-	// 	if (!command.hasStatement()) {
-	// 		// if there is no second word, we don't know where to go...
-	// 		System.out.println("Go where?");
-	// 		return;
-	// 	}
-
-	// 	String direction = command.getStatement();
-
-	// 	// Try to leave current room.
-	// 	Room nextRoom = currentRoom.nextRoom(direction);
-
-	// 	if (nextRoom == null)
-	// 		System.out.println("There is no door!");
-	// 	else {
-	// 		currentRoom = nextRoom;
-	// 		System.out.println(currentRoom.longDescription());
-	// 	}
-	// }
 }

@@ -1,31 +1,14 @@
 package zork;
 
+import zork.threads.ChronoHandler;
 import zork.utils.Timer;
 
 public class Test {
     public static Timer c = new Timer(10);
 
-    public static void f() {
-        try {
-            System.out.println("---");
-            System.out.println(c.timeElapsed());
-            System.out.println(c.isOver());
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IllegalAccessException {
+        Thread ch = new ChronoHandler(c);
 
-        c.start();
-
-        f();
-
-        Thread.sleep(5000);
-
-        f();
-
-        Thread.sleep(5000);
-
-        f();
+        c.isOver();
     }
 }

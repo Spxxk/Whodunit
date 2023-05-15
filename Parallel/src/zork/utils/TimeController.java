@@ -47,4 +47,8 @@ public class TimeController {
     public void setStartChrono(long t) {
         startChrono = t;
     }
+
+    public String getHash() {
+        return _hash;
+    }
 }

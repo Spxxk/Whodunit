@@ -3,13 +3,15 @@ package zork.commands;
 import java.util.ArrayList;
 
 import zork.Game;
+import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Item;
 
 public class Inventory extends Command {
 
-    public Inventory() { super("Inventory"); }
+    public final ArgumentCount Arguments = ArgumentCount.INFINITE;
 
+    public Inventory() { super("Inventory"); }
 
     public void runCommand(String... args) {
         ArrayList<Item> inventory = Game.playerInventory.getInventory();

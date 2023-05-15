@@ -3,7 +3,7 @@ package zork.proto;
 public abstract class Command {
     private final String name;
 
-    public Command(String cmdName) { this.name = cmdName; }
+    public Command(String cmdName) { name = cmdName; }
 
     public String getName() { return name; }
 

@@ -1,8 +1,11 @@
 package zork.commands;
 
+import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 
 public class Omch extends Command {
+    public final ArgumentCount Arguments = ArgumentCount.ONE;
+
     public Omch() { super("Omch"); }
 
     public void runCommand(String... args) {

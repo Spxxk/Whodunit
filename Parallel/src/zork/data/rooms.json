@@ -445,8 +445,151 @@
       "exits": [
         {
           "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "hotelRoof"
+        },
+        {
+          "isLocked": false,
           "direction": "South",
           "adjacentRoom": "hotelLobby"
+        }
+      ]
+    },
+    {
+      "id": "hotelRoof",
+      "name": "Hotel Roof",
+      "description": "You are on the roof of the hotel building",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "elevator"
+        }
+      ]
+    },
+    {
+      "id": "hotelLobby",
+      "name": "Hotel Lobby",
+      "description": "You are in the hotel lobby.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "elevator"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "reception"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "hotelDoors"
+        }
+      ]
+    },
+    {
+      "id": "hotelDoors",
+      "name": "Hotel Front Doors",
+      "description": "You are standing at the front doors of the hotel.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "hotelLobby"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "swimmingPool"
+        },
+        {           
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "parkingLot"
+        }
+      ]
+    },
+    {
+      "id": "parkingLot",
+      "name": "Parking Lot",
+      "description": "You are standing in a parking lot.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "hotelDoors"
+        }
+      ]
+    },
+    {
+      "id": "swimmingPool",
+      "name": "Swimming Pool",
+      "description": "You are at the hotel swimming pool.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "bbalCourt"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "snackBar"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "hotelDoors"
+        }
+      ]
+    },
+    {
+      "id": "snackBar",
+      "name": "Snack Bar",
+      "description": "You are at the counter of the snack bar by the pool.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "swimmingPool"
         }
       ]
     }

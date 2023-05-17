@@ -1,9 +1,9 @@
 {
   "rooms": [
     {
-      "id": "Hallway",
-      "name": "Hallway",
-      "description": "You are in a long hallway. There are family pictures on all of the walls.",
+      "id": "userRoom",
+      "name": "Your Room",
+      "description": "You are inside your hotel room.",
       "capacity": 150,
       "items": [
         {
@@ -14,72 +14,162 @@
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Bedroom"
+          "adjacentRoom": "userKitchen"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Bathroom",
-          "keyId": "1234"
+          "adjacentRoom": "hallwayLow"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "userBathroom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "userCloset"
         }
       ]
     },
     {
-      "id": "Bedroom",
-      "name": "Bedroom",
-      "description": "You are in a large bedroom",
+      "id": "userKitchen",
+      "name": "Your Kitchen",
+      "description": "You are inside your kitchen",
       "capacity": 150,
       "items": [
         {
-          "id": "Room Card" 
+          "id": null
         }
       ],
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Hallway"
+          "adjacentRoom": "userRoom"
+        }
+      ]
+    },
+    {
+      "id": "userBathroom",
+      "name": "Your Bathroom",
+      "description": "You are inside your bathroom",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "userRoom"
         },
         {
           "isLocked": false,
-          "direction": "Southeast",
-          "adjacentRoom": "Bathroom"
+          "direction": "South",
+          "adjacentRoom": "userSink"
+        }
+      ]
+    },
+    {
+      "id": "userCloset",
+      "name": "Your Closet",
+      "description": "You are in your closet.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "userRoom"
+        }
+      ]
+    },
+    {
+      "id": "userSink",
+      "name": "Your Sink",
+      "description": "You are looking inside your sink cupboard.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "userBathroom"
+        }
+      ]
+    },
+    {
+      "id": "hallwayLow",
+      "name": "Hallway",
+      "description": "You are in the hotel hallway on floor 8.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "hallwayMid"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "userRoom"
+        }
+      ]
+    },
+    {
+      "id": "hallwayMid",
+      "name": "Hallway",
+      "description": "You are in the hotel hallway on floor 8.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "hallwayHigh"
         },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Closet"
-        }
-      ]
-    },
-    {
-      "id": "Bathroom",
-      "name": "Bathroom",
-      "description": "You are in a blue bathroom",
-      "capacity": 150,
-      "items": [
-        {
-          "id": null
-        }
-      ],
-      "exits": [
-        {
-          "isLocked": true,
-          "direction": "West",
-          "adjacentRoom": "Hallway",
-          "keyId": "1234"
+          "adjacentRoom": "elevator"
         },
         {
           "isLocked": false,
-          "direction": "NorthWest",
-          "adjacentRoom": "Bedroom"
+          "direction": "West",
+          "adjacentRoom": "brentRoom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "hallwayLow"
         }
       ]
     },
     {
-      "id": "Closet",
-      "name": "Closet",
-      "description": "You are in the closet. It is dark.",
+      "id": "brentRoom",
+      "name": "Brent's Room",
+      "description": "You are inside Brent's hotel room.",
       "capacity": 150,
       "items": [
         {
@@ -89,8 +179,274 @@
       "exits": [
         {
           "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "brentKitchen"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "hallwayMid"
+        },
+        {
+          "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Bedroom"
+          "adjacentRoom": "brentBathroom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "brentCloset"
+        }
+      ]
+    },
+    {
+      "id": "brentKitchen",
+      "name": "Brent's Kitchen",
+      "description": "You are inside Brent's kitchen",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "brentRoom"
+        }
+      ]
+    },
+    {
+      "id": "brentBathroom",
+      "name": "Brent's Bathroom",
+      "description": "You are inside Brent's bathroom",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "brentRoom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "brentSink"
+        }
+      ]
+    },
+    {
+      "id": "brentCloset",
+      "name": "Brent's Closet",
+      "description": "You are in Brent's closet.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "brentRoom"
+        }
+      ]
+    },
+    {
+      "id": "brentSink",
+      "name": "Brent's Sink",
+      "description": "You are looking inside Brent's sink cupboard.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "brentBathroom"
+        }
+      ]
+    },
+    {
+      "id": "hallwayHigh",
+      "name": "Hallway",
+      "description": "You are in the hotel hallway on floor 8.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "garbageChute"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "glennRoom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "hallwayMid"
+        }
+      ]
+    },
+    {
+      "id": "glennRoom",
+      "name": "Glenn's Room",
+      "description": "You are inside Glenn's hotel room.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "glennKitchen"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "hallwayhigh"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "glennBathroom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "glennCloset"
+        }
+      ]
+    },
+    {
+      "id": "glennKitchen",
+      "name": "Glenn's Kitchen",
+      "description": "You are inside Glenn's kitchen",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "glennRoom"
+        }
+      ]
+    },
+    {
+      "id": "glennBathroom",
+      "name": "Glenn's Bathroom",
+      "description": "You are inside Glenn's bathroom",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "glennRoom"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "glennSink"
+        }
+      ]
+    },
+    {
+      "id": "glennCloset",
+      "name": "Glenn's Closet",
+      "description": "You are in Glenn's closet.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "glennRoom"
+        }
+      ]
+    },
+    {
+      "id": "glennSink",
+      "name": "Glenn's Sink",
+      "description": "You are looking inside Glenn's sink cupboard.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "glennBathroom"
+        }
+      ]
+    },
+    {
+      "id": "garbageChute",
+      "name": "Garbage Chute",
+      "description": "You are looking inside the garbage chute on floor 8 of the hotel.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "hallwayHigh"
+        }
+      ]
+    },
+    {
+      "id": "elevator",
+      "name": "Elevator",
+      "description": "You are inside the hotel elevator.",
+      "capacity": 150,
+      "items": [
+        {
+          "id": null
+        }
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "hotelLobby"
         }
       ]
     }

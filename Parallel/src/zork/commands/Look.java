@@ -13,7 +13,7 @@ public class Look extends Command {
 
     @Override
     public void runCommand(String... args) {
-        ArrayList<Item> items = Game.currentRoom.getRoomItems().getInventory();
+        ArrayList<Item> items = Game.player.getCurrentRoom().getRoomItems().getContents();
 
         if(items.size() == 0) {
             System.out.println("The room is empty.");

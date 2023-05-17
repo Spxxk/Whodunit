@@ -3,6 +3,7 @@ package zork;
 import zork.proto.Exit;
 import zork.proto.Inventory;
 import zork.proto.Item;
+import zork.proto.Player;
 import zork.proto.Room;
 import zork.threads.CommandListener;
 import zork.utils.CommandLoader;
@@ -20,8 +21,8 @@ public class Game {
 
 	public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 	public static HashMap<String, Item> itemList = new HashMap<String, Item>();
-	public static Inventory playerInventory = new Inventory(100);
-	public static Room currentRoom;
+
+    public static Player player;
 
     private static Game game = new Game();
 
@@ -35,7 +36,8 @@ public class Game {
             CommandLoader.init();
 			initItems();
 			initRooms();
-			currentRoom = roomMap.get("Bedroom");
+
+            player = new Player(100);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -124,6 +126,6 @@ public class Game {
 		System.out.println("Zork is a new, incredibly boring adventure game.");
 		System.out.println("Type 'help' if you need help.");
 		System.out.println();
-		System.out.println(currentRoom.longDescription());
+		System.out.println(Game.player.getCurrentRoom().longDescription());
 	}
 }

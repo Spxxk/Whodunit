@@ -19,7 +19,6 @@ public class CommandContext {
 
 
     public void runCommand(String... specialArgs) {
-
         if (!command.checkArgs(args)) {
             throw new IllegalArgumentException(String.format("Invalid amount of arguments (expected %d, got %d)", command.argumentLimit.argCount(), args.length));
         }

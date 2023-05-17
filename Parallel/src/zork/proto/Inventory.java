@@ -2,6 +2,8 @@ package zork.proto;
 
 import java.util.ArrayList;
 
+import zork.exceptions.InventoryLimitExceeded;
+
 public class Inventory {
     private ArrayList<Item> items;
     private int maxWeight;
@@ -25,12 +27,12 @@ public class Inventory {
         this.currentWeight += weight;
     }
     
-    public boolean addItem(Item item) {
+    public void addItem(Item item) throws InventoryLimitExceeded {
         if (item.getWeight() + currentWeight <= maxWeight)
-        	return items.add(item);
+        	items.add(item);
         else {
-            System.out.println("There is no room to add the item.");
-            return false;
+            System.out.printf("There is no room to add the item %s.", item.getName());
+            throw new InventoryLimitExceeded("jit trippin");
         }
     }
 

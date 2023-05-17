@@ -6,9 +6,7 @@
       "description": "You are inside your hotel room.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+        { "id": "JCH SHAMPOO" }, { "id": "Gun" }
       ],
       "exits": [
         {

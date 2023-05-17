@@ -8,7 +8,7 @@ public class Player {
     
     public Player(int inventoryLimit) {
         playerInventory = new Inventory(inventoryLimit);
-        currentRoom = Game.roomMap.get("Bedroom");
+        currentRoom = Game.roomMap.get("userRoom");
     }
 
     public Player(String room, int inventoryLimit) {

@@ -1,14 +1,17 @@
 package zork.exceptions;
 
-public class InventoryLimitExceeded extends Exception {
-    String error;
+import zork.Game;
+import zork.proto.Item;
 
-    public InventoryLimitExceeded(String e) {
-        error = e;
+public class InventoryLimitExceeded extends Exception {
+    Item item;
+
+    public InventoryLimitExceeded(Item i) {
+        item = i;
     }
 
     @Override
     public void printStackTrace() {
-        System.out.println("Item does not exist.");
+        System.out.printf("You cannot add item [%s] with weight [%.2f] when your inventory is at [%s]!\n", item.getName(), item.getWeight(), Game.player.getInventory().getCurrentWeight() + "/" + Game.player.getInventory().getMaxWeight());
     }
 }

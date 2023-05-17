@@ -6,6 +6,7 @@ import zork.proto.Command;
 import zork.proto.Inventory;
 import zork.proto.Item;
 import zork.exceptions.InventoryLimitExceeded;
+import zork.exceptions.ItemNotFoundException;
 
 public class Take extends Command {
 
@@ -13,17 +14,15 @@ public class Take extends Command {
 
     public void runCommand(String... args) {
         for (Item item : Game.player.getCurrentRoom().getRoomItems().getContents()) {
-            if(Item.arrayToString(args).equalsIgnoreCase(item.getName())) {
+            if (Item.arrayToString(args).equalsIgnoreCase(item.getName())) {
                 Inventory inv_receive = Game.player.getInventory();
                 Inventory inv_take = Game.player.getCurrentRoom().getRoomItems();
-
-                int weight = inv_receive.getCurrentWeight();
-                inv_receive.setCurrentWeight(weight);
-
-                try{
+                
+                try {
                     inv_take.removeItem(item);
                     inv_receive.addItem(item);
-                } catch(InventoryLimitExceeded e) {
+                } catch (InventoryLimitExceeded e) {
+                    e.printStackTrace();
                     return;
                 }
 
@@ -31,7 +30,11 @@ public class Take extends Command {
                 return;
             }
         }
-        System.out.println("No item was taken.");
-    }
 
+        try {
+            throw new ItemNotFoundException(Item.arrayToString(args));
+        } catch (ItemNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

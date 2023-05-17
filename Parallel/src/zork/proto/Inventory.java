@@ -42,7 +42,7 @@ public class Inventory {
 		return items.get(index);
 	}
     
-    public ArrayList<Item> getInventory() {
+    public ArrayList<Item> getContents() {
         return items;
     }
 

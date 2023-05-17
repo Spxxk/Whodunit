@@ -7,8 +7,7 @@ public class CommandNotFoundException extends Exception {
         context = e;
     }
 
-    @Override
-    public void printStackTrace() {
-        System.out.printf("Invalid Command '%s'.\n", context);
+    public void printStackTrace(String threadName) {
+        System.out.printf("[%s] Invalid Command '%s'.\n", threadName, context);
     }
 }

@@ -17,6 +17,12 @@
             "name": "Gun",
             "weight": 2,
             "isOpenable": false
+        },
+        {
+            "id": "JCH SHAMPOO",
+            "name": "JCH SHAMPOO",
+            "weight": 102,
+            "isOpenable": true
         }
     ]
 }

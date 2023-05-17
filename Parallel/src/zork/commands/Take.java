@@ -5,6 +5,7 @@ import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Inventory;
 import zork.proto.Item;
+import zork.exceptions.InventoryLimitExceeded;
 
 public class Take extends Command {
 
@@ -19,8 +20,12 @@ public class Take extends Command {
                 int weight = inv_receive.getCurrentWeight();
                 inv_receive.setCurrentWeight(weight);
 
-                inv_take.removeItem(item);
-                inv_receive.addItem(item);
+                try{
+                    inv_take.removeItem(item);
+                    inv_receive.addItem(item);
+                } catch(InventoryLimitExceeded e) {
+                    return;
+                }
 
                 System.out.println("You picked up a " + item.getName() + " from the ground.");
                 return;

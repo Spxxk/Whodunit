@@ -20,6 +20,10 @@ public class Player {
         return currentRoom;
     }
 
+    public void setCurrentRoom(String s) {
+        currentRoom = Game.roomMap.get(s);
+    }
+
     public Inventory getInventory() {
         return playerInventory;
     }

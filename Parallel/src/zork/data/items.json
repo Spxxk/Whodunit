@@ -25,53 +25,59 @@
             "isOpenable": true
         },
         {
-            "id": "Brent's Room Key",
+            "id": "1",
             "name": "Brent's Room Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "Brent's Bathroom Key",
+            "id": "2",
             "name": "Brent's Bathroom Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "Glenn's Room Key",
+            "id": "3",
             "name": "Glenn's Room Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "Glenn's Bathroom Key",
+            "id": "4",
             "name": "Glenn's Bathroom Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "hotel staff ID",
+            "id": "5",
             "name": "hotel staff ID",
             "weight": 0.25,
             "isOpenable": false
         },
         {
-            "id": "wallet",
+            "id": "6",
             "name": "wallet",
             "weight": 1,
             "isOpenable": true
         },
         {
-            "id": "tennis court key",
+            "id": "7",
             "name": "tennis court key",
             "weight": 0.25,
             "isOpenable": false
         },
         {
-            "id": "Glenn's Room Key",
+            "id": "8",
             "name": "Glenn's Room Key",
             "weight": 0.5,
-            "isOpenable": true
+            "isOpenable": false
         },
+        {
+            "id": "9",
+            "name": "poker room invitation",
+            "weight": 0,
+            "isOpenable": false
+        }
     ]
 }
 

@@ -271,8 +271,31 @@
             "name": "playing cards",
             "weight": 0.05,
             "isOpenable": false
+        },
+        {
+            "id": "baseball bat",
+            "name": "baseball bat",
+            "weight": 2,
+            "isOpenable": false
+        },
+        {
+            "id": "knife",
+            "name": "knife",
+            "weight": 0.15,
+            "isOpenable": false
+        },
+        {
+            "id": "2 bullets (closet)",
+            "name": "2 bullets (closet)",
+            "weight": 0.2,
+            "isOpenable": false
+        },
+        {
+            "id": "2 bullets (stands)",
+            "name": "2 bullets (stands)",
+            "weight": 0.2,
+            "isOpenable": false
         }
-    
     ]
 }
 

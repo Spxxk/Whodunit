@@ -31,8 +31,7 @@ public class Inventory {
         if (item.getWeight() + currentWeight <= maxWeight)
         	items.add(item);
         else {
-            System.out.printf("There is no room to add the item %s.", item.getName());
-            throw new InventoryLimitExceeded("jit trippin");
+            throw new InventoryLimitExceeded(item);
         }
     }
 

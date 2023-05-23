@@ -25,57 +25,69 @@
             "isOpenable": true
         },
         {
-            "id": "1",
+            "id": "Brent's Room Key",
             "name": "Brent's Room Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "2",
+            "id": "Brent's Bathroom Key",
             "name": "Brent's Bathroom Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "3",
+            "id": "Glenn's Room Key",
             "name": "Glenn's Room Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "4",
+            "id": "Glenn's Bathroom Key",
             "name": "Glenn's Bathroom Key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "5",
+            "id": "hotel staff ID",
             "name": "hotel staff ID",
             "weight": 0.25,
             "isOpenable": false
         },
         {
-            "id": "6",
-            "name": "wallet",
+            "id": "wallet",
+            "name": "wallet with $250",
             "weight": 1,
             "isOpenable": true
         },
         {
-            "id": "7",
+            "id": "tennis court key",
             "name": "tennis court key",
             "weight": 0.25,
             "isOpenable": false
         },
         {
-            "id": "8",
-            "name": "Glenn's Room Key",
+            "id": "vault key",
+            "name": "vault key",
             "weight": 0.5,
             "isOpenable": false
         },
         {
-            "id": "9",
+            "id": "poker room invitation",
             "name": "poker room invitation",
             "weight": 0,
+            "isOpenable": false
+        },
+        {
+            "id": "Glenn's sink key",
+            "name": "Glenn's sink key",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "Glenn's closet key",
+            "name": "Glenn's closet key",
+            "weight": 0.5,
             "isOpenable": false
         }
     ]

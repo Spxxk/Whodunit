@@ -1,6 +1,7 @@
 package zork.proto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import zork.Game;
 
@@ -10,6 +11,7 @@ public class Room {
     private String description;
     private Inventory items;
     private ArrayList<Exit> exits;
+    private HashMap<Integer, Boolean> roomFlags;
     
     public ArrayList<Exit> getExits() {
         return exits;
@@ -26,7 +28,11 @@ public class Room {
     public void setRoomItems(Inventory items) {
         this.items = items;
     }
-    
+
+    public HashMap<Integer, Boolean> getRoomFlags() {
+        return roomFlags;
+    }
+
     /**
     * Create a room described "description". Initially, it has no exits.
     * "description" is something like "a kitchen" or "an open court yard".

@@ -1,7 +1,8 @@
 package zork.threads;
 
 import zork.exceptions.CommandNotFoundException;
-
+import zork.proto.Command;
+import zork.utils.CommandContext;
 import zork.utils.Parser;
 
 public class CommandListener extends Thread {
@@ -13,7 +14,13 @@ public class CommandListener extends Thread {
     public void run() {
         while (true) {
             try {
-                Parser.getCommand().runCommand();
+                System.out.println("--------------");
+                
+                CommandContext res = Parser.getCommand();
+
+                System.out.println("--------------");
+
+                res.runCommand();
             } catch (CommandNotFoundException e) {
                 e.printStackTrace(getName());
             }

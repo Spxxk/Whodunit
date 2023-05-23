@@ -1,4 +1,5 @@
 package zork.minimap;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -7,12 +8,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Map {
+public class Map extends Application {
 
     private static final double MAP_WIDTH = 2000;
     private static final double MAP_HEIGHT = 2000;
     private static final double MINIMAP_SCALE = 0.1;
 
+    @Override
     public void start(Stage primaryStage) {
         Canvas map = new Canvas(MAP_WIDTH, MAP_HEIGHT);
         Canvas miniMap = new Canvas(MAP_WIDTH * MINIMAP_SCALE, MAP_HEIGHT * MINIMAP_SCALE);
@@ -58,6 +60,6 @@ public class Map {
     }
 
     public static void main(String[] args) {
-        Application.launch(args);
+        launch(args);
     }
 }

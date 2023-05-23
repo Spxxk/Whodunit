@@ -23,7 +23,55 @@
             "name": "JCH SHAMPOO",
             "weight": 102,
             "isOpenable": true
-        }
+        },
+        {
+            "id": "Brent's Room Key",
+            "name": "Brent's Room Key",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "Brent's Bathroom Key",
+            "name": "Brent's Bathroom Key",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "Glenn's Room Key",
+            "name": "Glenn's Room Key",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "Glenn's Bathroom Key",
+            "name": "Glenn's Bathroom Key",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "hotel staff ID",
+            "name": "hotel staff ID",
+            "weight": 0.25,
+            "isOpenable": false
+        },
+        {
+            "id": "wallet",
+            "name": "wallet",
+            "weight": 1,
+            "isOpenable": true
+        },
+        {
+            "id": "tennis court key",
+            "name": "tennis court key",
+            "weight": 0.25,
+            "isOpenable": false
+        },
+        {
+            "id": "Glenn's Room Key",
+            "name": "Glenn's Room Key",
+            "weight": 0.5,
+            "isOpenable": true
+        },
     ]
 }
 

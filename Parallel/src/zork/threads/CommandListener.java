@@ -1,7 +1,6 @@
 package zork.threads;
 
 import zork.exceptions.CommandNotFoundException;
-import zork.proto.Command;
 import zork.utils.CommandContext;
 import zork.utils.Parser;
 

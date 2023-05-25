@@ -5,7 +5,7 @@ import zork.proto.Command;
 
 public class Use extends Command {
 
-    public Use(String cmdName, ArgumentCount limit) { super("Use" , ArgumentCount.INFINITE); }
+    public Use() { super("Use" , ArgumentCount.INFINITE); }
 
     @Override
     public void runCommand(String... args) {

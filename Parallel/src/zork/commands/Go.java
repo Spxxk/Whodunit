@@ -27,6 +27,7 @@ public class Go extends Command {
                 player.setCurrentRoom(e.getAdjacentRoom());
                 System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
                 System.out.println(player.getCurrentRoom().longDescription());
+                return;
             }
         }
 

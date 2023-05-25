@@ -28,7 +28,7 @@ public class Game {
 
     private static final Thread cmdListener = new CommandListener();
 
-	private static final HashMap<Integer, Boolean> STORY_FLAGS = new HashMap<Integer, Boolean>();
+	private static final HashMap<String, Boolean> STORY_FLAGS = new HashMap<String, Boolean>();
 
 	/**
 	 * Create the game and initialise its internal map.

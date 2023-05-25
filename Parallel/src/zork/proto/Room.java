@@ -11,7 +11,7 @@ public class Room {
     private String description;
     private Inventory items;
     private ArrayList<Exit> exits;
-    private HashMap<Integer, Boolean> roomFlags;
+    private HashMap<String, Boolean> roomFlags;
     
     public ArrayList<Exit> getExits() {
         return exits;
@@ -29,7 +29,7 @@ public class Room {
         this.items = items;
     }
 
-    public HashMap<Integer, Boolean> getRoomFlags() {
+    public HashMap<String, Boolean> getRoomFlags() {
         return roomFlags;
     }
 

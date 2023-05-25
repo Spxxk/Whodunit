@@ -1,65 +1,77 @@
 package zork.minimap;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
-public class Map extends Application {
-
-    private static final double MAP_WIDTH = 2000;
-    private static final double MAP_HEIGHT = 2000;
+public class Map extends JFrame {
+    
+    private static final int MAP_WIDTH = 2000;
+    private static final int MAP_HEIGHT = 2000;
     private static final double MINIMAP_SCALE = 0.1;
 
-    @Override
-    public void start(Stage primaryStage) {
-        Canvas map = new Canvas(MAP_WIDTH, MAP_HEIGHT);
-        Canvas miniMap = new Canvas(MAP_WIDTH * MINIMAP_SCALE, MAP_HEIGHT * MINIMAP_SCALE);
+    public Map() {
+        BufferedImage map = new BufferedImage(MAP_WIDTH, MAP_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage miniMap = new BufferedImage((int) (MAP_WIDTH * MINIMAP_SCALE), (int) (MAP_HEIGHT * MINIMAP_SCALE), BufferedImage.TYPE_INT_ARGB);
 
-        drawMap(map.getGraphicsContext2D());
+        drawMap(map);
 
-        miniMap.getGraphicsContext2D().drawImage(map.snapshot(null, null), 0, 0,
-                MAP_WIDTH * MINIMAP_SCALE, MAP_HEIGHT * MINIMAP_SCALE);
+        Graphics g = miniMap.getGraphics();
+        g.drawImage(map, 0, 0, miniMap.getWidth(), miniMap.getHeight(), null);
 
-        Pane root = new Pane();
-        root.getChildren().addAll(map, miniMap);
+        JPanel panel = new JPanel() {
+            @Override
+            public void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(map, (int) (-mouseX / MINIMAP_SCALE + getWidth() / 2), (int) (-mouseY / MINIMAP_SCALE + getHeight() / 2), null);
+                g.drawImage(miniMap, 700, 10, null);
+            }
+        };
 
-        miniMap.setLayoutX(700);
-        miniMap.setLayoutY(10);
-
-        Scene scene = new Scene(root, 800, 800);
-
-        scene.setOnMouseClicked(event -> {
-            if (event.getTarget() == miniMap) {
-                map.setLayoutX(-event.getX() / MINIMAP_SCALE + scene.getWidth() / 2);
-                map.setLayoutY(-event.getY() / MINIMAP_SCALE + scene.getHeight() / 2);
+        panel.setPreferredSize(new Dimension(800, 800));
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+                panel.repaint();
             }
         });
 
-        scene.setOnMouseDragged(event -> {
-            if (event.getTarget() == map) {
-                map.setLayoutX(map.getLayoutX() + event.getX());
-                map.setLayoutY(map.getLayoutY() + event.getY());
+        panel.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                mouseX += e.getX();
+                mouseY += e.getY();
+                panel.repaint();
             }
         });
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        JScrollPane scrollPane = new JScrollPane(panel);
+        add(scrollPane, BorderLayout.CENTER);
+        pack();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
-    private void drawMap(GraphicsContext gc) {
-        gc.setFill(Color.GREEN);
+    private double mouseX;
+    private double mouseY;
+
+    private void drawMap(BufferedImage image) {
+        Graphics2D g = image.createGraphics();
+        g.setColor(Color.GREEN);
         for (int i = 0; i < MAP_WIDTH; i += 100) {
             for (int j = 0; j < MAP_HEIGHT; j += 100) {
-                gc.fillRect(i, j, 50, 50);
+                g.fillRect(i, j, 50, 50);
             }
         }
+        g.dispose();
     }
 
     public static void main(String[] args) {
-        launch(args);
+        SwingUtilities.invokeLater(Map::new);
     }
 }

@@ -34,7 +34,7 @@ public class Map extends JFrame {
                 super.paintComponent(g);
                 g.drawImage(map, (int) (-mouseX / MINIMAP_SCALE + getWidth() / 2), (int) (-mouseY / MINIMAP_SCALE + getHeight() / 2), this);
                 g.drawImage(miniMap, 700, 10, this);
-                g.setColor(Color.RED);
+                g.setColor(Color.BLACK);
                 g.drawString("Currently here", 700 + (int) (player.getX() * MINIMAP_SCALE), 10 + (int) (player.getY() * MINIMAP_SCALE));
                 g.drawRect(700 + (int) (player.getX() * MINIMAP_SCALE), 10 + (int) (player.getY() * MINIMAP_SCALE), PLAYER_SIZE, PLAYER_SIZE);
             }
@@ -74,13 +74,13 @@ public class Map extends JFrame {
     }
 
     private void drawMap(Graphics2D g) {
-        g.setColor(Color.GREEN);
+        g.setColor(Color.YELLOW);
         for (int i = 0; i < MAP_WIDTH; i += 100) {
             for (int j = 0; j < MAP_HEIGHT; j += 100) {
                 g.fillRect(i, j, 50, 50);
             }
         }
-        g.setColor(Color.RED);
+        g.setColor(Color.BLACK);
         g.fillRect(player.getX(), player.getY(), PLAYER_SIZE, PLAYER_SIZE);
         g.dispose();
     }

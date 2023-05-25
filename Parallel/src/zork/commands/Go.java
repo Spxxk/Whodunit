@@ -19,10 +19,14 @@ public class Go extends Command {
 
         for (Exit e : room.getExits()) {
             if (e.getDirection().equalsIgnoreCase(direction)) {
+                if(e.isLocked()) {
+                    System.out.printf("The room [%s] is currently locked. Maybe come back with a key...\n", e.getAdjacentRoom());
+                    return;
+                }
+
                 player.setCurrentRoom(e.getAdjacentRoom());
                 System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
                 System.out.println(player.getCurrentRoom().longDescription());
-                return;
             }
         }
 

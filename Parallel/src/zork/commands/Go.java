@@ -5,6 +5,7 @@ import zork.Constants.ArgumentCount;
 import zork.exceptions.InvalidRoomException;
 import zork.proto.Command;
 import zork.proto.Exit;
+import zork.proto.Player;
 import zork.proto.Room;
 
 public class Go extends Command {
@@ -12,14 +13,15 @@ public class Go extends Command {
     public Go() { super("Go", ArgumentCount.ONE); }
 
     public void runCommand(String... args) {
-        Room room = Game.player.getCurrentRoom();
+        Player player = Game.player;
+        Room room = player.getCurrentRoom();
         String direction = args[0];
 
         for (Exit e : room.getExits()) {
             if (e.getDirection().equalsIgnoreCase(direction)) {
-                Game.player.setCurrentRoom(e.getAdjacentRoom());
-                System.out.printf("You just travelled to [%s]!\n", e.getAdjacentRoom());
-                System.out.println(Game.player.getCurrentRoom().longDescription());
+                player.setCurrentRoom(e.getAdjacentRoom());
+                System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
+                System.out.println(player.getCurrentRoom().longDescription());
                 return;
             }
         }

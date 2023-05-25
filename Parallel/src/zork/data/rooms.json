@@ -321,7 +321,7 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "hallwayhigh"
+          "adjacentRoom": "hallwayHigh"
         },
         {
           "isLocked": false,

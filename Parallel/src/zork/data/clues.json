@@ -1,0 +1,39 @@
+{
+    "clues": [
+        {
+            "id": "clue1",
+            "name": "Dead Body",
+            "text": "To your surprise, Glenn is dead in his hotel room. Who could have done this? You decide to investigate."
+        },
+        {
+            "id": "clue2",
+            "name": "Bullets",
+            "text": "After doing some searching in Brent's closet, you discover 2 bullets. A bit odd..."
+        },
+        {
+            "id": "clue3",
+            "name": "Baseball Bat",
+            "text": "You get into the bathroom and find a baseball bat leaning against the wall. Maybe he just likes the game."
+        },
+        {
+            "id": "clue4",
+            "name": "Wallet",
+            "text": "There is a wallet sitting on the counter of the snack bar. How forgetful, why not just take it?"
+        },
+        {
+            "id": "clue5",
+            "name": "Gun",
+            "text": "You find a gun on the hotel roof. Why do the hotel staff have this? Taking it would be a good idea, to prevent any trouble."
+        },
+        {
+            "id": "clue6",
+            "name": "Invitation",
+            "text": "A mysterious man has handed you a poker invitation. Sounds like fun, lots of money to be made!"
+        },
+        {
+            "id": "clue7",
+            "name": "Vault",
+            "text": "You somehow made it inside a vault, but it is empty. Something bad is definitely happening."
+        }
+    ]
+}

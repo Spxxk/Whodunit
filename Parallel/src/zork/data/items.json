@@ -1,12 +1,6 @@
 {
     "items": [
         {
-            "id": "Room Card",
-            "name": "Room Card",
-            "weight": 0.1,
-            "isOpenable": false
-        }  ,
-        {
             "id": "Rope",
             "name": "Rope",
             "weight": 0.5,
@@ -88,6 +82,218 @@
             "id": "Glenn's closet key",
             "name": "Glenn's closet key",
             "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "plunger",
+            "name": "plunger",
+            "weight": 2,
+            "isOpenable": false
+        },
+        {
+            "id": "shower mat",
+            "name": "shower mat",
+            "weight": 1,
+            "isOpenable": false
+        },
+        {
+            "id": "tennis shoes",
+            "name": "tennis shoes",
+            "weight": 2,
+            "isOpenable": false
+        },
+        {
+            "id": "hand soap",
+            "name": "hand soap",
+            "weight": 0.1,
+            "isOpenable": false
+        },
+        {
+            "id": "toilet paper",
+            "name": "toiler paper",
+            "weight": 0.15,
+            "isOpenable": false
+        },
+        {
+            "id": "towel",
+            "name": "towel",
+            "weight": 0.25,
+            "isOpenable": false
+        },
+        {
+            "id": "hair dryer",
+            "name": "hair dryer",
+            "weight": 1.25,
+            "isOpenable": false
+        },
+        {
+            "id": "sweater",
+            "name": "sweater",
+            "weight": 0.3,
+            "isOpenable": false
+        },
+        {
+            "id": "pillow",
+            "name": "pillow",
+            "weight": 0.01,
+            "isOpenable": false
+        }
+        ,
+        {
+            "id": "painting",
+            "name": "painting",
+            "weight": 0.75,
+            "isOpenable": false
+        }
+        ,
+        {
+            "id": "welcome letter",
+            "name": "welcome letter",
+            "weight": 0.01,
+            "isOpenable": true
+        },
+        {
+            "id": "plate",
+            "name": "plate",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "hanger",
+            "name": "hanger",
+            "weight": 0.35,
+            "isOpenable": false
+        },
+        {
+            "id": "flower pot",
+            "name": "flower pot",
+            "weight": 0.8,
+            "isOpenable": false
+        },
+        {
+            "id": "newspaper",
+            "name": "newspaper",
+            "weight": 0.15,
+            "isOpenable": true
+        },
+        {
+            "id": "t shirt",
+            "name": "t-shirt",
+            "weight": 0.05,
+            "isOpenable": false
+        },
+        {
+            "id": "fork",
+            "name": "fork",
+            "weight": 0.075,
+            "isOpenable": false
+        },
+        {
+            "id": "ground beef",
+            "name": "ground beef",
+            "weight": 0.4,
+            "isOpenable": false
+        },
+        {
+            "id": "banana peel",
+            "name": "banana peel",
+            "weight": 0.03,
+            "isOpenable": false
+        },
+        {
+            "id": "plank of wood",
+            "name": "plnak of wood",
+            "weight": 0.2,
+            "isOpenable": false
+        },
+        {
+            "id": "bottle of water",
+            "name": "bottle of water",
+            "weight": 0.05,
+            "isOpenable": true
+        },
+        {
+            "id": "door mat",
+            "name": "door mat",
+            "weight": 0.075,
+            "isOpenable": false
+        },
+        {
+            "id": "sandals",
+            "name": "sandals",
+            "weight": 0.08,
+            "isOpenable": false
+        },
+        {
+            "id": "water gun",
+            "name": "water gun",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "tennis ball",
+            "name": "tennis ball",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "burger",
+            "name": "burger",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "hot dog",
+            "name": "hot dog",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "bag of quaters",
+            "name": "bag of quaters",
+            "weight": 0.5,
+            "isOpenable": false
+        },
+        {
+            "id": "cheating device",
+            "name": "cheating device",
+            "weight": 1,
+            "isOpenable": false
+        },
+        {
+            "id": "poker chips",
+            "name": "poker chips",
+            "weight": 0.09,
+            "isOpenable": false
+        },
+        {
+            "id": "playing cards",
+            "name": "playing cards",
+            "weight": 0.05,
+            "isOpenable": false
+        },
+        {
+            "id": "baseball bat",
+            "name": "baseball bat",
+            "weight": 2,
+            "isOpenable": false
+        },
+        {
+            "id": "knife",
+            "name": "knife",
+            "weight": 0.15,
+            "isOpenable": false
+        },
+        {
+            "id": "2 bullets (closet)",
+            "name": "2 bullets (closet)",
+            "weight": 0.2,
+            "isOpenable": false
+        },
+        {
+            "id": "2 bullets (stands)",
+            "name": "2 bullets (stands)",
+            "weight": 0.2,
             "isOpenable": false
         }
     ]

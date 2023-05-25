@@ -62,7 +62,8 @@ public class Game {
 			String itemId = (String) ((JSONObject) itemObj).get("id");
 			Double itemWeight = Double.parseDouble(((JSONObject) itemObj).get("weight") + "");
 			Boolean isOpenable = (Boolean) ((JSONObject) itemObj).get("isOpenable");
-			Item item = new Item(itemName, itemWeight, isOpenable);
+			Boolean needsContext = (Boolean) ((JSONObject) itemObj).get("needsContext");
+			Item item = new Item(itemName, itemWeight, isOpenable, needsContext);
 
 			itemList.put(itemId, item);
 		}

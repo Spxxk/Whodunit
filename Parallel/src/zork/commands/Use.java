@@ -2,6 +2,7 @@ package zork.commands;
 
 import zork.Constants.ArgumentCount;
 import zork.proto.Command;
+import zork.proto.Item;
 
 public class Use extends Command {
 
@@ -10,7 +11,13 @@ public class Use extends Command {
     @Override
     public void runCommand(String... args) {
         // TODO Auto-generated method stub
+        String OmchySlomchyMommchy = Item.arrayToString(args);
+        if(OmchySlomchyMommchy.equalsIgnoreCase("gun")){
+            System.out.println("Command gun executed successfully!");
+        }
+        else
+        {
         throw new UnsupportedOperationException("Unimplemented method 'runCommand'");
+        }
     }
-
 }

@@ -1,13 +1,15 @@
 package zork.proto;
 
 public class Item extends OpenableObject {
+    public static boolean array;
     private double weight;
     private String name;
     private boolean isOpenable;
+    private boolean needsContext;
 
     private final double HASH; 
     
-    public Item(String name, double weight, boolean isOpenable) {
+    public Item(String name, double weight, boolean isOpenable, Boolean needsContext) {
         this.weight = weight;
         this.name = name;
         this.isOpenable = isOpenable;

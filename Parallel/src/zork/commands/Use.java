@@ -11,8 +11,8 @@ public class Use extends Command {
     @Override
     public void runCommand(String... args) {
         // TODO Auto-generated method stub
-        String OmchySlomchyMommchy = Item.arrayToString(args);
-        if(OmchySlomchyMommchy.equalsIgnoreCase("gun")){
+        String argsString = Item.arrayToString(args);
+        if(argsString.equalsIgnoreCase("gun")){
             System.out.println("Command gun executed successfully!");
         }
         else

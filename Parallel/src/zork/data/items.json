@@ -1,8 +1,8 @@
 {
     "items": [
         {
-            "id": "Rope",
-            "name": "Rope",
+            "id": "rope",
+            "name": "rope",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": true 
@@ -121,7 +121,7 @@
         },
         {
             "id": "toilet paper",
-            "name": "toiler paper",
+            "name": "toilet paper",
             "weight": 0.15,
             "isOpenable": false,
             "needsContext": false
@@ -199,7 +199,7 @@
             "needsContext": false
         },
         {
-            "id": "t shirt",
+            "id": "t-shirt",
             "name": "t-shirt",
             "weight": 0.05,
             "isOpenable": false,

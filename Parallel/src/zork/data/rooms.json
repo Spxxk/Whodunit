@@ -6,7 +6,7 @@
       "description": "You are inside your hotel room.",
       "capacity": 150,
       "items": [
-        { "id": "JCH SHAMPOO" }, { "id": "Gun" }
+        { "id": "pillow" }, { "id": "painting" }, { "id": "welcome letter" }
       ],
       "exits": [
         {
@@ -37,9 +37,7 @@
       "description": "You are inside your kitchen",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "knife" }, { "id": "plate" }
       ],
       "exits": [
         {
@@ -55,9 +53,7 @@
       "description": "You are inside your bathroom",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "towel" }, { "id": "toilet paper" }
       ],
       "exits": [
         {
@@ -78,9 +74,7 @@
       "description": "You are in your closet.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "Glenn's closet key" }, { "id": "sweater" }
       ],
       "exits": [
         {
@@ -96,9 +90,7 @@
       "description": "You are looking inside your sink cupboard.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "hair dryer" }
       ],
       "exits": [
         {
@@ -203,9 +195,7 @@
       "description": "You are inside Brent's kitchen",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "Brent's Bathroom Key" }, { "id": "newspaper" }
       ],
       "exits": [
         {
@@ -222,9 +212,7 @@
       "capacity": 150,
       "keyid": "Brent's Bathroom Key",
       "items": [
-        {
-          "id": null
-        }
+          { "id": "baseball bat"}, { "id": "shower mat"}
       ],
       "exits": [
         {
@@ -246,9 +234,7 @@
       "capacity": 150,
       "keyid": "Brent's Closet key",
       "items": [
-        {
-          "id": null
-        }
+          { "id": "2 bullets (closet)"}, {"id": "hanger"}
       ],
       "exits": [
         {
@@ -264,9 +250,7 @@
       "description": "You are looking inside Brent's sink cupboard.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "hand soap"}
       ],
       "exits": [
         {
@@ -311,9 +295,7 @@
       "capacity": 150,
       "keyid": "Glenn's Room Key",
       "items": [
-        {
-          "id": null
-        }
+          { "id": "rope"}, { "id": "t-shirt"}
       ],
       "exits": [
         {
@@ -344,9 +326,7 @@
       "description": "You are inside Glenn's kitchen",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "fork"}, { "id": "ground beef"}
       ],
       "exits": [
         {
@@ -386,9 +366,7 @@
       "capacity": 150,
       "keyid": "Glenn's closet key",
       "items": [
-        {
-          "id": null
-        }
+          { "id": "tennis court key"}, { "id": "tennis shoes"}
       ],
       "exits": [
         {
@@ -405,9 +383,7 @@
       "capacity": 150,
       "keyid": "Glenn's sink key",
       "items": [
-        {
-          "id": null
-        }
+          {"id": "plunger"}
       ],
       "exits": [
         {
@@ -423,9 +399,7 @@
       "description": "You are looking inside the garbage chute on floor 8 of the hotel.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "Glenn's sink key"}, { "id": "banana peel"}
       ],
       "exits": [
         {
@@ -465,9 +439,7 @@
       "capacity": 150,
       "keyid": "hotel staff ID key",
       "items": [
-        {
-          "id": null
-        }
+          { "id": "Gun"}, { "id": "plank of wood"}
       ],
       "exits": [
         {
@@ -511,9 +483,7 @@
       "description": "You are standing at the front doors of the hotel.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "door mat"}
       ],
       "exits": [
         {
@@ -539,9 +509,7 @@
       "description": "You are standing in a parking lot.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "poker room invitation key"}
       ],
       "exits": [
         {
@@ -557,9 +525,7 @@
       "description": "You are at the hotel swimming pool.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "sandals"}, { "id": "water gun"}, { "id": "Brent's Closet key"}
       ],
       "exits": [
         {
@@ -585,9 +551,7 @@
       "description": "You are at the counter of the snack bar by the pool.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "burger"}, { "id": "hot dog"}, { "id": "wallet key"}
       ],
       "exits": [
         {
@@ -636,9 +600,7 @@
       "description": "You are standing in a patch of grass.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "vault key"}
       ],
       "exits": [
         {
@@ -654,9 +616,7 @@
       "description": "You are sitting in the stands at the basketball court.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "2 bullets (stands)"}
       ],
       "exits": [
         {
@@ -673,9 +633,7 @@
       "capacity": 150,
       "keyid": "tennis court key",
       "items": [
-        {
-          "id": null
-        }
+          { "id": "hotel staff ID key"}, { "id": "tennsi ball"}
       ],
       "exits": [
         {
@@ -691,9 +649,7 @@
       "description": "You are at the reception desk of the hotel.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "Glenn's Room Key"}, { "id": "bottle of water"}
       ],
       "exits": [
         {
@@ -738,9 +694,7 @@
       "description": "You are in an aisle of slot machines.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "bag of quarters"}, { "id": "cheating device"}
       ],
       "exits": [
         {
@@ -780,9 +734,7 @@
       "description": "You are walking around various poker tables.",
       "capacity": 150,
       "items": [
-        {
-          "id": null
-        }
+          { "id": "poker chips"}, { "id": "playing cards"}
       ],
       "exits": [
         {

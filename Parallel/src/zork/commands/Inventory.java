@@ -1,7 +1,6 @@
 package zork.commands;
 
 import java.util.ArrayList;
-
 import zork.Game;
 import zork.Constants.ArgumentCount;
 import zork.proto.Command;

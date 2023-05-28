@@ -15,7 +15,7 @@ public class Use extends Command {
         String argsString = Item.arrayToString(args);
 
         if(argsString.equalsIgnoreCase("gun")){
-            Scanner scanner = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in); //Max won't tell me how his proto works and so I implemented a scanner he kept saying ni*** to me and won't tell me how to do it
             System.out.println("What do you want to do with the gun? Type 'reload', 'shoot', or 'throw'.");
             String gunCommand = scanner.nextLine();
 
@@ -35,7 +35,7 @@ public class Use extends Command {
                 System.out.println("Invalid command for gun.");
             }
         }
-        
+
         else if(argsString.equalsIgnoreCase("key")){
             System.out.println("Command key executed successfully!");
         }

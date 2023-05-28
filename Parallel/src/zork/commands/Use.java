@@ -4,6 +4,7 @@ import java.util.Scanner;
 import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Item;
+import zork.Game;
 
 public class Use extends Command {
 
@@ -35,12 +36,21 @@ public class Use extends Command {
                 System.out.println("Invalid command for gun.");
             }
         }
+        
 
-        else if(argsString.equalsIgnoreCase("key")){
-            System.out.println("Command key executed successfully!");
-        }
-        else {
-            throw new UnsupportedOperationException("Unimplemented method 'runCommand'");
+        else if(argsString.contains("key")){ 
+            boolean found = false;
+            for(Item item: Game.player.getInventory().getContents()) {
+                if(item.getName().equalsIgnoreCase(argsString)){
+                    System.out.println("You used the " + item.getName());
+                    Game.player.getInventory().removeItem(item); // remove the item from the inventory
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                System.out.println("You don't have the " + argsString + " in your inventory");
+            }
         }
     }
 }

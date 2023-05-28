@@ -186,12 +186,12 @@
           "adjacentRoom": "hallwayMid"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "West",
           "adjacentRoom": "brentBathroom"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "South",
           "adjacentRoom": "brentCloset"
         }
@@ -220,6 +220,7 @@
       "name": "Brent's Bathroom",
       "description": "You are inside Brent's bathroom",
       "capacity": 150,
+      "keyid": "Brent's Bathroom Key",
       "items": [
         {
           "id": null
@@ -243,6 +244,7 @@
       "name": "Brent's Closet",
       "description": "You are in Brent's closet.",
       "capacity": 150,
+      "keyid": "Brent's Closet key",
       "items": [
         {
           "id": null
@@ -291,7 +293,7 @@
           "adjacentRoom": "garbageChute"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "West",
           "adjacentRoom": "glennRoom"
         },
@@ -307,6 +309,7 @@
       "name": "Glenn's Room",
       "description": "You are inside Glenn's hotel room.",
       "capacity": 150,
+      "keyid": "Glenn's Room Key",
       "items": [
         {
           "id": null
@@ -329,7 +332,7 @@
           "adjacentRoom": "glennBathroom"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "South",
           "adjacentRoom": "glennCloset"
         }
@@ -370,7 +373,7 @@
           "adjacentRoom": "glennRoom"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "South",
           "adjacentRoom": "glennSink"
         }
@@ -381,6 +384,7 @@
       "name": "Glenn's Closet",
       "description": "You are in Glenn's closet.",
       "capacity": 150,
+      "keyid": "Glenn's closet key",
       "items": [
         {
           "id": null
@@ -399,6 +403,7 @@
       "name": "Glenn's Sink",
       "description": "You are looking inside Glenn's sink cupboard.",
       "capacity": 150,
+      "keyid": "Glenn's sink key",
       "items": [
         {
           "id": null
@@ -442,7 +447,7 @@
       ],
       "exits": [
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "North",
           "adjacentRoom": "hotelRoof"
         },
@@ -458,6 +463,7 @@
       "name": "Hotel Roof",
       "description": "You are on the roof of the hotel building",
       "capacity": 150,
+      "keyid": "hotel staff ID key",
       "items": [
         {
           "id": null
@@ -608,7 +614,7 @@
           "adjacentRoom": "stands"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "East",
           "adjacentRoom": "tennisCourt"
         },
@@ -665,6 +671,7 @@
       "name": "Tennis Court",
       "description": "You are at the base line of a tennis court.",
       "capacity": 150,
+      "keyid": "tennis court key",
       "items": [
         {
           "id": null
@@ -690,7 +697,7 @@
       ],
       "exits": [
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "East",
           "adjacentRoom": "casino"
         },
@@ -706,6 +713,7 @@
       "name": "Casino",
       "description": "You are inside of a casino, with flashing lights everywhere you look.",
       "capacity": 150,
+      "keyid": "wallet key",
       "items": [
         {
           "id": null
@@ -736,7 +744,7 @@
       ],
       "exits": [
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "East",
           "adjacentRoom": "vault"
         },
@@ -752,6 +760,7 @@
       "name": "Vault",
       "description": "You are inside of a vault.",
       "capacity": 150,
+      "keyid": "vault key",
       "items": [
         {
           "id": null
@@ -782,7 +791,7 @@
           "adjacentRoom": "casino"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "east",
           "adjacentRoom": "privatePokerTable"
         }
@@ -793,6 +802,7 @@
       "name": "Private Poker Table",
       "description": "You are inside a private room, with a poker table in the middle.",
       "capacity": 150,
+      "keyid": "poker room invitation key",
       "items": [
         {
           "id": null

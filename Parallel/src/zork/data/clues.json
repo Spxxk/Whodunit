@@ -22,16 +22,21 @@
         },
         {
             "id": "clue5",
+            "name": "Staff ID",
+            "text": "There is what appears to be a hotel staff ID. This could give access to forbidden areas at the resort..."
+        },
+        {
+            "id": "clue6",
             "name": "Gun",
             "text": "You find a gun on the hotel roof. Why do the hotel staff have this? Taking it would be a good idea, to prevent any trouble."
         },
         {
-            "id": "clue6",
+            "id": "clue7",
             "name": "Invitation",
             "text": "A mysterious man has handed you a poker invitation. Sounds like fun, lots of money to be made!"
         },
         {
-            "id": "clue7",
+            "id": "clue8",
             "name": "Vault",
             "text": "You somehow made it inside a vault, but it is empty. Something bad is definitely happening."
         }

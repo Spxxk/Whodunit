@@ -169,6 +169,7 @@
       "name": "Brent's Room",
       "description": "You are inside Brent's hotel room.",
       "capacity": 150,
+      "keyid": "Brent's Room Key",
       "items": [
         {
           "id": null

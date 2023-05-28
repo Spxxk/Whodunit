@@ -22,8 +22,8 @@
             "needsContext": true 
         },
         {
-            "id": "Brent's Room Key",
-            "name": "Brent's Room Key",
+            "id": "Brent's Closet key",
+            "name": "Brent's closet key",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": false
@@ -43,21 +43,14 @@
             "needsContext": false
         },
         {
-            "id": "Glenn's Bathroom Key",
-            "name": "Glenn's Bathroom Key",
-            "weight": 0.5,
-            "isOpenable": false,
-            "needsContext": false
-        },
-        {
-            "id": "hotel staff ID",
-            "name": "hotel staff ID",
+            "id": "hotel staff ID key",
+            "name": "hotel staff ID key",
             "weight": 0.25,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "wallet",
+            "id": "wallet key",
             "name": "wallet with $250",
             "weight": 1,
             "isOpenable": true,
@@ -78,7 +71,7 @@
             "needsContext": false
         },
         {
-            "id": "poker room invitation",
+            "id": "poker room invitation key",
             "name": "poker room invitation",
             "weight": 0,
             "isOpenable": false,

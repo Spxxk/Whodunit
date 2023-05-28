@@ -8,15 +8,14 @@ import zork.Game;
 
 public class Use extends Command {
 
-    public Use(String cmdName, ArgumentCount limit) { super("Use" , ArgumentCount.INFINITE); }
+    public Use() { super("Use" , ArgumentCount.INFINITE); }
 
     @Override
     public void runCommand(String... args) {
-        // TODO Auto-generated method stub
         String argsString = Item.arrayToString(args);
 
         if(argsString.equalsIgnoreCase("gun")){
-            Scanner scanner = new Scanner(System.in); //Max won't tell me how his proto works and so I implemented a scanner he kept saying ni*** to me and won't tell me how to do it
+            Scanner scanner = new Scanner(System.in); 
             System.out.println("What do you want to do with the gun? Type 'reload', 'shoot', or 'throw'.");
             String gunCommand = scanner.nextLine();
 

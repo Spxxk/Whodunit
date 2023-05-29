@@ -4,7 +4,7 @@ import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Item;
 
-import zork.minigames.Test;
+import zork.minigames.*;
 
 public class Play extends Command {
     
@@ -12,9 +12,9 @@ public class Play extends Command {
 
     @Override
     public void runCommand(String... args) {
-        if(Item.arrayToString(args).equalsIgnoreCase("Test")) {    
-            Test.play();
-            System.out.printf("\nFinished playing Go Fish.\n\n");
+        if(Item.arrayToString(args).equalsIgnoreCase("Typing Test")) {    
+            TypingTest.play();
+            System.out.println("Finished playing Typing Test.");
         }
     }
 }

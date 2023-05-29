@@ -39,7 +39,7 @@ public class Game {
 			initItems();
 			initRooms();
 
-            player = new Player(100);
+            player = new Player("userRoom",100);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

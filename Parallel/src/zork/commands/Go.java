@@ -19,6 +19,7 @@ public class Go extends Command {
 
         for (Exit e : room.getExits()) {
             if (e.getDirection().equalsIgnoreCase(direction)) {
+
                 if(e.isLocked()) {
                     System.out.printf("The room [%s] is currently locked. Maybe come back with a key...\n", e.getAdjacentRoom());
                     return;

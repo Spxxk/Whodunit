@@ -121,7 +121,7 @@
         },
         {
             "id": "toilet paper",
-            "name": "toiler paper",
+            "name": "toilet paper",
             "weight": 0.15,
             "isOpenable": false,
             "needsContext": false

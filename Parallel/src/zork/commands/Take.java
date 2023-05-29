@@ -19,8 +19,8 @@ public class Take extends Command {
                 Inventory inv_take = Game.player.getCurrentRoom().getRoomItems();
                 
                 try {
-                    inv_take.removeItem(item);
                     inv_receive.addItem(item);
+                    inv_take.removeItem(item);
                 } catch (InventoryLimitExceeded e) {
                     e.printStackTrace();
                     return;

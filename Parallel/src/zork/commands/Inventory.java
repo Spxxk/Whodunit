@@ -6,6 +6,9 @@ import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 import zork.proto.Item;
 
+
+//test 
+
 public class Inventory extends Command {
     
     public Inventory() { super("Inventory", ArgumentCount.NONE); }

@@ -50,7 +50,7 @@ public class TypingTest {
                             input = in.nextLine(); 
 
                             for (int i = 0; i < sentence.length(); i++)
-                                if(i < input.length() && input.charAt(i) == sentence.charAt(i)) correct++;
+                                if(i < input.length() && input.charAt(i) == sentence.charAt(i)) { correct++; }
 
                             int accuracy = (int) (((double) correct / sentence.length()) * 100);
                             int wordsPerMinute = (int) (sentenceArray.length / ((double) (timer.timeElapsed() - 4) / 60));

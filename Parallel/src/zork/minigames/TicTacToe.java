@@ -91,12 +91,30 @@ public class TicTacToe {
             endGame(player); return;
         }
 
+        checkTie();
+
         System.out.println();
     }
 
 
+    private static void checkTie() {
+        int count = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if(!grid[i][j].equals("-")) { count++; }
+            }
+        }
+        if(count == 9) {
+            System.out.println("The game ended in a tie against MR MCMULLEN.");
+
+            displayGrid();
+            finished = true;
+        }
+    }
+
+
     private static void endGame(int player) {
-        String message = player == PLAYER ? "You" : "Com";
+        String message = player == PLAYER ? "You" : "MR MCMULLEN";
         System.out.printf("%n%s won the game!%n", message);
         
         if(player == COM) System.out.println("Better luck next time...");

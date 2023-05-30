@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class TypingTest {
 
-    public static final TimeController timer = new TimeController();
     public static final String[] words = {
         "that", "know", "while", "by", "she", "take", "be", "so", "all", "state", "run", "lead", "those", "same", "who",
         "point", "might", "up", "still", "who", "group", "program", "tell", "up", "before", "consider", "in", "increase", "between",
@@ -14,8 +13,9 @@ public class TypingTest {
     };
     
     public static void play() {
+        TimeController timer = new TimeController();
         Scanner in = new Scanner(System.in);
-        
+
         String sentence = "";
         String[] sentenceArray = new String[20];
 
@@ -55,9 +55,7 @@ public class TypingTest {
                             int accuracy = (int) (((double) correct / sentence.length()) * 100);
                             int wordsPerMinute = (int) (sentenceArray.length / ((double) (timer.timeElapsed() - 4) / 60));
 
-                            System.out.printf("Your accuracy was %s and your WPM was %2s.%n", accuracy + "%", wordsPerMinute);
-
-                            in.close();
+                            System.out.printf("Your accuracy was [%s] and your WPM was [%2s].%n", accuracy + "%", wordsPerMinute);
                             return;
                         }
                     }
@@ -65,8 +63,6 @@ public class TypingTest {
             } catch(IllegalAccessException e) {
                 e.printStackTrace();
             }
-
-            in.close();
         }
     }
 }

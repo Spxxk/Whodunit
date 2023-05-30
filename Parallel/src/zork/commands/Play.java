@@ -12,9 +12,14 @@ public class Play extends Command {
 
     @Override
     public void runCommand(String... args) {
-        if(Item.arrayToString(args).equalsIgnoreCase("Typing Test")) {    
+        String temp = Item.arrayToString(args);
+        if(temp.equalsIgnoreCase("Typing Test")) {    
             TypingTest.play();
             System.out.println("Finished playing Typing Test.");
+        }
+        else if(temp.equalsIgnoreCase("Tic Tac Toe")) {
+            TicTacToe.play();
+            System.out.println("Finished playing Tic Tac Toe.");
         }
     }
 }

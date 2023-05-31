@@ -1,9 +1,15 @@
 package zork.minigames;
 
+import zork.proto.Minigame;
 import zork.utils.TimeController;
 import java.util.Scanner;
 
-public class TypingTest {
+public class TypingTest extends Minigame {
+
+    public TypingTest() {
+        super("typingtest", (int) 1e9);
+        //TODO Auto-generated constructor stub
+    }
 
     public static final String[] words = {
         "that", "know", "while", "by", "she", "take", "be", "so", "all", "state", "run", "lead", "those", "same", "who",
@@ -64,5 +70,11 @@ public class TypingTest {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void startGame(String... args) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'startGame'");
     }
 }

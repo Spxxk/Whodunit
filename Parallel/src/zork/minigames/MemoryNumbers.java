@@ -2,7 +2,13 @@ package zork.minigames;
 
 import java.util.Scanner;
 
-public class MemoryNumbers {
+import zork.proto.Minigame;
+
+public class MemoryNumbers extends Minigame{
+
+    public MemoryNumbers() {
+        super("memorynumbers",(int) 1e9);
+    }
 
     public static Scanner in;
     public static String nums;
@@ -58,6 +64,12 @@ public class MemoryNumbers {
 
     public static void printLines() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+
+    @Override
+    public void startGame(String... args) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'startGame'");
     }
     
 }

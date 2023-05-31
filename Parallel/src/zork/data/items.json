@@ -22,70 +22,70 @@
             "needsContext": true 
         },
         {
-            "id": "Brent's Closet key",
+            "id": "brentClosetKey",
             "name": "Brent's closet key",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "Brent's Bathroom Key",
+            "id": "brentBathroomKey",
             "name": "Brent's Bathroom Key",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "Glenn's Room Key",
+            "id": "glennRoomKey",
             "name": "Glenn's Room Key",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "hotel staff ID key",
+            "id": "hotelRoofKey",
             "name": "hotel staff ID key",
             "weight": 0.25,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "wallet key",
+            "id": "casinoKey",
             "name": "wallet with $250",
             "weight": 1,
             "isOpenable": true,
             "needsContext": false
         },
         {
-            "id": "tennis court key",
+            "id": "tennisCourtKey",
             "name": "tennis court key",
             "weight": 0.25,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "vault key",
+            "id": "vaultKey",
             "name": "vault key",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "poker room invitation key",
+            "id": "privatePokerTableKey",
             "name": "poker room invitation",
             "weight": 0,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "Glenn's sink key",
+            "id": "glennSinkKey",
             "name": "Glenn's sink key",
             "weight": 0.5,
             "isOpenable": false,
             "needsContext": false
         },
         {
-            "id": "Glenn's closet key",
+            "id": "glennClosetKey",
             "name": "Glenn's closet key",
             "weight": 0.5,
             "isOpenable": false,

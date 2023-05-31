@@ -23,8 +23,9 @@ public class Go extends Command {
 
                 if(e.isLocked()) {
                     for(Item item : player.getInventory().getContents()) {
-                        if(item.getName().equalsIgnoreCase(e.getKeyId())) { 
+                        if(item.getId().equalsIgnoreCase(e.getAdjacentRoom()+"Key")) { 
                             player.setCurrentRoom(e.getAdjacentRoom());
+                            System.out.println("You have just unlocked "+player.getCurrentRoom().getRoomName()+"!");
                             System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
                             System.out.println(player.getCurrentRoom().longDescription());
                             return;

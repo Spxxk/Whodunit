@@ -65,6 +65,7 @@ public class Game {
 			Boolean needsContext = (Boolean) ((JSONObject) itemObj).get("needsContext");
 			Item item = new Item(itemName, itemWeight, isOpenable, needsContext);
 
+			item.setId(itemId);
 			itemList.put(itemId, item);
 		}
 	}

@@ -7,6 +7,7 @@ import zork.proto.Player;
 import zork.proto.Room;
 import zork.threads.CommandListener;
 import zork.utils.CommandLoader;
+import zork.utils.MinigameLoader;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,6 +37,7 @@ public class Game {
 	public Game() {
 		try {
             CommandLoader.init();
+            MinigameLoader.init();
 			initItems();
 			initRooms();
 

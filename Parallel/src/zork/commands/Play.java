@@ -1,10 +1,11 @@
 package zork.commands;
 
 import zork.Constants.ArgumentCount;
+import zork.exceptions.MinigameNotFoundException;
 import zork.proto.Command;
 import zork.proto.Item;
-
-import zork.minigames.*;
+import zork.threads.GameThread;
+import zork.utils.MinigameLoader;
 
 public class Play extends Command {
     
@@ -12,14 +13,18 @@ public class Play extends Command {
 
     @Override
     public void runCommand(String... args) {
-        String temp = Item.arrayToString(args);
-        if(temp.equalsIgnoreCase("Typing Test")) {    
-            TypingTest.play();
-            System.out.println("Finished playing Typing Test.");
-        }
-        else if(temp.equalsIgnoreCase("Tic Tac Toe")) {
-            TicTacToe.play();
-            System.out.println("Finished playing Tic Tac Toe.");
+
+        String minigame = Item.arrayToString(args);
+
+        try {
+            GameThread gt = new GameThread(MinigameLoader.getMinigame(minigame));
+
+            gt.start();
+            gt.join();
+        } catch (MinigameNotFoundException e) {
+            e.printStackTrace("cmdHandler");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }

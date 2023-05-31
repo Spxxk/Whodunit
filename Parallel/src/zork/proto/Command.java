@@ -4,7 +4,6 @@ import zork.Constants.ArgumentCount;
 
 public abstract class Command {
     private final String name;
-
     public final ArgumentCount argumentLimit;
 
     public Command(String cmdName, ArgumentCount limit) {

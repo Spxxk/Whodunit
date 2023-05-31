@@ -2,34 +2,37 @@ package zork.minigames;
 
 import java.util.Scanner;
 
-public class TicTacToe {
-    public static String[][] grid;
-    public static Scanner in;
+import zork.proto.Minigame;
 
-    public static final int PLAYER = 0, COM = 1;
-    public static boolean finished = false;
+public class TicTacToe extends Minigame {
+    private String[][] grid;
+    private Scanner in;
 
-    public static void play() {
+    private static final int PLAYER = 0, COM = 1;
+    private boolean finished = false;
+
+    public TicTacToe() { super("Tic Tac Toe", (int) 1e9); }
+
+    public void startGame(String... args) {
         in = new Scanner(System.in);
 
         initializeGrid();
 
         System.out.println("Welcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
         
-        while(!finished) { playerTurn(); comTurn(); }
+        while (!finished) { playerTurn(); comTurn(); }
 
         finished = false;
     }
-
     
-    private static void comTurn() {
+    private void comTurn() {
         displayGrid();
 
         addToGrid(COM, comAsker());
     }
 
 
-    private static int[] comAsker() {
+    private int[] comAsker() {
         int row, col;
         while(true) {
             row = (int) (Math.random() * 3); col = (int) (Math.random() * 3);
@@ -42,7 +45,7 @@ public class TicTacToe {
     }
 
 
-    private static void playerTurn() {
+    private void playerTurn() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -54,14 +57,14 @@ public class TicTacToe {
         addToGrid(PLAYER, playerAsker());
     }
 
-    private static void addToGrid(int player, int[] loc) {
+    private void addToGrid(int player, int[] loc) {
         grid[loc[0]][loc[1]] = player == PLAYER ? "X" : "0";
 
         checkGrid(player);
     }
 
 
-    private static void checkGrid(int player) {
+    private void checkGrid(int player) {
         String c = player == PLAYER ? "X" : "0", g = "";
 
         for (String[] row : grid) {
@@ -97,7 +100,7 @@ public class TicTacToe {
     }
 
 
-    private static void checkTie() {
+    private void checkTie() {
         int count = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -113,7 +116,7 @@ public class TicTacToe {
     }
 
 
-    private static void endGame(int player) {
+    private void endGame(int player) {
         String message = player == PLAYER ? "You" : "MR MCMULLEN";
         System.out.printf("%n%s won the game!%n", message);
         
@@ -124,7 +127,7 @@ public class TicTacToe {
     }
 
 
-    private static int[] playerAsker() {
+    private int[] playerAsker() {
         while(true) {
             try{
                 System.out.print("\nWhich row would you like to play in? (1), (2), (3): ");
@@ -147,7 +150,7 @@ public class TicTacToe {
     }
 
 
-    private static void initializeGrid() {
+    private void initializeGrid() {
         grid = new String[3][3];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
@@ -156,7 +159,7 @@ public class TicTacToe {
         }
     }
 
-    private static void displayGrid() {
+    private void displayGrid() {
         if(!finished) {
             for (int i = 0; i < grid.length; i++) {
                 for (int j = 0; j < grid[i].length; j++) {

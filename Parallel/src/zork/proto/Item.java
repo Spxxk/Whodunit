@@ -1,20 +1,33 @@
 package zork.proto;
 
+import java.security.NoSuchAlgorithmException;
+
+import zork.utils.Hash;
+
 public class Item extends OpenableObject {
     public static boolean array;
     private double weight;
-    private String name;
+    private final String name;
     private boolean isOpenable;
     private boolean needsContext;
 
-    private final double HASH; 
+    private final String _hash; 
     
     public Item(String name, double weight, boolean isOpenable, Boolean needsContext) {
         this.weight = weight;
         this.name = name;
         this.isOpenable = isOpenable;
 
-        HASH = Math.random();
+        
+        String proposedHash = null;
+
+        try {
+            proposedHash = Hash.generateHash(String.valueOf(Math.random()));
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Internal Error.");
+        }
+
+        _hash = proposedHash;
     }
 
     @Override
@@ -25,7 +38,7 @@ public class Item extends OpenableObject {
 
         Item i = (Item) o;
 
-        return HASH == i.getHash() && name.equals(i.getName()) && weight == i.getWeight();
+        return _hash.equals(i.getHash()) && name.equals(i.getName()) && weight == i.getWeight();
     }
     
     public void open() {
@@ -34,8 +47,8 @@ public class Item extends OpenableObject {
         
     }
 
-    public double getHash() {
-        return HASH;
+    public String getHash() {
+        return _hash;
     }
     
     public double getWeight() {
@@ -48,10 +61,6 @@ public class Item extends OpenableObject {
     
     public String getName() {
         return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
     }
     
     public boolean isOpenable() {

@@ -1,80 +1,181 @@
 package zork.minigames;
-
 import java.util.*;
 
 public class Poker {
-    private List<Card> deck;
-
-    public class Card {
-        private String suit;
-        private int rank;
-
-        public Card(String suit, int rank) {
-            this.suit = suit;
-            this.rank = rank;
-        }
-
-        public String getSuit() {
-            return suit;
-        }
-
-        public int getRank() {
-            return rank;
-        }
-
-        @Override
-        public String toString() {
-            String rankStr;
-            switch (this.rank) {
-                case 1:
-                    rankStr = "Ace";
-                    break;
-                case 11:
-                    rankStr = "Jack";
-                    break;
-                case 12:
-                    rankStr = "Queen";
-                    break;
-                case 13:
-                    rankStr = "King";
-                    break;
-                default:
-                    rankStr = String.valueOf(this.rank);
-            }
-            return rankStr + " of " + this.suit;
-        }
-    }
+    private Player user;
+    private Player npc;
+    private Deck deck;
+    private int pot;
+    private Scanner scanner = new Scanner(System.in);
 
     public Poker() {
-        this.deck = new ArrayList<>();
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        for(String suit : suits) {
-            for(int i=1; i<=13; i++) {
-                this.deck.add(new Card(suit, i));
-            }
-        }
-        Collections.shuffle(this.deck);
+        this.deck = new Deck();
+        this.user = new Player("User", 100);
+        this.npc = new Player("NPC", 100);
+        this.pot = 0;
     }
 
-    public Card dealCard() {
-        return this.deck.remove(this.deck.size() - 1);
+    public void playRound() {
+        this.deck.shuffle();
+
+        for (int i = 0; i < 5; i++) {
+            this.user.addCard(this.deck.dealCard());
+            this.npc.addCard(this.deck.dealCard());
+        }
+
+        System.out.println("Your hand: " + this.user.getHand());
+
+        System.out.println("NPC's hand: " + String.join(", ", Collections.nCopies(5, "-----")));
+
+        
+        System.out.println("Would you like to 'bet', 'call', or 'raise'? ");
+        String decision = scanner.nextLine().toLowerCase();
+
+        if (decision.equals("bet")) {
+            System.out.println("How much would you like to bet?");
+            int bet = scanner.nextInt();
+            this.user.bet(bet);
+            this.pot += bet;
+        } else if (decision.equals("raise")) {
+            System.out.println("How much would you like to raise?");
+            int raise = scanner.nextInt();
+            this.user.bet(this.pot + raise);
+            this.pot += this.pot + raise;
+        } else if (decision.equals("call")) {
+            this.user.bet(this.pot);
+        }
+
+        
+        this.npc.bet(this.pot);
+
+        
+        Player winner = determineWinner();
+
+        
+        winner.win(this.pot);
+
+        
+        System.out.println("NPC's hand was: " + this.npc.getHand());
+        System.out.println(winner.getName() + " wins the round and now has " + winner.getBank() + "!");
+    }
+
+    private Player determineWinner() {
+        
+        Card highestCardUser = user.getHighestCard();
+        Card highestCardNPC = npc.getHighestCard();
+
+        if (highestCardUser.getRank() > highestCardNPC.getRank()) {
+            return user;
+        } else {
+            return npc;
+        }
     }
 
     public static void main(String[] args) {
-        Poker game = new Poker();
+        Poker poker = new Poker();
+        poker.playRound();
+    }
+}
 
-        Card player1Card = game.dealCard();
-        Card player2Card = game.dealCard();
+class Card implements Comparable<Card> {
+    private String suit;
+    private int rank;
 
-        System.out.println("Player 1: " + player1Card);
-        System.out.println("Player 2: " + player2Card);
+    public Card(String suit, int rank) {
+        this.suit = suit;
+        this.rank = rank;
+    }
 
-        if(player1Card.getRank() > player2Card.getRank()) {
-            System.out.println("Player 1 wins with a " + player1Card);
-        } else if(player1Card.getRank() < player2Card.getRank()) {
-            System.out.println("Player 2 wins with a " + player2Card);
-        } else {
-            System.out.println("It's a draw!");
+    public int getRank() {
+        return rank;
+    }
+
+    @Override
+    public int compareTo(Card other) {
+        return Integer.compare(this.rank, other.rank);
+    }
+
+    @Override
+    public String toString() {
+        String rankString;
+        switch(rank) {
+            case 1:
+                rankString = "Ace";
+                break;
+            case 11:
+                rankString = "Jack";
+                break;
+            case 12:
+                rankString = "Queen";
+                break;
+            case 13:
+                rankString = "King";
+                break;
+            default:
+                rankString = String.valueOf(rank);
         }
+        return rankString + " of " + suit;
+    }
+}
+
+class Deck {
+    private List<Card> cards;
+
+    public Deck() {
+        this.cards = new ArrayList<>();
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        for (String suit : suits) {
+            for (int i = 1; i <= 13; i++) {
+                this.cards.add(new Card(suit, i));
+            }
+        }
+    }
+
+    public void shuffle() {
+        Collections.shuffle(this.cards);
+    }
+
+    public Card dealCard() {
+        return this.cards.remove(0);
+    }
+}
+
+class Player {
+    private String name;
+    private List<Card> hand;
+    private int bank;
+
+    public Player(String name, int bank) {
+        this.name = name;
+        this.hand = new ArrayList<>();
+        this.bank = bank;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addCard(Card card) {
+        this.hand.add(card);
+    }
+
+    public Card getHighestCard() {
+        return Collections.max(this.hand);
+    }
+
+    public List<Card> getHand() {
+        return this.hand;
+    }
+
+    public int getBank() {
+        return this.bank;
+    }
+
+    public void bet(int amount) {
+        this.bank -= amount;
+    }
+
+    public void win(int amount) {
+        this.bank += amount;
     }
 }

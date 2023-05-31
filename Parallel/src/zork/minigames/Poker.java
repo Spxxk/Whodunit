@@ -1,79 +1,136 @@
 package zork.minigames;
+
 import java.util.*;
 
 public class Poker {
     private Player user;
-    private Player npc;
+    private List<Player> npcs;
     private Deck deck;
     private int pot;
     private Scanner scanner = new Scanner(System.in);
 
     public Poker() {
         this.deck = new Deck();
-        this.user = new Player("User", 100);
-        this.npc = new Player("NPC", 100);
+        this.user = new Player("User", 250);
+        this.npcs = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            this.npcs.add(new Player("NPC" + i, 250));
+        }
         this.pot = 0;
     }
 
     public void playRound() {
+        this.deck = new Deck();
         this.deck.shuffle();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             this.user.addCard(this.deck.dealCard());
-            this.npc.addCard(this.deck.dealCard());
+            for (Player npc : npcs) {
+                npc.addCard(this.deck.dealCard());
+            }
         }
 
         System.out.println("Your hand: " + this.user.getHand());
 
-        System.out.println("NPC's hand: " + String.join(", ", Collections.nCopies(5, "-----")));
+        for (Player npc : npcs) {
+            System.out.println(npc.getName() + "'s hand: " + String.join(", ", Collections.nCopies(2, "-----")));
+        }
 
-        
+        npcs.get(0).bet(5);
+        npcs.get(1).bet(10);
+        pot += 15;
+
+        System.out.println(npcs.get(0).getName() + " posted the small blind of $5.");
+        System.out.println(npcs.get(1).getName() + " posted the big blind of $10.");
+
         System.out.println("Would you like to 'bet', 'call', or 'raise'? ");
         String decision = scanner.nextLine().toLowerCase();
 
-        if (decision.equals("bet")) {
-            System.out.println("How much would you like to bet?");
-            int bet = scanner.nextInt();
-            this.user.bet(bet);
-            this.pot += bet;
-        } else if (decision.equals("raise")) {
-            System.out.println("How much would you like to raise?");
-            int raise = scanner.nextInt();
-            this.user.bet(this.pot + raise);
-            this.pot += this.pot + raise;
-        } else if (decision.equals("call")) {
-            this.user.bet(this.pot);
+        int betAmount;
+        switch(decision) {
+            case "bet":
+                betAmount = getPlayerBet();
+                this.user.bet(betAmount);
+                this.pot += betAmount;
+                System.out.println("You bet $" + betAmount + ".");
+                break;
+            case "raise":
+                betAmount = getPlayerBet();
+                this.user.bet(this.pot + betAmount);
+                this.pot += this.pot + betAmount;
+                System.out.println("You raised $" + betAmount + ".");
+                break;
+            case "call":
+                this.user.bet(this.pot);
+                System.out.println("You called.");
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                return;
         }
 
-        
-        this.npc.bet(this.pot);
+        // New NPC betting strategy
+        Iterator<Player> it = npcs.iterator();
+        while (it.hasNext()) {
+            Player npc = it.next();
+            if (npc.shouldBet()) {
+                npc.bet(this.pot);
+                System.out.println(npc.getName() + " bet $" + this.pot + ".");
+            } else {
+                System.out.println(npc.getName() + " folded.");
+                it.remove();
+            }
+        }
 
-        
         Player winner = determineWinner();
 
-        
         winner.win(this.pot);
 
-        
-        System.out.println("NPC's hand was: " + this.npc.getHand());
+        for (Player npc : npcs) {
+            System.out.println(npc.getName() + "'s hand was: " + npc.getHand());
+        }
         System.out.println(winner.getName() + " wins the round and now has " + winner.getBank() + "!");
     }
 
-    private Player determineWinner() {
-        
-        Card highestCardUser = user.getHighestCard();
-        Card highestCardNPC = npc.getHighestCard();
-
-        if (highestCardUser.getRank() > highestCardNPC.getRank()) {
-            return user;
-        } else {
-            return npc;
+    private int getPlayerBet() {
+        System.out.println("How much would you like to bet?");
+        while (true) {
+            try {
+                int bet = Integer.parseInt(scanner.nextLine());
+                if (bet <= this.user.getBank()) {
+                    return bet;
+                } else {
+                    System.out.println("You can't bet more than you have. Your bank: " + this.user.getBank());
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid bet.");
+            }
         }
+    }
+
+    private Player determineWinner() {
+        Card highestCardUser = user.getHighestCard();
+        Player winner = user;
+        for (Player npc : npcs) {
+            Card highestCardNPC = npc.getHighestCard();
+            if (highestCardNPC.getRank() > highestCardUser.getRank()) {
+                highestCardUser = highestCardNPC;
+                winner = npc;
+            }
+        }
+        return winner;
     }
 
     public static void main(String[] args) {
         Poker poker = new Poker();
-        poker.playRound();
+        while (true) {
+            poker.playRound();
+            System.out.println("Would you like to play again? (yes/no)");
+            String playAgain = poker.scanner.nextLine().toLowerCase();
+            if (!"yes".equals(playAgain)) {
+                break;
+            }
+        }
     }
 }
 
@@ -177,5 +234,11 @@ class Player {
 
     public void win(int amount) {
         this.bank += amount;
+    }
+
+    // New method
+    public boolean shouldBet() {
+        // Here we'll assume that if the rank of the highest card is 8 or more, the NPC will bet
+        return getHighestCard().getRank() >= 8;
     }
 }

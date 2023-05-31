@@ -17,12 +17,12 @@ public class TicTacToe extends Minigame {
         in = new Scanner(System.in);
 
         initializeGrid();
+        finished = false;
 
         System.out.println("Welcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
         
         while (!finished) { playerTurn(); comTurn(); }
 
-        finished = false;
     }
     
     private void comTurn() {

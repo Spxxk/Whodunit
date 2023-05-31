@@ -5,6 +5,7 @@
       "name": "Your Room",
       "description": "You are inside your hotel room.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "pillow" }, { "id": "painting" }, { "id": "welcome letter" }
       ],
@@ -36,6 +37,7 @@
       "name": "Your Kitchen",
       "description": "You are inside your kitchen",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "knife" }, { "id": "plate" }
       ],
@@ -52,6 +54,7 @@
       "name": "Your Bathroom",
       "description": "You are inside your bathroom",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "towel" }, { "id": "toilet paper" }
       ],
@@ -73,8 +76,9 @@
       "name": "Your Closet",
       "description": "You are in your closet.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "Glenn's closet key" }, { "id": "sweater" }
+        { "id": "glennClosetKey" }, { "id": "sweater" }
       ],
       "exits": [
         {
@@ -89,6 +93,7 @@
       "name": "Your Sink",
       "description": "You are looking inside your sink cupboard.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "hair dryer" }
       ],
@@ -105,6 +110,7 @@
       "name": "Hallway",
       "description": "You are in the hotel hallway on floor 8.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -128,6 +134,7 @@
       "name": "Hallway",
       "description": "You are in the hotel hallway on floor 8.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -161,6 +168,7 @@
       "name": "Brent's Room",
       "description": "You are inside Brent's hotel room.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -194,8 +202,9 @@
       "name": "Brent's Kitchen",
       "description": "You are inside Brent's kitchen",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "Brent's Bathroom Key" }, { "id": "newspaper" }
+        { "id": "brentBathroomKey" }, { "id": "newspaper" }
       ],
       "exits": [
         {
@@ -210,7 +219,7 @@
       "name": "Brent's Bathroom",
       "description": "You are inside Brent's bathroom",
       "capacity": 150,
-      "keyid": "Brent's Bathroom Key",
+      "keyid": "brentBathroomKey",
       "items": [
         { "id": "baseball bat"}, { "id": "shower mat"}
       ],
@@ -232,7 +241,7 @@
       "name": "Brent's Closet",
       "description": "You are in Brent's closet.",
       "capacity": 150,
-      "keyid": "Brent's Closet key",
+      "keyid": "brentClosetKey",
       "items": [
         { "id": "2 bullets (closet)"}, {"id": "hanger"}
       ],
@@ -249,6 +258,7 @@
       "name": "Brent's Sink",
       "description": "You are looking inside Brent's sink cupboard.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "hand soap"}
       ],
@@ -265,6 +275,7 @@
       "name": "Hallway",
       "description": "You are in the hotel hallway on floor 8.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -293,7 +304,7 @@
       "name": "Glenn's Room",
       "description": "You are inside Glenn's hotel room.",
       "capacity": 150,
-      "keyid": "Glenn's Room Key",
+      "keyid": "glennRoomKey",
       "items": [
         { "id": "Rope"}, { "id": "t shirt"}
       ],
@@ -325,6 +336,7 @@
       "name": "Glenn's Kitchen",
       "description": "You are inside Glenn's kitchen",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "fork"}, { "id": "ground beef"}
       ],
@@ -341,6 +353,7 @@
       "name": "Glenn's Bathroom",
       "description": "You are inside Glenn's bathroom",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -364,9 +377,9 @@
       "name": "Glenn's Closet",
       "description": "You are in Glenn's closet.",
       "capacity": 150,
-      "keyid": "Glenn's closet key",
+      "keyid": "glennClosetKey",
       "items": [
-        { "id": "tennis court key"}, { "id": "tennis shoes"}
+        { "id": "tennisCourtKey"}, { "id": "tennis shoes"}
       ],
       "exits": [
         {
@@ -381,7 +394,7 @@
       "name": "Glenn's Sink",
       "description": "You are looking inside Glenn's sink cupboard.",
       "capacity": 150,
-      "keyid": "Glenn's sink key",
+      "keyid": "glennSinkKey",
       "items": [
         {"id": "plunger"}
       ],
@@ -398,8 +411,9 @@
       "name": "Garbage Chute",
       "description": "You are looking inside the garbage chute on floor 8 of the hotel.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "Glenn's sink key"}, { "id": "banana peel"}
+        { "id": "glennSinkKey"}, { "id": "banana peel"}
       ],
       "exits": [
         {
@@ -414,6 +428,7 @@
       "name": "Elevator",
       "description": "You are inside the hotel elevator.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -427,6 +442,11 @@
         },
         {
           "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "hallwayMid"
+        },
+        {
+          "isLocked": false,
           "direction": "South",
           "adjacentRoom": "hotelLobby"
         }
@@ -437,7 +457,7 @@
       "name": "Hotel Roof",
       "description": "You are on the roof of the hotel building",
       "capacity": 150,
-      "keyid": "hotel staff ID key",
+      "keyid": "hotelRoofKey",
       "items": [
         { "id": "Gun"}, { "id": "plank of wood"}
       ],
@@ -454,6 +474,7 @@
       "name": "Hotel Lobby",
       "description": "You are in the hotel lobby.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -482,6 +503,7 @@
       "name": "Hotel Front Doors",
       "description": "You are standing at the front doors of the hotel.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "door mat"}
       ],
@@ -508,8 +530,9 @@
       "name": "Parking Lot",
       "description": "You are standing in a parking lot.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "poker room invitation key"}
+        { "id": "privatePokerTableKey"}
       ],
       "exits": [
         {
@@ -524,8 +547,9 @@
       "name": "Swimming Pool",
       "description": "You are at the hotel swimming pool.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "sandals"}, { "id": "water gun"}, { "id": "Brent's Closet key"}
+        { "id": "sandals"}, { "id": "water gun"}, { "id": "brentClosetKey"}
       ],
       "exits": [
         {
@@ -550,8 +574,9 @@
       "name": "Snack Bar",
       "description": "You are at the counter of the snack bar by the pool.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "burger"}, { "id": "hot dog"}, { "id": "wallet key"}
+        { "id": "burger"}, { "id": "hot dog"}, { "id": "casinoKey"}
       ],
       "exits": [
         {
@@ -566,6 +591,7 @@
       "name": "Basketball Court",
       "description": "You are at the centre of a basketball court.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         {
           "id": null
@@ -599,8 +625,9 @@
       "name": "Grass",
       "description": "You are standing in a patch of grass.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "vault key"}
+        { "id": "vaultKey"}
       ],
       "exits": [
         {
@@ -615,6 +642,7 @@
       "name": "Stands",
       "description": "You are sitting in the stands at the basketball court.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "2 bullets (stands)"}
       ],
@@ -631,9 +659,9 @@
       "name": "Tennis Court",
       "description": "You are at the base line of a tennis court.",
       "capacity": 150,
-      "keyid": "tennis court key",
+      "keyid": "tennisCourtKey",
       "items": [
-        { "id": "hotel staff ID key"}, { "id": "tennis ball"}
+        { "id": "hotelRoofKey"}, { "id": "tennis ball"}
       ],
       "exits": [
         {
@@ -648,8 +676,9 @@
       "name": "Reception",
       "description": "You are at the reception desk of the hotel.",
       "capacity": 150,
+      "keyid": null,
       "items": [
-        { "id": "Glenn's Room Key"}, { "id": "bottle of water"}
+        { "id": "glennRoomKey"}, { "id": "bottle of water"}
       ],
       "exits": [
         {
@@ -669,7 +698,7 @@
       "name": "Casino",
       "description": "You are inside of a casino, with flashing lights everywhere you look.",
       "capacity": 150,
-      "keyid": "wallet key",
+      "keyid": "casinoKey",
       "items": [
         {
           "id": null
@@ -693,6 +722,7 @@
       "name": "Slots",
       "description": "You are in an aisle of slot machines.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "bag of quaters"}, { "id": "cheating device"}
       ],
@@ -714,7 +744,7 @@
       "name": "Vault",
       "description": "You are inside of a vault.",
       "capacity": 150,
-      "keyid": "vault key",
+      "keyid": "vaultKey",
       "items": [
         {
           "id": null
@@ -733,6 +763,7 @@
       "name": "Poker Tables",
       "description": "You are walking around various poker tables.",
       "capacity": 150,
+      "keyid": null,
       "items": [
         { "id": "poker chips"}, { "id": "playing cards"}
       ],
@@ -754,7 +785,7 @@
       "name": "Private Poker Table",
       "description": "You are inside a private room, with a poker table in the middle.",
       "capacity": 150,
-      "keyid": "poker room invitation key",
+      "keyid": "privatePokerTableKey",
       "items": [
         {
           "id": null

@@ -7,7 +7,7 @@ import zork.utils.Hash;
 public class Item extends OpenableObject {
     public static boolean array;
     private double weight;
-    private final String name;
+    private String name, id;
     private boolean isOpenable;
     private boolean needsContext;
 
@@ -78,5 +78,13 @@ public class Item extends OpenableObject {
         }
 
         return result;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }

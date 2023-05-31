@@ -7,6 +7,7 @@ import zork.proto.Command;
 import zork.proto.Exit;
 import zork.proto.Player;
 import zork.proto.Room;
+import zork.proto.Item;
 
 public class Go extends Command {
     
@@ -21,6 +22,15 @@ public class Go extends Command {
             if (e.getDirection().equalsIgnoreCase(direction)) {
 
                 if(e.isLocked()) {
+                    for(Item item : player.getInventory().getContents()) {
+                        if(item.getId().equalsIgnoreCase(e.getAdjacentRoom()+"Key")) { 
+                            player.setCurrentRoom(e.getAdjacentRoom());
+                            System.out.println("You have just unlocked "+player.getCurrentRoom().getRoomName()+"!");
+                            System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
+                            System.out.println(player.getCurrentRoom().longDescription());
+                            return;
+                        }
+                    }
                     System.out.printf("The room [%s] is currently locked. Maybe come back with a key...\n", e.getAdjacentRoom());
                     return;
                 }

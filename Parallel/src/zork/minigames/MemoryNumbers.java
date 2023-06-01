@@ -2,16 +2,22 @@ package zork.minigames;
 
 import java.util.Scanner;
 
-public class MemoryNumbers {
+import zork.proto.Minigame;
 
-    public static Scanner in;
-    public static String nums;
-    public static int score;
-    public static boolean finished;
+public class MemoryNumbers extends Minigame {
+
+    public MemoryNumbers() {
+        super("Memory Numbers",(int) 1e9);
+    }
+
+    public Scanner in;
+    public String nums;
+    public int score;
+    public boolean finished;
 
     public static final String RED = "\u001B[31m", WHITE = "\u001B[0m";
 
-    public static void play() {
+    public void play() {
         in = new Scanner(System.in);
 
         System.out.println("Welcome to Memory Numbers! Get a higher score than MR MINATO to win.");
@@ -28,7 +34,7 @@ public class MemoryNumbers {
         }
     }
 
-    private static void nextRound() {
+    private void nextRound() {
         try {
             nums += (int) (Math.random() * 10);
 
@@ -58,6 +64,11 @@ public class MemoryNumbers {
 
     public static void printLines() {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
+
+    @Override
+    public void startGame(String... args) {
+        play();
     }
     
 }

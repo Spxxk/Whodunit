@@ -128,11 +128,11 @@ public class Game {
 
 	private void printStory() throws InterruptedException {
 		System.out.println();
-		Thread.sleep(1000);System.out.println("You went on a trip with your friends to a fancy tropical resort.");
+		Thread.sleep(1000);System.out.println("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
 		Thread.sleep(1000);System.out.println("However, you woke up this morning,");
 		Thread.sleep(1000);System.out.println("and something was off........");
-		Thread.sleep(1000);System.out.println("Travel outside your room to see what's going on.");
-		Thread.sleep(1000);System.out.println();
+		Thread.sleep(1000);System.out.println("Travel around to see what's going on.");
+		System.out.println();
 	}
 
 	/**

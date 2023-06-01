@@ -143,7 +143,7 @@ public class Game {
 		Thread.sleep(1000);System.out.println("Welcome to Zork!");
 		Thread.sleep(1000);System.out.println("Zork is a new, incredibly boring adventure game.");
 		Thread.sleep(1000);System.out.println("Type 'help' if you need help.");
-		Thread.sleep(1000);System.out.println();
+		Thread.sleep(1000);System.out.println(); System.out.println();
 		System.out.println(Game.player.getCurrentRoom().longDescription());
 	}
 }

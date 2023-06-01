@@ -122,7 +122,7 @@ public class Game {
 		String playerName = Player.setPlayerName();
 		System.out.println("Hey there, "+playerName+". Get ready for an eventful stretch of time coming your way.");
 		printStory();
-		System.out.println(Game.player.getCurrentRoom().longDescription());
+		Thread.sleep(1000);System.out.println(Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();
 	}

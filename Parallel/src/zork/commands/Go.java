@@ -24,10 +24,15 @@ public class Go extends Command {
                 if(e.isLocked()) {
                     for(Item item : player.getInventory().getContents()) {
                         if(item.getId().equalsIgnoreCase(e.getAdjacentRoom()+"Key")) { 
+                            try {
                             player.setCurrentRoom(e.getAdjacentRoom());
                             System.out.println("You have just unlocked "+player.getCurrentRoom().getRoomName()+"!");
+                            Thread.sleep(1000);
                             System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
                             System.out.println(player.getCurrentRoom().longDescription());
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
                             return;
                         }
                     }
@@ -36,8 +41,10 @@ public class Go extends Command {
                 }
 
                 player.setCurrentRoom(e.getAdjacentRoom());
+                try {
                 System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
-                System.out.println(player.getCurrentRoom().longDescription());
+                Thread.sleep(1000);System.out.println(player.getCurrentRoom().longDescription());
+                }catch(Exception r) {}
                 return;
             }
         }

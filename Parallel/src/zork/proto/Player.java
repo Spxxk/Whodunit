@@ -1,6 +1,7 @@
 package zork.proto;
 
 import zork.Game;
+import java.util.Scanner;
 
 public class Player {
     private final Inventory playerInventory;
@@ -26,5 +27,12 @@ public class Player {
 
     public Inventory getInventory() {
         return playerInventory;
+    }
+
+    public static String setPlayerName() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("What is your name? ");
+        String playerName = in.nextLine();
+        return playerName;
     }
 }

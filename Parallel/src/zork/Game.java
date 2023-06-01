@@ -117,20 +117,32 @@ public class Game {
 	/**
 	 * Main play routine. Loops until end of play.
 	 */
-	public void play() {
+	public void play() throws InterruptedException{
 		printWelcome();
+		String playerName = Player.setPlayerName();
+		System.out.println("Hey there, "+playerName+". Get ready for an eventful stretch of time coming your way.");
+		printStory();
 		
         cmdListener.start();
+	}
+
+	private void printStory() throws InterruptedException {
+		System.out.println();
+		Thread.sleep(1000);System.out.println("You went on a trip with your friends to a fancy tropical resort.");
+		Thread.sleep(1000);System.out.println("However, you woke up this morning,");
+		Thread.sleep(1000);System.out.println("and something was off........");
+		Thread.sleep(1000);System.out.println("Travel outside your room to see what's going on.");
+		Thread.sleep(1000);System.out.println();
 	}
 
 	/**
 	 * Print out the opening message for the player.
 	 */
-	private void printWelcome() {
-		System.out.println();
-		System.out.println("Welcome to Zork!");
-		System.out.println("Zork is a new, incredibly boring adventure game.");
-		System.out.println("Type 'help' if you need help.");
-		System.out.println();
+	private void printWelcome() throws InterruptedException{
+		Thread.sleep(1000);System.out.println();
+		Thread.sleep(1000);System.out.println("Welcome to Zork!");
+		Thread.sleep(1000);System.out.println("Zork is a new, incredibly boring adventure game.");
+		Thread.sleep(1000);System.out.println("Type 'help' if you need help.");
+		Thread.sleep(1000);System.out.println();
 	}
 }

@@ -122,6 +122,7 @@ public class Game {
 		String playerName = Player.setPlayerName();
 		System.out.println("Hey there, "+playerName+". Get ready for an eventful stretch of time coming your way.");
 		printStory();
+		System.out.println(Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();
 	}
@@ -144,6 +145,5 @@ public class Game {
 		Thread.sleep(1000);System.out.println("Zork is a new, incredibly boring adventure game.");
 		Thread.sleep(1000);System.out.println("Type 'help' if you need help.");
 		Thread.sleep(1000);System.out.println(); System.out.println();
-		System.out.println(Game.player.getCurrentRoom().longDescription());
 	}
 }

@@ -129,10 +129,11 @@ public class Game {
 
 	private void printStory() throws InterruptedException {
 		System.out.println();
-		Thread.sleep(1000);System.out.println("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
+		Thread.sleep(2000);System.out.println("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
 		Thread.sleep(1000);System.out.println("However, you woke up this morning,");
 		Thread.sleep(1000);System.out.println("and something was off........");
 		Thread.sleep(1000);System.out.println("Travel around to see what's going on.");
+		Thread.sleep(2000);
 		System.out.println();
 	}
 
@@ -141,8 +142,8 @@ public class Game {
 	 */
 	private void printWelcome() throws InterruptedException{
 		Thread.sleep(1000);System.out.println();
-		Thread.sleep(1000);System.out.println("Welcome to Zork!");
-		Thread.sleep(1000);System.out.println("Zork is a new, incredibly boring adventure game.");
+		Thread.sleep(1000);System.out.println("Welcome to Whodunit!");
+		Thread.sleep(1000);System.out.println("Whodunit is a murder mystery game in which you find clues and crack a case.");
 		Thread.sleep(1000);System.out.println("Type 'help' if you need help.");
 		Thread.sleep(1000);System.out.println(); System.out.println();
 	}

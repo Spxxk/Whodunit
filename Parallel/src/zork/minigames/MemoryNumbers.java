@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 import zork.proto.Minigame;
 
-public class MemoryNumbers extends Minigame{
+public class MemoryNumbers extends Minigame {
 
     public MemoryNumbers() {
-        super("memorynumbers",(int) 1e9);
+        super("Memory Numbers",(int) 1e9);
     }
 
-    public static Scanner in;
-    public static String nums;
-    public static int score;
-    public static boolean finished;
+    public Scanner in;
+    public String nums;
+    public int score;
+    public boolean finished;
 
     public static final String RED = "\u001B[31m", WHITE = "\u001B[0m";
 
-    public static void play() {
+    public void play() {
         in = new Scanner(System.in);
 
         System.out.println("Welcome to Memory Numbers! Get a higher score than MR MINATO to win.");
@@ -34,7 +34,7 @@ public class MemoryNumbers extends Minigame{
         }
     }
 
-    private static void nextRound() {
+    private void nextRound() {
         try {
             nums += (int) (Math.random() * 10);
 
@@ -68,8 +68,7 @@ public class MemoryNumbers extends Minigame{
 
     @Override
     public void startGame(String... args) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startGame'");
+        play();
     }
     
 }

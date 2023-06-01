@@ -1,6 +1,5 @@
 package zork.utils;
 
-import java.lang.reflect.Constructor;
 import java.util.*;
 
 import zork.exceptions.*;
@@ -14,9 +13,7 @@ public class MinigameLoader {
             Class<?>[] classes = Loader.getClasses("zork.minigames");
 
             for (Class<?> c : classes) {
-                Constructor ctor = c.getConstructors()[0];
-                ctor.trySetAccessible();
-                Minigame game = (Minigame) ctor.newInstance();
+                Minigame game = (Minigame) c.getConstructors()[0].newInstance();
                 minigames.put(game.getName().toLowerCase(), game);
             }
         } catch (Exception e) {

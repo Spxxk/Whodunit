@@ -1,7 +1,13 @@
 package zork.minigames;
+
 import java.util.*;
 
-public class Poker {
+import zork.utils.PokerUtil.Card;
+import zork.utils.PokerUtil.Deck;
+import zork.utils.PokerUtil.Player;
+import zork.proto.Minigame;
+
+public class Poker extends Minigame {
     private Player user;
     private List<Player> npcs;
     private Deck deck;
@@ -11,6 +17,8 @@ public class Poker {
     private Scanner scanner = new Scanner(System.in);
 
     public Poker() {
+        super("Poker", (int) 1e9);
+
         this.deck = new Deck();
         this.user = new Player("User", 250);
         this.npcs = new ArrayList<>();
@@ -20,6 +28,17 @@ public class Poker {
         this.pot = 0;
         this.currentBet = 0;
         this.roundCount = 0;
+    }
+
+    public void startGame(String... args) {
+        while (true) {
+            playRound();
+            System.out.println("Would you like to play again? (yes/no)");
+            String playAgain = scanner.nextLine().toLowerCase();
+            if (!"yes".equals(playAgain)) {
+                break;
+            }
+        }
     }
 
     public void playRound() {
@@ -239,144 +258,8 @@ public class Poker {
         }
         return winner;
     }
-
-    public void playGame() {
-        boolean playAgain = true;
-        while (playAgain && (user.getBank() > 0 || !npcs.isEmpty())) {
-            playRound();
-            System.out.println("Would you like to play again? (yes/no)");
-            String playAgainInput = scanner.nextLine().toLowerCase();
-            playAgain = playAgainInput.equals("yes");
-            if (playAgain) {
-                resetGame();
-                System.out.println("Dealing in for the next round...");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    private void resetGame() {
-        this.deck = new Deck();
-        this.user.reset();
-        for (Player npc : npcs) {
-            npc.reset();
-        }
-    }
-
-    public static void main(String[] args) {
-        Poker poker = new Poker();
-        poker.playGame();
-    }
 }
 
-class Card implements Comparable<Card> {
-    private String suit;
-    private int rank;
 
-    public Card(String suit, int rank) {
-        this.suit = suit;
-        this.rank = rank;
-    }
 
-    public int getRank() {
-        return rank;
-    }
-
-    @Override
-    public int compareTo(Card other) {
-        return Integer.compare(this.rank, other.rank);
-    }
-
-    @Override
-    public String toString() {
-        String rankString;
-        switch (rank) {
-            case 1:
-                rankString = "Ace";
-                break;
-            case 11:
-                rankString = "Jack";
-                break;
-            case 12:
-                rankString = "Queen";
-                break;
-            case 13:
-                rankString = "King";
-                break;
-            default:
-                rankString = String.valueOf(rank);
-        }
-        return rankString + " of " + suit;
-    }
-}
-
-class Deck {
-    private List<Card> cards;
-
-    public Deck() {
-        this.cards = new ArrayList<>();
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        for (String suit : suits) {
-            for (int i = 1; i <= 13; i++) {
-                this.cards.add(new Card(suit, i));
-            }
-        }
-    }
-
-    public void shuffle() {
-        Collections.shuffle(this.cards);
-    }
-
-    public Card dealCard() {
-        return this.cards.remove(0);
-    }
-}
-
-class Player {
-    private String name;
-    private List<Card> hand;
-    private int bank;
-
-    public Player(String name, int bank) {
-        this.name = name;
-        this.hand = new ArrayList<>();
-        this.bank = bank;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void addCard(Card card) {
-        this.hand.add(card);
-    }
-
-    public Card getHighestCard() {
-        return Collections.max(this.hand);
-    }
-
-    public List<Card> getHand() {
-        return this.hand;
-    }
-
-    public int getBank() {
-        return this.bank;
-    }
-
-    public void bet(int amount) {
-        this.bank -= amount;
-    }
-
-    public void win(int amount) {
-        this.bank += amount;
-    }
-
-    public void reset() {
-        this.hand.clear();
-    }
-}
 

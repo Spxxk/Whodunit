@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class TypingTest extends Minigame {
 
     public TypingTest() {
-        super("typingtest", (int) 1e9);
+        super("Typing Test", (int) 1e9);
         //TODO Auto-generated constructor stub
     }
 

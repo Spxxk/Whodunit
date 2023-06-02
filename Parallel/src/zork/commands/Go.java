@@ -18,12 +18,14 @@ public class Go extends Command {
         Room room = player.getCurrentRoom();
         String direction = args[0];
 
-        for (Exit e : room.getExits()) {
+        for (int i = 0; i < room.getExits().size(); i++) {
+            Exit e = room.getExits().get(i);
+            
             if (e.getDirection().equalsIgnoreCase(direction)) {
-
                 if(e.isLocked()) {
                     for(Item item : player.getInventory().getContents()) {
                         if(item.getId().equalsIgnoreCase(e.getAdjacentRoom()+"Key")) { 
+                            e.setLocked(false); 
                             try {
                             player.setCurrentRoom(e.getAdjacentRoom());
                             System.out.println("You have just unlocked "+player.getCurrentRoom().getRoomName()+"!");

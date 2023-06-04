@@ -4,7 +4,6 @@ import zork.Game;
 import zork.Constants.ArgumentCount;
 import zork.exceptions.CharacterNotFoundException;
 import zork.proto.Command;
-import zork.proto.Player;
 import zork.proto.Item;
 import zork.proto.Character;
 

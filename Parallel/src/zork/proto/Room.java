@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import zork.Game;
-import zork.proto.Character;
 
 public class Room {
     

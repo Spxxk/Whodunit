@@ -6,6 +6,9 @@
       "description": "You are inside your hotel room.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": "Test NPC" }
+      ],
       "items": [
         { "id": "pillow" }, { "id": "painting" }, { "id": "welcome letter" }
       ],
@@ -38,6 +41,9 @@
       "description": "You are inside your kitchen",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "knife" }, { "id": "plate" }
       ],
@@ -55,6 +61,9 @@
       "description": "You are inside your bathroom",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "towel" }, { "id": "toilet paper" }
       ],
@@ -77,6 +86,9 @@
       "description": "You are in your closet.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "glennClosetKey" }, { "id": "sweater" }
       ],
@@ -94,6 +106,9 @@
       "description": "You are looking inside your sink cupboard.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "hair dryer" }
       ],
@@ -111,6 +126,9 @@
       "description": "You are in the hotel hallway on floor 8.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -135,6 +153,9 @@
       "description": "You are in the hotel hallway on floor 8.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -169,6 +190,9 @@
       "description": "You are inside Brent's hotel room.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -203,6 +227,9 @@
       "description": "You are inside Brent's kitchen",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "brentBathroomKey" }, { "id": "newspaper" }
       ],
@@ -220,6 +247,9 @@
       "description": "You are inside Brent's bathroom",
       "capacity": 150,
       "keyid": "brentBathroomKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "baseball bat"}, { "id": "shower mat"}
       ],
@@ -242,6 +272,9 @@
       "description": "You are in Brent's closet.",
       "capacity": 150,
       "keyid": "brentClosetKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "2 bullets (closet)"}, {"id": "hanger"}
       ],
@@ -259,6 +292,9 @@
       "description": "You are looking inside Brent's sink cupboard.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "hand soap"}
       ],
@@ -276,6 +312,9 @@
       "description": "You are in the hotel hallway on floor 8.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -305,6 +344,9 @@
       "description": "You are inside Glenn's hotel room.",
       "capacity": 150,
       "keyid": "glennRoomKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "Rope"}, { "id": "t shirt"}
       ],
@@ -337,6 +379,9 @@
       "description": "You are inside Glenn's kitchen",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "fork"}, { "id": "ground beef"}
       ],
@@ -354,6 +399,9 @@
       "description": "You are inside Glenn's bathroom",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -378,6 +426,9 @@
       "description": "You are in Glenn's closet.",
       "capacity": 150,
       "keyid": "glennClosetKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "tennisCourtKey"}, { "id": "tennis shoes"}
       ],
@@ -395,6 +446,9 @@
       "description": "You are looking inside Glenn's sink cupboard.",
       "capacity": 150,
       "keyid": "glennSinkKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {"id": "plunger"}
       ],
@@ -412,6 +466,9 @@
       "description": "You are looking inside the garbage chute on floor 8 of the hotel.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "glennSinkKey"}, { "id": "banana peel"}
       ],
@@ -429,6 +486,9 @@
       "description": "You are inside the hotel elevator.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -458,6 +518,9 @@
       "description": "You are on the roof of the hotel building",
       "capacity": 150,
       "keyid": "hotelRoofKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "Gun"}, { "id": "plank of wood"}
       ],
@@ -475,6 +538,9 @@
       "description": "You are in the hotel lobby.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -504,6 +570,9 @@
       "description": "You are standing at the front doors of the hotel.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "door mat"}
       ],
@@ -531,6 +600,9 @@
       "description": "You are standing in a parking lot.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "privatePokerTableKey"}
       ],
@@ -548,6 +620,9 @@
       "description": "You are at the hotel swimming pool.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "sandals"}, { "id": "water gun"}, { "id": "brentClosetKey"}
       ],
@@ -575,6 +650,9 @@
       "description": "You are at the counter of the snack bar by the pool.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "burger"}, { "id": "hot dog"}, { "id": "casinoKey"}
       ],
@@ -592,6 +670,9 @@
       "description": "You are at the centre of a basketball court.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -626,6 +707,9 @@
       "description": "You are standing in a patch of grass.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "vaultKey"}
       ],
@@ -643,6 +727,9 @@
       "description": "You are sitting in the stands at the basketball court.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "2 bullets (stands)"}
       ],
@@ -660,6 +747,9 @@
       "description": "You are at the base line of a tennis court.",
       "capacity": 150,
       "keyid": "tennisCourtKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "hotelRoofKey"}, { "id": "tennis ball"}
       ],
@@ -677,6 +767,9 @@
       "description": "You are at the reception desk of the hotel.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "glennRoomKey"}, { "id": "bottle of water"}
       ],
@@ -699,6 +792,9 @@
       "description": "You are inside of a casino, with flashing lights everywhere you look.",
       "capacity": 150,
       "keyid": "casinoKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -723,6 +819,9 @@
       "description": "You are in an aisle of slot machines.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "bag of quaters"}, { "id": "cheating device"}
       ],
@@ -745,6 +844,9 @@
       "description": "You are inside of a vault.",
       "capacity": 150,
       "keyid": "vaultKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null
@@ -764,6 +866,9 @@
       "description": "You are walking around various poker tables.",
       "capacity": 150,
       "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         { "id": "poker chips"}, { "id": "playing cards"}
       ],
@@ -786,6 +891,9 @@
       "description": "You are inside a private room, with a poker table in the middle.",
       "capacity": 150,
       "keyid": "privatePokerTableKey",
+      "npcs": [
+        { "id": null }
+      ],
       "items": [
         {
           "id": null

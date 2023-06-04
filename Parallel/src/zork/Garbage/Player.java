@@ -1,4 +1,4 @@
-package zork.data;
+package zork.Garbage;
 
 public class Player {
     String name = "Frank Page";

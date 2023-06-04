@@ -1,8 +1,6 @@
 package zork.Garbage;
 import java.util.Scanner;
 
-import zork.data.Player;
-
 public class Asker extends AttributesPresets {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object

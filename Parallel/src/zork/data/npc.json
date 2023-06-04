@@ -1,0 +1,10 @@
+{
+    "characters": [
+        {
+            "id": "Test NPC",
+            "name": "Test NPC",
+            "description": "There appears to be a massive man just standing next to your bed...",
+            "dialogue": "Test NPC: Hi, my name is CAGASUGE!!!"
+        }
+    ]
+}

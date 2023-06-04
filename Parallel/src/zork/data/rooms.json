@@ -7,7 +7,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": "Test NPC" }
+        { "id": null }
       ],
       "items": [
         { "id": "pillow" }, { "id": "painting" }, { "id": "welcome letter" }
@@ -519,7 +519,7 @@
       "capacity": 150,
       "keyid": "hotelRoofKey",
       "npcs": [
-        { "id": null }
+        { "id": "police" }
       ],
       "items": [
         { "id": "Gun"}, { "id": "plank of wood"}

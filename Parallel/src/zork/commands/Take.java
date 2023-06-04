@@ -10,7 +10,7 @@ import zork.exceptions.ItemNotFoundException;
 
 public class Take extends Command {
 
-    public Take() { super("Take", ArgumentCount.INFINITE); }
+    public Take() { super("Take", "Put an item from the room into your inventory", ArgumentCount.INFINITE); }
 
     public void runCommand(String... args) {
         for (Item item : Game.player.getCurrentRoom().getRoomItems().getContents()) {

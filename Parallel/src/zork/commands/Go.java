@@ -11,7 +11,7 @@ import zork.proto.Item;
 
 public class Go extends Command {
     
-    public Go() { super("Go", ArgumentCount.ONE); }
+    public Go() { super("Go", "Go in a certain direction", ArgumentCount.ONE); }
 
     public void runCommand(String... args) {
         Player player = Game.player;
@@ -47,7 +47,7 @@ public class Go extends Command {
                 try {
                 System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
                 Thread.sleep(1000);System.out.println(player.getCurrentRoom().longDescription());
-                }catch(Exception r) {}
+                } catch(Exception r) {}
                 return;
             }
         }

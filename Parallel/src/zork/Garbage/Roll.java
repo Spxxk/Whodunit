@@ -1,11 +1,11 @@
-package zork.commands;
+package zork.Garbage;
 
 import zork.Constants.ArgumentCount;
 import zork.proto.Command;
 
 public class Roll extends Command {
     
-    public Roll() { super("Roll", ArgumentCount.NONE); }
+    public Roll() { super("Roll", "Roll", ArgumentCount.NONE); }
 
     @Override
     public void runCommand(String... args) {

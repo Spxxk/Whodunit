@@ -8,7 +8,6 @@ public class TypingTest extends Minigame {
 
     public TypingTest() {
         super("Typing Test", (int) 1e9);
-        //TODO Auto-generated constructor stub
     }
 
     public static final String[] words = {

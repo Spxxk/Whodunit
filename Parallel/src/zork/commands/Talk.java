@@ -20,8 +20,11 @@ public class Talk extends Command {
         if(args[0].equalsIgnoreCase("to")) {
             for (Character ch : Game.player.getCurrentRoom().getCharacters()) {
                 if(("to " + ch.getName()).equalsIgnoreCase(Item.arrayToString(args))) {
+                    try{
                     System.out.println(ch.getDialogue());
+                    Thread.sleep(3000);
                     return;
+                    }catch (Exception z) {}
                 }
             }
             try {

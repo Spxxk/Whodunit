@@ -601,7 +601,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "invitationMan" }
       ],
       "items": [
         { "id": "privatePokerTableKey"}

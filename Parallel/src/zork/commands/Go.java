@@ -31,6 +31,7 @@ public class Go extends Command {
                             System.out.println("You have just unlocked "+player.getCurrentRoom().getRoomName()+"!");
                             Thread.sleep(1000);
                             System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
+                            Thread.sleep(1000);
                             System.out.println(player.getCurrentRoom().longDescription());
                             } catch (Exception ex) {
                                 ex.printStackTrace();

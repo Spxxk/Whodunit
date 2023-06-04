@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import zork.Game;
+import zork.proto.Character;
 
 public class Room {
     
@@ -12,6 +13,7 @@ public class Room {
     private Inventory items;
     private ArrayList<Exit> exits;
     private HashMap<String, Boolean> roomFlags;
+    private ArrayList<Character> characters;
     
     public ArrayList<Exit> getExits() {
         return exits;
@@ -65,8 +67,11 @@ public class Room {
     * Exits: north west
     */
     public String longDescription() {
+        String chDescriptions = "";
+        for (int i = 0; i < getCharacters().size(); i++)
+            chDescriptions += getCharacters().get(i).getDescription() + ".\n";
         
-        return "Room: " + roomName + "\n\n" + description + "\n" + exitString();
+        return "Room: " + roomName + "\n\n" + description + "\n" + chDescriptions + exitString();
     }
     
     /**
@@ -127,6 +132,14 @@ public class Room {
     
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setCharacters(ArrayList<Character> ch) {
+        characters = ch;
+    }
+
+    public ArrayList<Character> getCharacters() {
+        return characters;
     }
 }
         

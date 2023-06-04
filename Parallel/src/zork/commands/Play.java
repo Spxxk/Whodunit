@@ -6,6 +6,7 @@ import zork.proto.Command;
 import zork.proto.Item;
 import zork.threads.GameThread;
 import zork.utils.MinigameLoader;
+import zork.Game;
 
 public class Play extends Command {
     
@@ -21,6 +22,9 @@ public class Play extends Command {
 
             gt.start();
             gt.join();
+
+            Thread.sleep(1000);
+            System.out.println("\n" + Game.player.getCurrentRoom().longDescription());
         } catch (MinigameNotFoundException e) {
             e.printStackTrace("cmdHandler");
         } catch (InterruptedException e) {

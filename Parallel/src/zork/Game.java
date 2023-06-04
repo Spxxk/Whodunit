@@ -5,6 +5,7 @@ import zork.proto.Inventory;
 import zork.proto.Item;
 import zork.proto.Player;
 import zork.proto.Room;
+import zork.proto.Character;
 import zork.threads.CommandListener;
 import zork.utils.CommandLoader;
 import zork.utils.MinigameLoader;
@@ -22,14 +23,13 @@ public class Game {
 
 	public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 	public static HashMap<String, Item> itemList = new HashMap<String, Item>();
+	public static HashMap<String, Character> characterList = new HashMap<String, Character>();
 
     public static Player player;
 
     private static Game game = new Game();
 
     private static final Thread cmdListener = new CommandListener();
-
-	private static final HashMap<String, Boolean> STORY_FLAGS = new HashMap<String, Boolean>();
 
 	/**
 	 * Create the game and initialise its internal map.
@@ -38,6 +38,7 @@ public class Game {
 		try {
             CommandLoader.init();
             MinigameLoader.init();
+			initCharacters();
 			initItems();
 			initRooms();
 
@@ -49,6 +50,27 @@ public class Game {
 
 	public static Game getCurrentGame() {
 		return game;
+	}
+
+	private void initCharacters() throws Exception {
+		Path path = Path.of("src\\zork\\data\\npc.json");
+		String jsonString = Files.readString(path);
+		JSONParser parser = new JSONParser();
+		JSONObject json = (JSONObject) parser.parse(jsonString);
+
+		JSONArray jsonItems = (JSONArray) json.get("characters");
+
+		for (Object characterObj : jsonItems) {
+			String characterName = (String) ((JSONObject) characterObj).get("name");
+			String characterId = (String) ((JSONObject) characterObj).get("id");
+			String characterDescription = (String) ((JSONObject) characterObj).get("description");
+			String characterDialogue = (String) ((JSONObject) characterObj).get("dialogue");
+
+			Character character = new Character(characterId, characterName, characterDescription);
+			character.setDialogue(characterDialogue);
+
+			characterList.put(characterId, character);
+		}
 	}
 
 	private void initItems() throws Exception {
@@ -88,6 +110,13 @@ public class Game {
 			String roomDescription = (String) ((JSONObject) roomObj).get("description");
 			room.setDescription(roomDescription);
 			room.setRoomName(roomName);
+
+			JSONArray jsonCharacters = (JSONArray) ((JSONObject) roomObj).get("npcs");
+			ArrayList<Character> characters = new ArrayList<Character>();
+			for(Object charObj : jsonCharacters) {
+				if(((JSONObject) charObj).get("id") != null) { characters.add(characterList.get((String) ((JSONObject) charObj).get("id"))); }
+			}
+			room.setCharacters(characters);
 
 			JSONArray jsonItems = (JSONArray) ((JSONObject) roomObj).get("items");
 			Inventory roomItems = new Inventory(roomCapacity);

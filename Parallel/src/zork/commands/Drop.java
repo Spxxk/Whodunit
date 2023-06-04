@@ -10,7 +10,7 @@ import zork.exceptions.ItemNotFoundException;
 
 public class Drop extends Command {
 
-    public Drop() { super("Drop", ArgumentCount.INFINITE); }
+    public Drop() { super("Drop", "Drops an item from the inventory", ArgumentCount.INFINITE); }
 
     public void runCommand(String... args) {
         for (Item item : Game.player.getInventory().getContents()) {

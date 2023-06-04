@@ -20,6 +20,10 @@ public class CommandLoader {
         }        
     }
 
+    public static Map<String, Command> getAllCommands() {
+        return commands;
+    }
+
     public static Command getCommand(String n) throws CommandNotFoundException {
         Command c = commands.get(n.toLowerCase());
 

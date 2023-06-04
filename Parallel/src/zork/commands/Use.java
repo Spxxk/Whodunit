@@ -8,7 +8,7 @@ import zork.Game;
 
 public class Use extends Command {
 
-    public Use() { super("Use" , ArgumentCount.INFINITE); }
+    public Use() { super("Use", "Use an item from your inventory", ArgumentCount.INFINITE); }
 
     @Override
     public void runCommand(String... args) {

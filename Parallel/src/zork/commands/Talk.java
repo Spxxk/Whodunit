@@ -9,7 +9,7 @@ import zork.proto.Character;
 
 public class Talk extends Command {
 
-    public Talk() { super("Talk", ArgumentCount.INFINITE); }
+    public Talk() { super("Talk", "Talk to an NPC", ArgumentCount.INFINITE); }
 
     public void runCommand(String... args) {
         if(args.length < 2) {

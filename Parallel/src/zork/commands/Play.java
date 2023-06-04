@@ -10,7 +10,7 @@ import zork.Game;
 
 public class Play extends Command {
     
-    public Play() { super("Play", ArgumentCount.INFINITE); }
+    public Play() { super("Play", "Play a certain minigame", ArgumentCount.INFINITE); }
 
     @Override
     public void runCommand(String... args) {

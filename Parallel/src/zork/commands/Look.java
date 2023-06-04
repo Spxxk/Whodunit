@@ -10,7 +10,7 @@ import zork.proto.Character;
 
 public class Look extends Command {
     
-    public Look() { super("Look", ArgumentCount.NONE); }
+    public Look() { super("Look", "Find items in the room", ArgumentCount.NONE); }
 
     @Override
     public void runCommand(String... args) {

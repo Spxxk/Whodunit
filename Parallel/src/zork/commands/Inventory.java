@@ -11,7 +11,7 @@ import zork.proto.Item;
 
 public class Inventory extends Command {
     
-    public Inventory() { super("Inventory", ArgumentCount.NONE); }
+    public Inventory() { super("Inventory", "View your inventory", ArgumentCount.NONE); }
 
     public void runCommand(String... args) {
         ArrayList<Item> inventory = Game.player.getInventory().getContents();

@@ -148,8 +148,8 @@ public class Game {
 	 */
 	public void play() throws InterruptedException{
 		printWelcome();
-		String playerName = Player.setPlayerName();
-		System.out.println("Hey there, "+playerName+". Get ready for an eventful stretch of time coming your way.");
+		player.setPlayerName();
+		System.out.println("Hey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
 		printStory();
 		Thread.sleep(1000);System.out.println(Game.player.getCurrentRoom().longDescription());
 		

@@ -18,7 +18,8 @@ public class TypingTest extends Minigame {
         "early", "in", "again", "can", "you", "turn", "this", "paragraph", "into", "a", "list", "of", "words", "each", "surrounded", "by", "double", "quotes", "and", "a", "comma", "separating"
     };
     
-    public static void play() {
+    @Override
+    public void startGame(String... args) {
         TimeController timer = new TimeController();
         Scanner in = new Scanner(System.in);
 
@@ -70,11 +71,5 @@ public class TypingTest extends Minigame {
                 e.printStackTrace();
             }
         }
-    }
-
-    @Override
-    public void startGame(String... args) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startGame'");
     }
 }

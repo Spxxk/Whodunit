@@ -519,7 +519,7 @@
       "capacity": 150,
       "keyid": "hotelRoofKey",
       "npcs": [
-        { "id": "police" }
+        { "id": null }
       ],
       "items": [
         { "id": "Gun"}, { "id": "plank of wood"}
@@ -539,7 +539,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "police" }
       ],
       "items": [
         {

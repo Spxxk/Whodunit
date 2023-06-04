@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Player {
     private final Inventory playerInventory;
     private Room currentRoom;
+    private String name;
     
     public Player(int inventoryLimit) {
         playerInventory = new Inventory(inventoryLimit);
@@ -29,10 +30,13 @@ public class Player {
         return playerInventory;
     }
 
-    public static String setPlayerName() {
+    public void setPlayerName() {
         Scanner in = new Scanner(System.in);
         System.out.print("What is your name? ");
-        String playerName = in.nextLine();
-        return playerName;
+        name = in.nextLine();
+    }
+
+    public String getPlayerName() {
+        return this.name;
     }
 }

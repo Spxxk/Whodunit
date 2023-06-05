@@ -34,7 +34,7 @@ public class Player {
 
     public void setPlayerName() {
         Scanner in = new Scanner(System.in);
-        Game.print("What is your name? ");
+        System.out.print("What is your name? ");
         name = in.nextLine();
     }
 

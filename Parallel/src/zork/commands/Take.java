@@ -26,7 +26,7 @@ public class Take extends Command {
                     return;
                 }
 
-                System.out.println("You picked up a " + item.getName() + " from the ground.");
+                Game.print("/bYou picked up a " + item.getName() + " from the ground.");
                 return;
             }
         }

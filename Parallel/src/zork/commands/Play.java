@@ -24,7 +24,7 @@ public class Play extends Command {
             gt.join();
 
             Thread.sleep(1000);
-            System.out.println("\n" + Game.player.getCurrentRoom().longDescription());
+            Game.print("/b\n" + Game.player.getCurrentRoom().longDescription());
         } catch (MinigameNotFoundException e) {
             e.printStackTrace("cmdHandler");
         } catch (InterruptedException e) {

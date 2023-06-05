@@ -150,9 +150,9 @@ public class Game {
 	public void play() throws InterruptedException {
 		printWelcome();
 		player.setPlayerName();
-		print("Hey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
+		print("\n/bHey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
 		printStory();
-		print(Game.player.getCurrentRoom().longDescription());
+		print("/b" + Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();
 		dialogueThread.start();		
@@ -160,10 +160,10 @@ public class Game {
 
 	private void printStory() throws InterruptedException {
 		System.out.println();
-		print("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
-		print("However, you woke up this morning,");
-		print("and something was off........");
-		print("Travel around to see what's going on.");
+		print("/bYou went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
+		print("/bHowever, you woke up this morning,");
+		print("/band something was off........");
+		print("/bTravel around to see what's going on.");
 		System.out.println();
 	}
 
@@ -171,19 +171,19 @@ public class Game {
 	 * Print out the opening message for the player.
 	 */
 	private void printWelcome() throws InterruptedException{
-		;System.out.println();
-		Thread.sleep(1000);System.out.println("Welcome to Whodunit!");
-		Thread.sleep(1000);System.out.println("Whodunit is a murder mystery game in which you find clues and crack a case.");
-		Thread.sleep(1500);System.out.println("Type 'help' if you need help.");
-		Thread.sleep(1000);System.out.println();
+		System.out.println();
+		print("/bWelcome to Whodunit!");
+		print("/bWhodunit is a murder mystery game in which you find clues and crack a case.");
+		print("/bType 'help' if you need help.");
+		System.out.println();
 	}
 
 	public static void dialogueLoop(String id) {
 		if(id.equals("police")) {
 			print("Hey there /p, I was looking to speak with you.");
 			print("I heard your buddy died and came running here.");
-			print("So far, we don't know much about the case, but it might be");
-			print("helpful to speak with the /rreceptionist/g about accessing Glenn's room.");
+			print("So far, we don't know much about the case, but it might be helpful to");
+			print("speak with the /rreceptionist/g east of here about accessing Glenn's room.");
 		}
 		if(id.equals("receptionist")) {
 			print("Hi /p! The officer over there told me to give you this.");

@@ -17,7 +17,7 @@ public class Inventory extends Command {
         ArrayList<Item> inventory = Game.player.getInventory().getContents();
 
         if(inventory.size() == 0) { 
-            System.out.println("Your inventory is empty.");
+            Game.print("/bYour inventory is empty.");
             return;
         }
 

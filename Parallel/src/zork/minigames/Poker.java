@@ -31,14 +31,43 @@ public class Poker extends Minigame {
     }
 
     public void startGame(String... args) {
+        printSlowly("WELCOME TO CAGA's POKER DUNGEON", 100);
+        printSlowly("Welcome! You are about to play a classic game of poker.", 100);
+        printSlowly("Here are some instructions to get you started:", 100);
+        printSlowly("\n1. You will start the game with the $250 from the wallet you found.", 100);
+        printSlowly("2. You will be playing against 3 opponents.", 100);
+        printSlowly("3. Each round begins with you and the opponents being dealt 2 cards from a shuffled deck.", 100);
+        printSlowly("4. In each betting round, you can choose to 'bet', 'raise', or 'call'.", 100);
+        printSlowly("5. The game continues until you lose all your money or reach $800", 100);
+        printSlowly("\nIf you succumb to CAGASUGE you will be eaten and die a painful death", 100);
+        printSlowly("\nCAGASUGE IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...", 100);
+
+        try {
+            Thread.sleep(2000); // Delay before the game starts
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         while (true) {
             playRound();
-            System.out.println("Would you like to play again? (yes/no)");
+            printSlowly("Would you like to play again? (yes/no)", 100);
             String playAgain = scanner.nextLine().toLowerCase();
             if (!"yes".equals(playAgain)) {
                 break;
             }
         }
+    }
+
+    private void printSlowly(String text, long delay) {
+        for (char ch : text.toCharArray()) {
+            System.out.print(ch);
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println();
     }
 
     public void playRound() {

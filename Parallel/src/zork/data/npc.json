@@ -10,7 +10,19 @@
             "id": "invitationMan",
             "name": "Man in Parking Lot",
             "description": "There is a man in a suit holding a sealed letter. What could it be?",
-            "dialogue": "Hey there /p! Hope you have been enjoying your stay at the resort so far. I was invited to attend a special event, but I unfortunately cannot make it. If you beat me in Tic Tac Toe, the invitation is all yours. What do you say?"
+            "dialogue": "Hey there /p! Hope you have been enjoying your stay at the resort so far. I was invited to attend a special event, but I unfortunately can't make it. If you can beat me in Tic Tac Toe, the invitation is all yours. What do you say?"
+        },
+        {
+            "id": "walletOwner",
+            "name": "Guy at Swimming Pool",
+            "description": "There is a man by the pool who is headed your way. He does not look happy",
+            "dialogue": "Hey you! That's my wallet! Oh, so you're not gonna give it back, huh? Well then, if you dont get 50 words per minute on this typing test, you're gonna get what's coming to you!"
+        },
+        {
+            "id": "brentAndFriends",
+            "name": "Brent",
+            "description": "The first thing you see in the private poker room is Brent along with a few other men, sitting around the table",
+            "dialogue": "Well well well, if it isn't /p. I bet you're caught up with what's been going on, y'know, Glenn died. Well it was ME all along! I did it so I could get all of his money, and look at where I am now! All of these friends and this wealth has been treating me very nicely. Anyways, play a game of poker with me. If you win, I'll let you live. If you don't, well... you know what's gonna happen."
         }
     ]
 }

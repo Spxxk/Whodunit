@@ -621,7 +621,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "walletOwner" }
       ],
       "items": [
         { "id": "sandals"}, { "id": "water gun"}, { "id": "brentClosetKey"}
@@ -892,7 +892,7 @@
       "capacity": 150,
       "keyid": "privatePokerTableKey",
       "npcs": [
-        { "id": null }
+        { "id": "brentAndFriends" }
       ],
       "items": [
         {

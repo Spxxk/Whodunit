@@ -65,9 +65,11 @@ public class Game {
 			String characterId = (String) ((JSONObject) characterObj).get("id");
 			String characterDescription = (String) ((JSONObject) characterObj).get("description");
 			String characterDialogue = (String) ((JSONObject) characterObj).get("dialogue");
+			Boolean options = (Boolean) ((JSONObject) characterObj).get("options");
 
 			Character character = new Character(characterId, characterName, characterDescription);
 			character.setDialogue(characterDialogue);
+			character.setOptions(options);
 
 			characterList.put(characterId, character);
 		}

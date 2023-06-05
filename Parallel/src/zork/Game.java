@@ -9,6 +9,7 @@ import zork.proto.Character;
 import zork.threads.CommandListener;
 import zork.utils.CommandLoader;
 import zork.utils.MinigameLoader;
+import zork.utils.Print;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -151,20 +152,19 @@ public class Game {
 	public void play() throws InterruptedException{
 		printWelcome();
 		player.setPlayerName();
-		System.out.println("Hey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
+		Print.printSlowly("Hey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
 		printStory();
-		Thread.sleep(1000);System.out.println(Game.player.getCurrentRoom().longDescription());
+		Print.printSlowly(Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();
 	}
 
 	private void printStory() throws InterruptedException {
 		System.out.println();
-		Thread.sleep(2000);System.out.println("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
-		Thread.sleep(1000);System.out.println("However, you woke up this morning,");
-		Thread.sleep(1000);System.out.println("and something was off........");
-		Thread.sleep(2000);System.out.println("Travel around to see what's going on.");
-		Thread.sleep(1000);
+		Print.printSlowly("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
+		Print.printSlowly("However, you woke up this morning,");
+		Print.printSlowly("and something was off........");
+		Print.printSlowly("Travel around to see what's going on.");
 		System.out.println();
 	}
 
@@ -172,10 +172,10 @@ public class Game {
 	 * Print out the opening message for the player.
 	 */
 	private void printWelcome() throws InterruptedException{
-		;System.out.println();
-		Thread.sleep(1000);System.out.println("Welcome to Whodunit!");
-		Thread.sleep(1000);System.out.println("Whodunit is a murder mystery game in which you find clues and crack a case.");
-		Thread.sleep(1500);System.out.println("Type 'help' if you need help.");
-		Thread.sleep(1000);System.out.println();
+		System.out.println();
+		Print.printSlowly("Welcome to Whodunit!");
+		Print.printSlowly("Whodunit is a murder mystery game in which you find clues and crack a case.");
+		Print.printSlowly("Type 'help' if you need help.");
+		System.out.println();
 	}
 }

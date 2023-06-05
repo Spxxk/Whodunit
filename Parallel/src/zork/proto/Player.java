@@ -1,7 +1,6 @@
 package zork.proto;
 
 import zork.Game;
-import zork.utils.Print;
 
 import java.util.Scanner;
 
@@ -35,7 +34,7 @@ public class Player {
 
     public void setPlayerName() {
         Scanner in = new Scanner(System.in);
-        Print.printSlowly("What is your name? ");
+        Game.print("What is your name? ");
         name = in.nextLine();
     }
 

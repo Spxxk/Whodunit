@@ -2,7 +2,7 @@ package zork.minigames;
 
 import java.util.*;
 
-import zork.utils.Print;
+import zork.Game;
 import zork.utils.PokerUtil.Card;
 import zork.utils.PokerUtil.Deck;
 import zork.utils.PokerUtil.Player;
@@ -32,16 +32,16 @@ public class Poker extends Minigame {
     }
 
     public void startGame(String... args) {
-        Print.printSlowly("WELCOME TO CAGA's POKER DUNGEON", 100);
-        Print.printSlowly("Welcome! You are about to play a classic game of poker.", 100);
-        Print.printSlowly("Here are some instructions to get you started:", 100);
-        Print.printSlowly("\n1. You will start the game with the $250 from the wallet you found.", 100);
-        Print.printSlowly("2. You will be playing against 3 opponents.", 100);
-        Print.printSlowly("3. Each round begins with you and the opponents being dealt 2 cards from a shuffled deck.", 100);
-        Print.printSlowly("4. In each betting round, you can choose to 'bet', 'raise', or 'call'.", 100);
-        Print.printSlowly("5. The game continues until you lose all your money or reach $800", 100);
-        Print.printSlowly("\nIf you succumb to CAGASUGE you will be eaten and die a painful death", 100);
-        Print.printSlowly("\nCAGASUGE IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...", 100);
+        Game.print("WELCOME TO CAGA's POKER DUNGEON");
+        Game.print("Welcome! You are about to play a classic game of poker.");
+        Game.print("Here are some instructions to get you started:");
+        Game.print("\n1. You will start the game with the $250 from the wallet you found.");
+        Game.print("2. You will be playing against 3 opponents.");
+        Game.print("3. Each round begins with you and the opponents being dealt 2 cards from a shuffled deck.");
+        Game.print("4. In each betting round, you can choose to 'bet', 'raise', or 'call'.");
+        Game.print("5. The game continues until you lose all your money or reach $800");
+        Game.print("\nIf you succumb to CAGASUGE you will be eaten and die a painful death");
+        Game.print("\nCAGASUGE IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...");
 
         try {
             Thread.sleep(2000); // Delay before the game starts
@@ -51,7 +51,7 @@ public class Poker extends Minigame {
 
         while (true) {
             playRound();
-            Print.printSlowly("Would you like to play again? (yes/no)", 100);
+            Game.print("Would you like to play again? (yes/no)");
             String playAgain = scanner.nextLine().toLowerCase();
             if (!"yes".equals(playAgain)) {
                 break;

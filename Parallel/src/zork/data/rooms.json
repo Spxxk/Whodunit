@@ -768,10 +768,10 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "receptionist" }
       ],
       "items": [
-        { "id": "glennRoomKey"}, { "id": "bottle of water"}
+        { "id": "bottle of water"}
       ],
       "exits": [
         {

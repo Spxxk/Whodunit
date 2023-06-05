@@ -3,30 +3,27 @@
         {
             "id": "police",
             "name": "Police Officer",
-            "description": "There appears to be a lot of commotion in the hotel lobby. A police officer is available for questions regarding recent events",
-            "dialogue": "Hey there, you must be /p. After some investigation, your friend Glenn got into an mysterious and unfortunate accident. However, there is still more digging to be done. His room key is at the reception desk, if you want to take a look for yourself. Stay safe /p!",
-            "options": false
+            "description": "There appears to be a lot of commotion in the hotel lobby. A police officer is available for questions regarding recent events"
+        },
+        {
+            "id": "receptionist",
+            "name": "Hotel Receptionist",
+            "description": "The receptionist at the desk appears to want to speak to you"
         },
         {
             "id": "invitationMan",
             "name": "Man in Parking Lot",
-            "description": "There is a man in a suit holding a sealed letter. What could it be?",
-            "dialogue": "Hey there /p! Hope you have been enjoying your stay at the resort so far. I was invited to attend a special event, but I unfortunately can't make it. If you can beat me in Tic Tac Toe, the invitation is all yours. What do you say?",
-            "options": true
+            "description": "There is a man in a suit holding a sealed letter. What could it be?"
         },
         {
             "id": "walletOwner",
             "name": "Guy at Swimming Pool",
-            "description": "There is a man by the pool who is headed your way. He does not look happy",
-            "dialogue": "Hey you! That's my wallet! Oh, so you're not gonna give it back, huh? Well then, if you dont get 50 words per minute on this typing test, you're gonna get what's coming to you!",
-            "options": false
+            "description": "There is a man by the pool who is headed your way. He does not look happy"
         },
         {
             "id": "brentAndFriends",
             "name": "Brent",
-            "description": "The first thing you see in the private poker room is Brent along with a few other men, sitting around the table",
-            "dialogue": "Well well well, if it isn't /p. I bet you're caught up with what's been going on, y'know, Glenn died. Well it was ME all along! I did it so I could get all of his money, and look at where I am now! All of these friends and this wealth has been treating me very nicely. Anyways, play a game of poker with me. If you win, I'll let you live. If you don't, well... you know what's gonna happen.",
-            "options": false
+            "description": "The first thing you see in the private poker room is Brent along with a few other men, sitting around the table"
         }
     ]
 }

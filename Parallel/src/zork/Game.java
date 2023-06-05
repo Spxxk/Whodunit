@@ -7,9 +7,9 @@ import zork.proto.Player;
 import zork.proto.Room;
 import zork.proto.Character;
 import zork.threads.CommandListener;
+import zork.threads.DialogueThread;
 import zork.utils.CommandLoader;
 import zork.utils.MinigameLoader;
-import zork.utils.Print;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -30,7 +30,9 @@ public class Game {
 
     private static Game game = new Game();
 
-    private static final Thread cmdListener = new CommandListener();
+    private static final Thread cmdListener = new CommandListener(), dialogueThread = new DialogueThread();
+
+	static final String GREEN_TEXT = "\033[1;32m", RESET = "\033[0m", RED_TEXT = "\033[1;31m";
 
 	/**
 	 * Create the game and initialise its internal map.
@@ -65,12 +67,8 @@ public class Game {
 			String characterName = (String) ((JSONObject) characterObj).get("name");
 			String characterId = (String) ((JSONObject) characterObj).get("id");
 			String characterDescription = (String) ((JSONObject) characterObj).get("description");
-			String characterDialogue = (String) ((JSONObject) characterObj).get("dialogue");
-			Boolean options = (Boolean) ((JSONObject) characterObj).get("options");
 
 			Character character = new Character(characterId, characterName, characterDescription);
-			character.setDialogue(characterDialogue);
-			character.setOptions(options);
 
 			characterList.put(characterId, character);
 		}
@@ -149,22 +147,23 @@ public class Game {
 	/**
 	 * Main play routine. Loops until end of play.
 	 */
-	public void play() throws InterruptedException{
+	public void play() throws InterruptedException {
 		printWelcome();
 		player.setPlayerName();
-		Print.printSlowly("Hey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
+		print("Hey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
 		printStory();
-		Print.printSlowly(Game.player.getCurrentRoom().longDescription());
+		print(Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();
+		dialogueThread.start();		
 	}
 
 	private void printStory() throws InterruptedException {
 		System.out.println();
-		Print.printSlowly("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
-		Print.printSlowly("However, you woke up this morning,");
-		Print.printSlowly("and something was off........");
-		Print.printSlowly("Travel around to see what's going on.");
+		print("You went on a trip with your friends Brent and Glenn to a fancy tropical resort.");
+		print("However, you woke up this morning,");
+		print("and something was off........");
+		print("Travel around to see what's going on.");
 		System.out.println();
 	}
 
@@ -172,10 +171,82 @@ public class Game {
 	 * Print out the opening message for the player.
 	 */
 	private void printWelcome() throws InterruptedException{
-		System.out.println();
-		Print.printSlowly("Welcome to Whodunit!");
-		Print.printSlowly("Whodunit is a murder mystery game in which you find clues and crack a case.");
-		Print.printSlowly("Type 'help' if you need help.");
-		System.out.println();
+		;System.out.println();
+		Thread.sleep(1000);System.out.println("Welcome to Whodunit!");
+		Thread.sleep(1000);System.out.println("Whodunit is a murder mystery game in which you find clues and crack a case.");
+		Thread.sleep(1500);System.out.println("Type 'help' if you need help.");
+		Thread.sleep(1000);System.out.println();
+	}
+
+	public static void dialogueLoop(String id) {
+		if(id.equals("police")) {
+			print("Hey there /p, I was looking to speak with you.");
+			print("I heard your buddy died and came running here.");
+			print("So far, we don't know much about the case, but it might be");
+			print("helpful to speak with the /rreceptionist/g about accessing Glenn's room.");
+		}
+		if(id.equals("receptionist")) {
+			print("Hi /p! The officer over there told me to give you this.");
+			print("/bThe receptionist gave you Glenn's Room Key!");
+			print("Use this to continue your investigation into your friend's murder.");
+			print("I feel super bad for you, but I'm afraid this is all I can help with.");
+			print("I'll call you if I ever find out more information.");
+		}
+	}
+
+	public static void print(String line) {
+		line = playerEscapeSequence(line);
+		line = redEscapeSequence(line);
+		line = greenEscapeSequence(line);
+		line = resetEscapeSequence(line);
+
+		try {
+			System.out.print(GREEN_TEXT);
+
+			for (int i = 0; i < line.length(); i++) {
+				System.out.print(line.charAt(i));
+				Thread.sleep(20);
+			}
+			System.out.println(RESET);
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static String resetEscapeSequence(String line) {
+		while(line.indexOf("/b") != -1) {
+			int p = line.indexOf("/b");
+			line = line.substring(0, p) + RESET + line.substring(p + 2);
+		}
+
+		return line;
+	}
+
+	private static String greenEscapeSequence(String line) {
+		while(line.indexOf("/g") != -1) {
+			int p = line.indexOf("/g");
+			line = line.substring(0, p) + GREEN_TEXT + line.substring(p + 2);
+		}
+
+		return line;
+	}
+
+	private static String redEscapeSequence(String line) {
+		while(line.indexOf("/r") != -1) {
+			int p = line.indexOf("/r");
+			line = line.substring(0, p) + RED_TEXT + line.substring(p + 2);
+		}
+
+		return line;
+	}
+
+	public static String playerEscapeSequence(String line) {
+		while(line.indexOf("/p") != -1) {
+			int p = line.indexOf("/p");
+			line = line.substring(0, p) + player.getPlayerName() + line.substring(p + 2);
+		}
+
+		return line;
 	}
 }

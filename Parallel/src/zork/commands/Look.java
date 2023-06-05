@@ -10,7 +10,7 @@ import zork.proto.Character;
 
 public class Look extends Command {
     
-    public Look() { super("Look", "Find items in the room", ArgumentCount.NONE); }
+    public Look() { super("Look", "See the items and characters in the room", ArgumentCount.NONE); }
 
     @Override
     public void runCommand(String... args) {
@@ -29,7 +29,7 @@ public class Look extends Command {
                 
                 if (!i.equals(items.get(items.size()-1))) System.out.print(", ");
             }
-            System.out.println();
+            if(chars.size() > 0) System.out.println();
         }
 
         if(chars.size() > 0) {

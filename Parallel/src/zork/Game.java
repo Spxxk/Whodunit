@@ -149,11 +149,14 @@ public class Game {
 	/**
 	 * Main play routine. Loops until end of play.
 	 */
-	public void play() throws InterruptedException {
-		printWelcome();
-		player.setPlayerName();
-		print("\n/bHey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
-		printStory();
+	public void play(boolean test) throws InterruptedException {
+		if(!test) {
+			printWelcome();
+			player.setPlayerName();
+			print("\n/bHey there, "+player.getPlayerName()+". Get ready for an eventful stretch of time coming your way.");
+			printStory();
+		} 
+		else { player.setPlayerName(0); }
 		print("/b" + Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();

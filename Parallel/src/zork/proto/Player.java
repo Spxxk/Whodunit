@@ -38,6 +38,10 @@ public class Player {
         name = in.nextLine();
     }
 
+    public void setPlayerName(int n) {
+        name = "Cameron";
+    }
+
     public String getPlayerName() {
         return this.name;
     }

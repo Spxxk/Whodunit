@@ -9,6 +9,8 @@ import zork.proto.Character;
 import zork.threads.CommandListener;
 import zork.threads.DialogueThread;
 import zork.utils.CommandLoader;
+import zork.utils.Give;
+import zork.utils.CharacterConstants;
 import zork.utils.MinigameLoader;
 
 import java.nio.file.Files;
@@ -179,18 +181,30 @@ public class Game {
 	}
 
 	public static void dialogueLoop(String id) {
-		if(id.equals("police")) {
+		if(id.equals("police") && !CharacterConstants.GAVE_ROOM_KEY) {
 			print("Hey there /p, I was looking to speak with you.");
 			print("I heard your buddy died and came running here.");
 			print("So far, we don't know much about the case, but it might be helpful to");
 			print("speak with the /rreceptionist/g east of here about accessing Glenn's room.");
 		}
-		if(id.equals("receptionist")) {
+		else if(id.equals("police") && CharacterConstants.GAVE_ROOM_KEY) {
+			print("Ah, I see you got the room key from the receptionist.");
+			print("Use that key to unlock Glenn's room /rnorthwest/g of the elevator.");
+			print("Good luck on your investigation, /p, and remember I'm here to help you if you need me.");
+		}
+		if(id.equals("receptionist") && !CharacterConstants.GAVE_ROOM_KEY) {
 			print("Hi /p! The officer over there told me to give you this.");
-			print("/bThe receptionist gave you Glenn's Room Key!");
-			print("Use this to continue your investigation into your friend's murder.");
-			print("I feel super bad for you, but I'm afraid this is all I can help with.");
-			print("I'll call you if I ever find out more information.");
+			if(Give.giveItem(itemList.get("glennRoomKey"), "receptionist")) {
+				print("Use this to continue your investigation into your friend's murder.");
+				print("I feel super bad for you, but I'm afraid this is all I can help with.");
+				print("I'll call you if I ever find out more information.");
+				CharacterConstants.GAVE_ROOM_KEY = true;
+			}
+		}
+		else if(id.equals("receptionist") && CharacterConstants.GAVE_ROOM_KEY) {
+			print("/p, hope your investigation is going well.");
+			print("If there's anything you need help with, please ask me.");
+			print("Have you used the key to check Glenn's room? It may provide you with clues.");
 		}
 	}
 

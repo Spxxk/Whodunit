@@ -19,6 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -207,16 +208,78 @@ public class Game {
 			}
 		}
 		else if(id.equals("receptionist") && CharacterConstants.GAVE_ROOM_KEY) {
-			print("/p, hope your investigation is going well.");
+			print("Hi again /p, hope your investigation is going well.");
 			print("If there's anything you need help with, please ask me.");
 			print("Have you used the key to check Glenn's room? It may provide you with clues.");
-
-			runMinigame("Memory Numbers");
-			if(player.getResult()) {
-				print("You won! Nice job /p.");
+		}
+		if(id.equals("walletOwner") && !CharacterConstants.GAVE_WALLET && CharacterConstants.GAVE_ROOM_KEY) {
+			print("Hey there /p! This resort is pretty nice, huh?");
+			print("Anyways, I heard that there's something going on at the casino later, but you need money to get in.");
+			print("I have a wallet with $250 for you, but only if you can get 60 words per minute on a typing test.");
+			print("So, /p, you wanna take on the challenge?");
+			Scanner in = new Scanner(System.in);
+			while(true){
+				String ans = in.nextLine();
+				if(ans.equalsIgnoreCase("yes")){
+					print("You're on, /p!");
+					runMinigame("Typing Test");
+					if(player.getResult()){
+						print("Excellent work /p! The money is now yours.");
+						if(Give.giveItem(itemList.get("casinoKey"),"Wallet Owner")){
+							print("Use this to access the casino when you please. See ya /p!");
+							CharacterConstants.GAVE_WALLET = true;
+						}
+						return;
+					}else{
+						print("Unfortunately, you couldn't pass the typing test. Would you like to try again?");
+					}
+				}else if(ans.equalsIgnoreCase("no")){
+					print("No problem /p. Remember, I'm always chilling by the pool in case you change your mind!");
+				}
 			}
-			else {
-				print("I had to break it to you, /p, but you lost... try again when you're ready.");
+		}else if(id.equals("walletOwner") && CharacterConstants.GAVE_WALLET && CharacterConstants.GAVE_ROOM_KEY){
+			print("Great to see you again /p!");
+			print("Have you visited the casino yet? Remember, play wisely!");
+		}
+		if(id.equals("invitationMan") && !CharacterConstants.GAVE_INVITATION && CharacterConstants.GAVE_ROOM_KEY) {
+			print("Hello there, you must be /p!");
+			print("I am supposed to attend an event in the casino's private poker room, but I won't be able to make it");
+			print("The invitation can be all yours, but only if you beat me in Tic Tac Toe.");
+			print("So, /p, are you ready to challenge the master?");
+			Scanner in = new Scanner(System.in);
+			while(true){
+				String ans = in.nextLine();
+				if(ans.equalsIgnoreCase("yes")){
+					print("Bring it on, /p!");
+					runMinigame("Tic Tac Toe");
+					if(player.getResult()){
+						print("Wow, you're pretty good. Here's the invitation, /p!");
+						if(Give.giveItem(itemList.get("privatePokerTableKey"),"Mr. McMullen")){
+							print("Have fun at the event!");
+							CharacterConstants.GAVE_INVITATION = true;
+						}
+						return;
+					}else{
+						print("Yes! I win this time! I'll give you another change /p, want to rematch?");
+					}
+				}
+			}
+		}else if(id.equals("invitationMan") && CharacterConstants.GAVE_INVITATION && CharacterConstants.GAVE_ROOM_KEY){
+			print("Greetings, p/! How are you on this fine day?");
+			print("The date for the event is approaching rapidly, don't miss it!");
+		}
+		if(id.equals("brentAndFriends") && CharacterConstants.GAVE_ROOM_KEY) {
+			print("Well well well, if it isn't /p.");
+			print("It's a shame what happened to Glenn. But there's one thing I should let you know: it was ME!");
+			print("I get sick to my stomach when I see Glenn get all sorts of attention everywhere we go,");
+			print("so I decided to put an end to it. Now /p, we're gonna play a game of poker.");
+			print("If you win, you could turn me into the cops and I won't have any money to get a lawyer.");
+			print("But if you lose, it's all over for you.");
+			runMinigame("Poker");
+			if(player.getResult()){
+				printWin();
+			}else{
+				printLoss();
 			}
 		}
 	}
@@ -280,5 +343,13 @@ public class Game {
 	public static void runMinigame(String minigame) {
 		Command play = new Play();
 		play.runCommand(minigame);
+	}
+
+	public static void printWin() {
+		print("/bYou win! You found out Whodunit! Congrats /p!");
+	}
+
+	public static void printLoss() {
+		print("/rUnfortunately, you lost the game of poker, and Brent took your life along with Glenn's. YOU LOSE.");
 	}
 }

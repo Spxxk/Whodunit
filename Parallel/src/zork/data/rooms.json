@@ -604,7 +604,7 @@
         { "id": "invitationMan" }
       ],
       "items": [
-        { "id": "privatePokerTableKey"}
+        { "id": null}
       ],
       "exits": [
         {
@@ -654,7 +654,7 @@
         { "id": null }
       ],
       "items": [
-        { "id": "burger"}, { "id": "hot dog"}, { "id": "casinoKey"}
+        { "id": "burger"}, { "id": "hot dog"}
       ],
       "exits": [
         {
@@ -841,7 +841,7 @@
     {
       "id": "vault",
       "name": "Vault",
-      "description": "You are inside of a vault.",
+      "description": "You are inside of a vault. It is shockingly empty.",
       "capacity": 150,
       "keyid": "vaultKey",
       "npcs": [

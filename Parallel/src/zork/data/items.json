@@ -36,6 +36,20 @@
             "needsContext": false
         },
         {
+            "id": "crate",
+            "name": "Crate",
+            "weight": 120,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "batteringRam",
+            "name": "Battering Ram",
+            "weight": 300,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
             "id": "Gun",
             "name": "Gun",
             "weight": 2,
@@ -363,6 +377,13 @@
             "id": "2 bullets (stands)",
             "name": "2 bullets (stands)",
             "weight": 0.2,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "cellarBullet",
+            "name": "Bullet",
+            "weight": 0.1,
             "isOpenable": false,
             "needsContext": false
         }

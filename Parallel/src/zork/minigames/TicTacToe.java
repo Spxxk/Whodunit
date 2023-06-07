@@ -20,7 +20,7 @@ public class TicTacToe extends Minigame {
         initializeGrid();
         finished = false;
 
-        Game.print("Welcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
+        Game.print("/bWelcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
         
         while (!finished) { playerTurn(); comTurn(); }
 
@@ -122,7 +122,7 @@ public class TicTacToe extends Minigame {
         Game.print("/b\n" + message + " won the game!");
         
         if(player == COM) {
-            System.out.println("Better luck next time...");
+            Game.print("/bBetter luck next time...");
             Game.player.setResult(false);
         }
         else {

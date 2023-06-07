@@ -378,10 +378,12 @@ public class Game {
 	}
 
 	public static void printWin() {
-		print("/bYou win! You found out Whodunit! Congrats /p!");
+		print("\n/bYou win! You found out Whodunit! Congrats /p!");
+		System.exit(0);
 	}
 
 	public static void printLoss() {
-		print("/rUnfortunately, you lost the game of poker, and Brent took your life along with Glenn's. YOU LOSE.");
+		print("\n/rUnfortunately, you lost the game of poker, and Brent . YOU LOSE.");
+		System.exit(0);
 	}
 }

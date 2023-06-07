@@ -190,132 +190,148 @@ public class Game {
 	}
 
 	public static void dialogueLoop(String id) {
-		if(id.equals("police") && !CharacterConstants.GAVE_ROOM_KEY) {
-			print("Hey there /p, I was looking to speak with you.");
-			print("I heard your buddy died and came running here.");
-			print("So far, we don't know much about the case, but it might be helpful to");
-			print("speak with the /rreceptionist/g east of here about accessing Glenn's room.");
-		}
-		else if(id.equals("police") && CharacterConstants.GAVE_ROOM_KEY) {
-			print("Ah, I see you got the room key from the receptionist.");
-			print("Use that key to unlock Glenn's room /rnorthwest/g of the elevator.");
-			print("Good luck on your investigation, /p, and remember I'm here to help you if you need me.");
-		}
-		if(id.equals("receptionist") && !CharacterConstants.GAVE_ROOM_KEY) {
-			print("Hi /p! The officer over there told me to give you this.");
-			if(Give.giveItem(itemList.get("glennRoomKey"), "receptionist")) {
-				print("Use this to continue your investigation into your friend's murder.");
-				print("I feel super bad for you, but I'm afraid this is all I can help with.");
-				print("I'll call you if I ever find out more information.");
-				CharacterConstants.GAVE_ROOM_KEY = true;
-			}
-		}
-		else if(id.equals("receptionist") && CharacterConstants.GAVE_ROOM_KEY) {
-			print("Hi again /p, hope your investigation is going well.");
-			print("If there's anything you need help with, please ask me.");
-			print("Have you used the key to check Glenn's room? It may provide you with clues.");
-		}
-		if(id.equals("walletOwner") && !CharacterConstants.GAVE_WALLET && CharacterConstants.GAVE_ROOM_KEY) {
-			print("Hey there /p! This resort is pretty nice, huh?");
-			print("Anyways, I heard that there's something going on at the casino later, but you need money to get in.");
-			print("I have a wallet with $250 for you, but only if you can get 60 words per minute on a typing test.");
-			print("So, /p, you wanna take on the challenge?");
-			Scanner in = new Scanner(System.in);
-			while(true){
-				String ans = in.nextLine();
-				if(ans.equalsIgnoreCase("yes")){
-					print("You're on, /p!");
-					runMinigame("Typing Test");
-					if(player.getResult()){
-						print("Excellent work /p! The money is now yours.");
-						if(Give.giveItem(itemList.get("casinoKey"),"Wallet Owner")){
-							print("Use this to access the casino when you please. See ya /p!");
-							CharacterConstants.GAVE_WALLET = true;
-						}
-						return;
-					}else{
-						print("Unfortunately, you couldn't pass the typing test. Would you like to try again?");
-					}
-				}else if(ans.equalsIgnoreCase("no")){
-					print("No problem /p. Remember, I'm always chilling by the pool in case you change your mind!");
+		switch(id) {
+			case "police":
+				if(!CharacterConstants.GAVE_ROOM_KEY) {
+					print("Hey there /p, I was looking to speak with you.");
+					print("I heard your buddy died and came running here.");
+					print("So far, we don't know much about the case, but it might be helpful to");
+					print("speak with the /rreceptionist/g east of here about accessing Glenn's room.");
 				}
-			}
-		}else if(id.equals("walletOwner") && CharacterConstants.GAVE_WALLET && CharacterConstants.GAVE_ROOM_KEY){
-			print("Great to see you again /p!");
-			print("Have you visited the casino yet? Remember, play wisely!");
-		}
-		if(id.equals("invitationMan") && !CharacterConstants.GAVE_INVITATION && CharacterConstants.GAVE_ROOM_KEY) {
-			print("Hello there, you must be /p!");
-			print("I am supposed to attend an event in the casino's private poker room, but I won't be able to make it");
-			print("The invitation can be all yours, but only if you beat me in Tic Tac Toe.");
-			print("So, /p, are you ready to challenge the master?");
-			Scanner in = new Scanner(System.in);
-			while(true){
-				String ans = in.nextLine();
-				if(ans.equalsIgnoreCase("yes")){
-					print("Bring it on, /p!");
-					runMinigame("Tic Tac Toe");
-					if(player.getResult()){
-						print("Wow, you're pretty good. Here's the invitation, /p!");
-						if(Give.giveItem(itemList.get("privatePokerTableKey"),"Mr. McMullen")){
-							print("Have fun at the event!");
-							CharacterConstants.GAVE_INVITATION = true;
-						}
-						return;
-					}else{
-						print("Yes! I win this time! I'll give you another change /p, want to rematch?");
-					}
+				else if(CharacterConstants.GAVE_ROOM_KEY) {
+					print("Ah, I see you got the room key from the receptionist.");
+					print("Use that key to unlock Glenn's room /rnorthwest/g of the elevator.");
+					print("Good luck on your investigation, /p, and remember I'm here to help you if you need me.");
 				}
-			}
-		}else if(id.equals("invitationMan") && CharacterConstants.GAVE_INVITATION && CharacterConstants.GAVE_ROOM_KEY){
-			print("Greetings, p/! How are you on this fine day?");
-			print("The date for the event is approaching rapidly, don't miss it!");
-		}
+				break;
 
-		if(id.equals("hotelStaff") && !CharacterConstants.GAVE_INFO && CharacterConstants.GAVE_ROOM_KEY) {
-			print("Hello? Is that /p? What are you doing here?");
-			print("Okay, fine, I'll let you stay, even though I'm not supposed to.");
-			print("Anyways, I've heard you were investigating some issues around the hotel, and I may be able to help you out.");
-			print("If you can beat round 8 on a number memory test, I'll give you the info. The rules are simple:");
-			print("Each round you will be given a number, each one a digit larger than the previous one. Enter the correct number to beat the round.");
-			print("So, /p, you wanna take on the challenge?");
-			Scanner in = new Scanner(System.in);
-			while(true){
-				String ans = in.nextLine();
-				if(ans.equalsIgnoreCase("yes")){
-					print("You're on, /p!");
-					runMinigame("Memory Numbers");
-					if(player.getResult()){
-						print("Ok /p, here's what I can tell you:");
-						print("In this world, it's risky business to trust anyone. The suspect could be anyone at the resort,");
-						print("even someone extremely close to you. Keep this in mind as you dive deeper into your investigation. Good luck /p!");
-						CharacterConstants.GAVE_INFO = true;
-						return;
-					}else{
-						print("Unfortunately, you couldn't pass the number memory test. Would you like to try again?");
+			case "receptionist":
+				if(!CharacterConstants.GAVE_ROOM_KEY) {
+					print("Hi /p! The officer over there told me to give you this.");
+					if(Give.giveItem(itemList.get("glennRoomKey"), "receptionist")) {
+						print("Use this to continue your investigation into your friend's murder.");
+						print("I feel super bad for you, but I'm afraid this is all I can help with.");
+						print("I'll call you if I ever find out more information.");
+						CharacterConstants.GAVE_ROOM_KEY = true;
 					}
-				}else if(ans.equalsIgnoreCase("no")){
-					print("No problem /p. Remember, I'm always up here if you change your mind.");
 				}
-			}
-		}else if(id.equals("hotelStaff") && CharacterConstants.GAVE_INFO && CharacterConstants.GAVE_ROOM_KEY){
-			print("Nice seeing you again /p!");
-			print("How did the information help you out? Remember to stay safe when investigating.");
-		}
+				else if(CharacterConstants.GAVE_ROOM_KEY) {
+					print("Hi again /p, hope your investigation is going well.");
+					print("If there's anything you need help with, please ask me.");
+					print("Have you used the key to check Glenn's room? It may provide you with clues.");
+				}
+				break;
 
-		if(id.equals("brentAndFriends") && CharacterConstants.GAVE_ROOM_KEY) {
-			print("Well well well, if it isn't /p.");
-			print("It's a shame what happened to Glenn. But there's one thing I should let you know: it was ME!");
-			print("I get sick to my stomach when I see Glenn get all sorts of attention everywhere we go,");
-			print("so I decided to put an end to it. Now /p, we're gonna play a game of poker.");
-			print("If you win, you could turn me into the cops and I won't have any money to get a lawyer.");
-			print("But if you lose, it's all over for you.");
-			runMinigame("Poker");
-			if(player.getResult()){
-				printWin();
-			}else{
-				printLoss();
-			}
+			case "walletOwner":
+				if(!CharacterConstants.GAVE_WALLET && CharacterConstants.GAVE_ROOM_KEY) {
+					print("Hey there /p! This resort is pretty nice, huh?");
+					print("Anyways, I heard that there's something going on at the casino later, but you need money to get in.");
+					print("I have a wallet with $250 for you, but only if you can get 60 words per minute on a typing test.");
+					print("So, /p, you wanna take on the challenge?");
+					Scanner in = new Scanner(System.in);
+					while(true){
+						String ans = in.nextLine();
+						if(ans.equalsIgnoreCase("yes")){
+							print("You're on, /p!");
+							runMinigame("Typing Test");
+							if(player.getResult()){
+								print("Excellent work /p! The money is now yours.");
+								if(Give.giveItem(itemList.get("casinoKey"),"Wallet Owner")){
+									print("Use this to access the casino when you please. See ya /p!");
+									CharacterConstants.GAVE_WALLET = true;
+								}
+								return;
+							}else{
+								print("Unfortunately, you couldn't pass the typing test. Would you like to try again?");
+							}
+						}else if(ans.equalsIgnoreCase("no")){
+							print("No problem /p. Remember, I'm always chilling by the pool in case you change your mind!");
+						}
+					}
+				}else if(CharacterConstants.GAVE_WALLET){
+					print("Great to see you again /p!");
+					print("Have you visited the casino yet? Remember, play wisely!");
+				}
+				break;
+
+			case "invitationMan":
+				if(!CharacterConstants.GAVE_INVITATION && CharacterConstants.GAVE_ROOM_KEY) {
+					print("Hello there, you must be /p!");
+					print("I am supposed to attend an event in the casino's private poker room, but I won't be able to make it");
+					print("The invitation can be all yours, but only if you beat me in Tic Tac Toe.");
+					print("So, /p, are you ready to challenge the master?");
+					Scanner in = new Scanner(System.in);
+					while(true){
+						String ans = in.nextLine();
+						if(ans.equalsIgnoreCase("yes")){
+							print("Bring it on, /p!");
+							runMinigame("Tic Tac Toe");
+							if(player.getResult()){
+								print("Wow, you're pretty good. Here's the invitation, /p!");
+								if(Give.giveItem(itemList.get("privatePokerTableKey"),"Mr. McMullen")){
+									print("Have fun at the event!");
+									CharacterConstants.GAVE_INVITATION = true;
+								}
+								return;
+							}else{
+								print("Yes! I win this time! I'll give you another change /p, want to rematch?");
+							}
+						}
+					}
+				}else if(CharacterConstants.GAVE_INVITATION){
+					print("Greetings, p/! How are you on this fine day?");
+					print("The date for the event is approaching rapidly, don't miss it!");
+				}
+				break;
+
+			case "hotelStaff":
+				if(!CharacterConstants.GAVE_INFO && CharacterConstants.GAVE_ROOM_KEY) {
+					print("Hello? Is that /p? What are you doing here?");
+					print("Okay, fine, I'll let you stay, even though I'm not supposed to.");
+					print("Anyways, I've heard you were investigating some issues around the hotel, and I may be able to help you out.");
+					print("If you can beat round 8 on a number memory test, I'll give you the info. The rules are simple:");
+					print("Each round you will be given a number, each one a digit larger than the previous one. Enter the correct number to beat the round.");
+					print("So, /p, you wanna take on the challenge?");
+					Scanner in = new Scanner(System.in);
+					while(true){
+						String ans = in.nextLine();
+						if(ans.equalsIgnoreCase("yes")){
+							print("You're on, /p!");
+							runMinigame("Memory Numbers");
+							if(player.getResult()){
+								print("Ok /p, here's what I can tell you:");
+								print("In this world, it's risky business to trust anyone. The suspect could be anyone at the resort,");
+								print("even someone extremely close to you. Keep this in mind as you dive deeper into your investigation. Good luck /p!");
+								CharacterConstants.GAVE_INFO = true;
+								return;
+							}else{
+								print("Unfortunately, you couldn't pass the number memory test. Would you like to try again?");
+							}
+						}else if(ans.equalsIgnoreCase("no")){
+							print("No problem /p. Remember, I'm always up here if you change your mind.");
+						}
+					}
+				}else if(CharacterConstants.GAVE_INFO){
+					print("Nice seeing you again /p!");
+					print("How did the information help you out? Remember to stay safe when investigating.");
+				}
+				break;
+
+			case "brentAndFriends":
+				if(CharacterConstants.GAVE_ROOM_KEY) {
+					print("Well well well, if it isn't /p.");
+					print("It's a shame what happened to Glenn. But there's one thing I should let you know: it was ME!");
+					print("I get sick to my stomach when I see Glenn get all sorts of attention everywhere we go,");
+					print("so I decided to put an end to it. Now /p, we're gonna play a game of poker.");
+					print("If you win, you could turn me into the cops and I won't have any money to get a lawyer.");
+					print("But if you lose, it's all over for you.");
+					runMinigame("Poker");
+					if(player.getResult()){
+						printWin();
+					}else{
+						printLoss();
+					}
+				}
 		}
 	}
 

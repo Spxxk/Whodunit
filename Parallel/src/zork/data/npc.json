@@ -3,32 +3,32 @@
         {
             "id": "police",
             "name": "Police Officer",
-            "description": "There appears to be a lot of commotion in the hotel lobby. A police officer is available for questions regarding recent events"
+            "description": "A police officer is available for questions regarding recent events."
         },
         {
             "id": "receptionist",
-            "name": "Hotel Receptionist",
-            "description": "The receptionist at the desk appears to want to speak to you"
+            "name": "Receptionist",
+            "description": "The receptionist at the desk appears to want to speak to you."
         },
         {
             "id": "invitationMan",
             "name": "Mr. McMullen",
-            "description": "There is a man in a suit holding a sealed letter. What could it be?"
+            "description": "There is a man in a suit holding a sealed letter. What could it be?."
         },
         {
             "id": "walletOwner",
             "name": "Wallet Owner",
-            "description": "There is a man by the pool who made eye contact with you. He looks like he has something to tell you"
+            "description": "There is a man by the pool who made eye contact with you. He looks like he has something to tell you."
         },
         {
             "id": "brentAndFriends",
             "name": "Brent",
-            "description": "The first thing you see in the private poker room is Brent along with a few other men, sitting around the table"
+            "description": "The first thing you see in the private poker room is Brent along with a few other men, sitting around the table."
         },
         {
             "id": "hotelStaff",
             "name": "Lucca",
-            "description": "You step onto the roof of the hotel and someone who appears to be a hotel staff member catches your eye. He looks back at you"
+            "description": "You step onto the roof of the hotel and someone who appears to be a hotel staff member catches your eye. He looks back at you."
         }
     ]
 }

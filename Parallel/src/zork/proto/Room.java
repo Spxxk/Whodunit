@@ -68,7 +68,7 @@ public class Room {
     public String longDescription() {
         String chDescriptions = "";
         for (int i = 0; i < getCharacters().size(); i++)
-            chDescriptions += getCharacters().get(i).getDescription() + ".\n";
+            chDescriptions += getCharacters().get(i).getDescription() + "\n";
         
         return "Room: " + roomName + "\n\n" + description + "\n" + chDescriptions + exitString();
     }

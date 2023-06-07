@@ -15,6 +15,27 @@
             "needsContext": false
         },
         {
+            "id": "letterAddressedToYou",
+            "name": "Letter",
+            "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "bathtub",
+            "name": "Bathtub",
+            "weight": 150,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "rubberDuck",
+            "name": "Rubber Duck",
+            "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
             "id": "Gun",
             "name": "Gun",
             "weight": 2,

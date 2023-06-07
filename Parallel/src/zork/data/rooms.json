@@ -238,6 +238,11 @@
           "isLocked": true,
           "direction": "South",
           "adjacentRoom": "brentCloset"
+        },
+        {
+          "isLocked": false,
+          "direction": "Through",
+          "adjacentRoom": "cellar"
         }
       ]
     },

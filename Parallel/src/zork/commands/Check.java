@@ -1,5 +1,7 @@
 package zork.commands;
 
+import java.util.Scanner;
+
 import zork.Game;
 import zork.Constants.ArgumentCount;
 import zork.proto.Command;
@@ -50,6 +52,29 @@ public class Check extends Command {
                     Game.print("/bYou found a bullet at the bottom of the crate.");
                     Give.giveItem(Game.itemList.get("cellarBullet"), null);
                     Game.print("/bWhy would a bullet be inside this crate? What is this place?");
+                } else if(itemName.equalsIgnoreCase("Battering Ram")) {
+                    Game.print("/bThe battering ram is being pointed at the wall.");
+                    Game.print("/bWould you like to break down the wall?");
+                    Scanner in = new Scanner(System.in);
+                    System.out.print("(yes/no): ");
+                    while(true) {
+                        String answer = in.nextLine();
+                        if(answer.equalsIgnoreCase("yes")) {
+                            Game.print("/bYou brought the battering ram back as far as you could and thrust it forward.");
+                            Game.print("/bIt broke a hole through the wall and revealed another hotel room /rthrough/b.");
+                        
+                            Exit e = new Exit("Through", "brentRoom", false, null);
+                            try {
+                                Game.roomMap.get("cellar").addExit(e);
+                            } catch(Exception ex) { Game.print("/rUnknown error has occured, please restart."); }
+                            break;
+                        } else if(answer.equalsIgnoreCase("no")) {
+                            Game.print("/bYou decided to put down the battering ram.");
+                            break;
+                        } else {
+                            Game.print("/bWhat does " + answer + " mean? Yes or no?");
+                        }
+                    }
                 } else {
                     Game.print("/b" + itemName + " does not need to be checked.");
                 }

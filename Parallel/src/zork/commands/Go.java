@@ -61,6 +61,13 @@ public class Go extends Command {
                     System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
                     Game.print("/b" + player.getCurrentRoom().longDescription());
                 } catch(Exception r) {}
+
+                if(!CharacterConstants.LEFT_YOUR_ROOM && e.getAdjacentRoom().equals("brentRoom")) {
+                    Game.print("\n/bWhy would Brent's room be behind this wall? Why was my door locked?");
+                    Game.print("/bWho killed Glenn? Consider talking to people in the hotel to gather /rclues/b.");
+                    CharacterConstants.LEFT_YOUR_ROOM = true;
+                }
+
                 return;
             }
         }

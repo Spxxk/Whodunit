@@ -3,6 +3,7 @@ package zork.minigames;
 import java.util.Scanner;
 
 import zork.proto.Minigame;
+import zork.Game;
 
 public class TicTacToe extends Minigame {
     private String[][] grid;
@@ -19,7 +20,7 @@ public class TicTacToe extends Minigame {
         initializeGrid();
         finished = false;
 
-        System.out.println("Welcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
+        Game.print("/bWelcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
         
         while (!finished) { playerTurn(); comTurn(); }
 
@@ -118,9 +119,15 @@ public class TicTacToe extends Minigame {
 
     private void endGame(int player) {
         String message = player == PLAYER ? "You" : "MR MCMULLEN";
-        System.out.printf("%n%s won the game!%n", message);
+        Game.print("/b\n" + message + " won the game!");
         
-        if(player == COM) System.out.println("Better luck next time...");
+        if(player == COM) {
+            Game.print("/bBetter luck next time...");
+            Game.player.setResult(false);
+        }
+        else {
+            Game.player.setResult(true);
+        }
 
         displayGrid();
         finished = true;
@@ -130,21 +137,21 @@ public class TicTacToe extends Minigame {
     private int[] playerAsker() {
         while(true) {
             try{
-                System.out.print("\nWhich row would you like to play in? (1), (2), (3): ");
+                Game.print("/b\nWhich row would you like to play in? (1), (2), (3): ");
 
                 int row = Integer.parseInt(in.nextLine()); 
-                if(row < 1 || row > 3) { System.out.println("Please enter a valid integer between 1-3, inclusive, to play."); continue; }
+                if(row < 1 || row > 3) { Game.print("/bPlease enter a valid integer between 1-3, inclusive, to play."); continue; }
 
-                System.out.print("Which column would you like to play in? (1), (2), (3): ");
+                Game.print("/bWhich column would you like to play in? (1), (2), (3): ");
 
                 int col = Integer.parseInt(in.nextLine());
-                if(col < 1 || col > 3) { System.out.println("Please enter a valid integer between 1-3, inclusive, to play."); continue; }
+                if(col < 1 || col > 3) { Game.print("/bPlease enter a valid integer between 1-3, inclusive, to play."); continue; }
 
-                if(!grid[row - 1][col - 1].equals("-")) { System.out.println("Please use a valid space to play your turn."); continue; } 
+                if(!grid[row - 1][col - 1].equals("-")) { Game.print("/bPlease use a valid space to play your turn."); continue; } 
 
                 return new int[] { row - 1, col - 1 };
             } catch(NumberFormatException e) {
-                System.out.println("Please enter a valid integer between 1-3, inclusive, to play.");
+                Game.print("/bPlease enter a valid integer between 1-3, inclusive, to play.");
             }
         }
     }

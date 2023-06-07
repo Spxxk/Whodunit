@@ -3,6 +3,7 @@ package zork.minigames;
 import zork.proto.Minigame;
 import zork.utils.TimeController;
 import java.util.Scanner;
+import zork.Game;
 
 public class TypingTest extends Minigame {
 
@@ -25,7 +26,7 @@ public class TypingTest extends Minigame {
         String sentence = "";
         String[] sentenceArray = new String[20];
 
-        System.out.println("Welcome to the typing test! Write these red words faster than 60wpm to evade the computer's radiation:");
+        Game.print("/bWelcome to the typing test! Write these red words faster than 60wpm to evade the computer's radiation:");
         for (int i = 0, n = 0; i < 20; i++, n = (int) (Math.random() * words.length)) {
             sentence = i == 0 ? words[n] : sentence + " " + words[n];
             sentenceArray[i] = words[n];
@@ -43,7 +44,7 @@ public class TypingTest extends Minigame {
                     if(timer.timeElapsed() == countdown && !started) {
                         if(countdown == 4) {
                             started = !started;
-                            System.out.println("... Go!");
+                            Game.print("... Go!");
                         } else {
                             System.out.printf(" " + countdown);
                             countdown++;
@@ -61,7 +62,12 @@ public class TypingTest extends Minigame {
                             int accuracy = (int) (((double) correct / sentence.length()) * 100);
                             int wordsPerMinute = (int) (sentenceArray.length / ((double) (timer.timeElapsed() - 4) / 60));
 
-                            System.out.printf("Your accuracy was [%s] and your WPM was [%2s].%n", accuracy + "%", wordsPerMinute);
+                            Game.print("/bYour accuracy was [/r" + accuracy + "%/b] and your WPM was [" + wordsPerMinute + "]");
+
+                            if(accuracy > 80 && wordsPerMinute >= 60)
+                                Game.player.setResult(true);
+                            else 
+                                Game.player.setResult(false);
                             return;
                         }
                     }

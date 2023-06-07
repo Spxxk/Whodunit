@@ -9,6 +9,7 @@ public class Player {
     private Room currentRoom;
     private String name;
     private Character characterTalkingTo;
+    private boolean wonMinigame;
     
     public Player(int inventoryLimit) {
         playerInventory = new Inventory(inventoryLimit);
@@ -52,5 +53,13 @@ public class Player {
 
     public void setCharacterTalkingTo(Character c) {
         characterTalkingTo = c;
+    }
+
+    public void setResult(boolean b) {
+        wonMinigame = b;
+    }
+
+    public boolean getResult() {
+        return wonMinigame;
     }
 }

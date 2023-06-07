@@ -3,6 +3,7 @@ package zork.minigames;
 import java.util.Scanner;
 
 import zork.proto.Minigame;
+import zork.Game;
 
 public class MemoryNumbers extends Minigame {
 
@@ -15,21 +16,19 @@ public class MemoryNumbers extends Minigame {
     public int score;
     public boolean finished;
 
-    public static final String RED = "\u001B[31m", WHITE = "\u001B[0m";
-
     public void play() {
         in = new Scanner(System.in);
 
-        System.out.println("Welcome to Memory Numbers! Get a higher score than MR MINATO to win.");
-        System.out.printf("To play, write the number in %sRED%2s once the console tells you to.%n", RED, WHITE);
-        System.out.printf("Type start once you have understood the rules: ");
+        Game.print("\n/bWelcome to Memory Numbers! Get a score of 8 than MR MINATO to win.");
+        Game.print("/bTo play, write the number in /rRED/b once the console tells you to.");
+        System.out.print("Type start once you have understood the rules: ");
 
         nums = "";
         finished = false;
         score = 1;
 
         if(in.nextLine().equalsIgnoreCase("start")) {
-            System.out.println("\nRound 1");
+            Game.print("\n/bRound 1");
             while(!finished) { nextRound(); }
         }
     }
@@ -38,8 +37,8 @@ public class MemoryNumbers extends Minigame {
         try {
             nums += (int) (Math.random() * 10);
 
-            System.out.println(RED + nums + WHITE);
-            Thread.sleep(1000);
+            Game.print("/r" + nums);
+            Thread.sleep(2000);
             printLines();
             
             System.out.print("Repeat number here: ");
@@ -49,8 +48,13 @@ public class MemoryNumbers extends Minigame {
                 input = in.nextLine();
 
                 if(!input.equals(nums)) {
-                    System.out.printf("Correct number was [%s], you recieved a score of %s.%n", RED + nums + WHITE, score);
+                    Game.print("/bCorrect number was [/r" + nums + "/b], you recieved a score of " + score + ".");
                     finished = true;
+                    if(score >= 8) {
+                        Game.print("/bYou defeated MR MINATO!");
+                        Game.player.setResult(true);
+                    } else 
+                        Game.player.setResult(false);
                     return;
                 }
 

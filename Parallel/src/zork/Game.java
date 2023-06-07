@@ -6,12 +6,14 @@ import zork.proto.Item;
 import zork.proto.Player;
 import zork.proto.Room;
 import zork.proto.Character;
+import zork.proto.Command;
 import zork.threads.CommandListener;
 import zork.threads.DialogueThread;
 import zork.utils.CommandLoader;
 import zork.utils.Give;
 import zork.utils.CharacterConstants;
 import zork.utils.MinigameLoader;
+import zork.commands.Play;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -208,6 +210,14 @@ public class Game {
 			print("/p, hope your investigation is going well.");
 			print("If there's anything you need help with, please ask me.");
 			print("Have you used the key to check Glenn's room? It may provide you with clues.");
+
+			runMinigame("Memory Numbers");
+			if(player.getResult()) {
+				print("You won! Nice job /p.");
+			}
+			else {
+				print("I had to break it to you, /p, but you lost... try again when you're ready.");
+			}
 		}
 	}
 
@@ -265,5 +275,10 @@ public class Game {
 		}
 
 		return line;
+	}
+
+	public static void runMinigame(String minigame) {
+		Command play = new Play();
+		play.runCommand(minigame);
 	}
 }

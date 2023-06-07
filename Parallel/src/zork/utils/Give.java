@@ -9,7 +9,7 @@ public class Give {
         try {
             Game.player.getInventory().addItem(item);
 
-            Game.print("/bThe " + cName + " gave you " + item.getName() + "!");
+            if(cName != null) { Game.print("/bThe " + cName + " gave you " + item.getName() + "!"); }
             return true;
         } catch(InventoryLimitExceeded e) {
             Game.print("/bPlease make space in your inventory to recieve " + item.getName());

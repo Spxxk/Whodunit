@@ -10,7 +10,7 @@
         { "id": null }
       ],
       "items": [
-        { "id": "pillow" }, { "id": "painting" }, { "id": "welcome letter" }
+        { "id": "pillow" }, { "id": "painting" }, { "id": "welcome letter" }, { "id": "nightstand" }
       ],
       "exits": [
         {
@@ -65,7 +65,7 @@
         { "id": null }
       ],
       "items": [
-        { "id": "towel" }, { "id": "toilet paper" }
+        { "id": "rubberDuck"}, { "id": "towel" }, { "id": "toilet paper" }, { "id": "bathtub" }
       ],
       "exits": [
         {
@@ -77,6 +77,26 @@
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "userSink"
+        }
+      ]
+    },
+    {
+      "id": "cellar",
+      "name": "Cellar",
+      "description": "You are inside the cellar. Interesting decoration for underneath the bathroom.",
+      "capacity": 500,
+      "keyid": null,
+      "npcs": [
+        { "id": null }
+      ],
+      "items": [
+        { "id": "crate" }, { "id": "batteringRam" } 
+      ],
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "Up",
+          "adjacentRoom": "userBathroom"
         }
       ]
     },

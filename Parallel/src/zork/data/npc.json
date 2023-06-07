@@ -24,6 +24,11 @@
             "id": "brentAndFriends",
             "name": "Brent",
             "description": "The first thing you see in the private poker room is Brent along with a few other men, sitting around the table"
+        },
+        {
+            "id": "hotelStaff",
+            "name": "Lucca",
+            "description": "You step onto the roof of the hotel and someone who appears to be a hotel staff member catches your eye. He looks back at you"
         }
     ]
 }

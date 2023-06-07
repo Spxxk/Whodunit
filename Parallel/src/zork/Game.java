@@ -268,6 +268,38 @@ public class Game {
 			print("Greetings, p/! How are you on this fine day?");
 			print("The date for the event is approaching rapidly, don't miss it!");
 		}
+
+		if(id.equals("hotelStaff") && !CharacterConstants.GAVE_INFO && CharacterConstants.GAVE_ROOM_KEY) {
+			print("Hello? Is that /p? What are you doing here?");
+			print("Okay, fine, I'll let you stay, even though I'm not supposed to.");
+			print("Anyways, I've heard you were investigating some issues around the hotel, and I may be able to help you out.");
+			print("If you can beat round 8 on a number memory test, I'll give you the info. The rules are simple:");
+			print("Each round you will be given a number, each one a digit larger than the previous one. Enter the correct number to beat the round.");
+			print("So, /p, you wanna take on the challenge?");
+			Scanner in = new Scanner(System.in);
+			while(true){
+				String ans = in.nextLine();
+				if(ans.equalsIgnoreCase("yes")){
+					print("You're on, /p!");
+					runMinigame("Memory Numbers");
+					if(player.getResult()){
+						print("Ok /p, here's what I can tell you:");
+						print("In this world, it's risky business to trust anyone. The suspect could be anyone at the resort,");
+						print("even someone extremely close to you. Keep this in mind as you dive deeper into your investigation. Good luck /p!");
+						CharacterConstants.GAVE_INFO = true;
+						return;
+					}else{
+						print("Unfortunately, you couldn't pass the number memory test. Would you like to try again?");
+					}
+				}else if(ans.equalsIgnoreCase("no")){
+					print("No problem /p. Remember, I'm always up here if you change your mind.");
+				}
+			}
+		}else if(id.equals("hotelStaff") && CharacterConstants.GAVE_INFO && CharacterConstants.GAVE_ROOM_KEY){
+			print("Nice seeing you again /p!");
+			print("How did the information help you out? Remember to stay safe when investigating.");
+		}
+
 		if(id.equals("brentAndFriends") && CharacterConstants.GAVE_ROOM_KEY) {
 			print("Well well well, if it isn't /p.");
 			print("It's a shame what happened to Glenn. But there's one thing I should let you know: it was ME!");

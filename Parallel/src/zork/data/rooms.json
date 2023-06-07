@@ -519,7 +519,7 @@
       "capacity": 150,
       "keyid": "hotelRoofKey",
       "npcs": [
-        { "id": null }
+        { "id": "hotelStaff" }
       ],
       "items": [
         { "id": "Gun"}, { "id": "plank of wood"}

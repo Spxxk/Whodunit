@@ -2,22 +2,14 @@ package zork.proto;
 
 import java.security.NoSuchAlgorithmException;
 
-import zork.threads.ChronoHandler;
 import zork.utils.Hash;
-import zork.utils.Timer;
 
 public abstract class Minigame {
     private final String name;
     private final String _hash;
 
-    public final int timeLimit;
-    private final ChronoHandler timer;
-
-    public Minigame(String cmdName, int limit) {
+    public Minigame(String cmdName) {
         name = cmdName;
-        timeLimit = limit;
-
-        timer = new ChronoHandler(new Timer(timeLimit));
 
         String proposedHash = null;
 

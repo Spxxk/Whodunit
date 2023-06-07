@@ -10,6 +10,7 @@ import zork.proto.Command;
 import zork.threads.CommandListener;
 import zork.threads.DialogueThread;
 import zork.utils.CommandLoader;
+import zork.utils.Dictionary;
 import zork.utils.Give;
 import zork.utils.CharacterConstants;
 import zork.utils.MinigameLoader;
@@ -46,6 +47,8 @@ public class Game {
 		try {
             CommandLoader.init();
             MinigameLoader.init();
+			Dictionary.initDictionary();
+			
 			initCharacters();
 			initItems();
 			initRooms();

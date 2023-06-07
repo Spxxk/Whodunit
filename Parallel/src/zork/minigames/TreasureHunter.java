@@ -6,7 +6,7 @@ import zork.proto.Minigame;
 
 public class TreasureHunter extends Minigame {
     
-    public TreasureHunter() { super("Treasure Hunter", (int) 1e9); }
+    public TreasureHunter() { super("Treasure Hunter"); }
 
     public void startGame(String... args) {
         

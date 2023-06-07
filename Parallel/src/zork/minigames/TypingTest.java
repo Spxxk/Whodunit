@@ -8,7 +8,7 @@ import zork.Game;
 public class TypingTest extends Minigame {
 
     public TypingTest() {
-        super("Typing Test", (int) 1e9);
+        super("Typing Test");
     }
 
     public static final String[] words = {

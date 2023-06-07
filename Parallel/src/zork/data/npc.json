@@ -12,13 +12,13 @@
         },
         {
             "id": "invitationMan",
-            "name": "Man in Parking Lot",
+            "name": "Mr. McMullen",
             "description": "There is a man in a suit holding a sealed letter. What could it be?"
         },
         {
             "id": "walletOwner",
-            "name": "Guy at Swimming Pool",
-            "description": "There is a man by the pool who is headed your way. He does not look happy"
+            "name": "Wallet Owner",
+            "description": "There is a man by the pool who made eye contact with you. He looks like he has something to tell you"
         },
         {
             "id": "brentAndFriends",

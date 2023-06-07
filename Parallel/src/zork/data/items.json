@@ -8,6 +8,13 @@
             "needsContext": true 
         },
         {
+            "id": "nightstand",
+            "name": "Nightstand",
+            "weight": 150,
+            "isOpenable": true,
+            "needsContext": false
+        },
+        {
             "id": "Gun",
             "name": "Gun",
             "weight": 2,

@@ -8,6 +8,7 @@ import zork.proto.Exit;
 import zork.proto.Player;
 import zork.proto.Room;
 import zork.proto.Item;
+import zork.utils.CharacterConstants;
 
 public class Go extends Command {
     
@@ -27,10 +28,10 @@ public class Go extends Command {
                         if(item.getId().equalsIgnoreCase(e.getAdjacentRoom()+"Key")) { 
                             e.setLocked(false); 
                             try {
-                            player.setCurrentRoom(e.getAdjacentRoom());
-                            Game.print("/bYou have just unlocked "+player.getCurrentRoom().getRoomName()+"!");
-                            System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
-                            System.out.println(player.getCurrentRoom().longDescription());
+                                player.setCurrentRoom(e.getAdjacentRoom());
+                                Game.print("/bYou have just unlocked "+player.getCurrentRoom().getRoomName()+"!");
+                                System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
+                                System.out.println(player.getCurrentRoom().longDescription());
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
@@ -41,10 +42,17 @@ public class Go extends Command {
                     return;
                 }
 
+                if(!CharacterConstants.LEFT_YOUR_ROOM && room.getRoomName().equals("Your Room") && e.getAdjacentRoom().equals("hallwayLow")) {
+                    Game.print("/bYou tried pushing the door with all your might,");
+                    Game.print("/bbut it seems as if someone has blocked the door with a heavy object...");
+                    Game.print("/bTry looking around to see what's going on.");
+                    return;
+                }
+
                 player.setCurrentRoom(e.getAdjacentRoom());
                 try {
-                System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
-                Game.print("/b" + player.getCurrentRoom().longDescription());
+                    System.out.printf("You just travelled to [%s]!\n\n", player.getCurrentRoom().getRoomName());
+                    Game.print("/b" + player.getCurrentRoom().longDescription());
                 } catch(Exception r) {}
                 return;
             }

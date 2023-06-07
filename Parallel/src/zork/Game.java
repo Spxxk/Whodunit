@@ -38,7 +38,7 @@ public class Game {
 
     private static final Thread cmdListener = new CommandListener(), dialogueThread = new DialogueThread();
 
-	static final String GREEN_TEXT = "\033[1;32m", RESET = "\033[0m", RED_TEXT = "\033[1;31m";
+	static final String GREEN_TEXT = "\033[1;32m", RESET = "\033[0m", RED_TEXT = "\033[1;31m", BLUE_TEXT = "\033[1;34m";
 
 	/**
 	 * Create the game and initialise its internal map.
@@ -252,6 +252,11 @@ public class Game {
 					print("Great to see you again /p!");
 					print("Have you visited the casino yet? Remember, play wisely!");
 				}
+				else {
+					print("Did you know this is the #1 rated resort in our county?");
+					print("It really makes sense when you look at what it has to offer.");
+					print("A bummer that a murder had to happen during my vacation...");
+				}
 				break;
 
 			case "invitationMan":
@@ -281,6 +286,10 @@ public class Game {
 				}else if(CharacterConstants.GAVE_INVITATION){
 					print("Greetings, p/! How are you on this fine day?");
 					print("The date for the event is approaching rapidly, don't miss it!");
+				}
+				else {
+					print("Private poker table... ticket for /r/p/g... I think");
+					print("I have to wait before enacting the leader's master plan...");
 				}
 				break;
 
@@ -314,6 +323,8 @@ public class Game {
 				}else if(CharacterConstants.GAVE_INFO){
 					print("Nice seeing you again /p!");
 					print("How did the information help you out? Remember to stay safe when investigating.");
+				} else {
+					print("How did you get in here? Get out of here now!");
 				}
 				break;
 
@@ -339,6 +350,7 @@ public class Game {
 		line = playerEscapeSequence(line);
 		line = redEscapeSequence(line);
 		line = greenEscapeSequence(line);
+		line = blueEscapeSequence(line);
 		line = resetEscapeSequence(line);
 
 		try {
@@ -353,6 +365,15 @@ public class Game {
 		catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static String blueEscapeSequence(String line) {
+		while(line.indexOf("/db") != -1) {
+			int p = line.indexOf("/db");
+			line = line.substring(0, p) + BLUE_TEXT + line.substring(p + 3);
+		}
+
+		return line;
 	}
 
 	private static String resetEscapeSequence(String line) {

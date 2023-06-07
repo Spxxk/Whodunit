@@ -8,7 +8,7 @@ import zork.Game;
 public class MemoryNumbers extends Minigame {
 
     public MemoryNumbers() {
-        super("Memory Numbers",(int) 1e9);
+        super("Memory Numbers");
     }
 
     public Scanner in;

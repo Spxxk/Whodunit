@@ -18,7 +18,7 @@ public class Poker extends Minigame {
     private Scanner scanner = new Scanner(System.in);
 
     public Poker() {
-        super("Poker", (int) 1e9);
+        super("Poker");
 
         this.deck = new Deck();
         this.user = new Player("User", 250);

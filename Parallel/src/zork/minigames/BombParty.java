@@ -3,6 +3,8 @@ package zork.minigames;
 import java.util.*;
 
 import zork.proto.Minigame;
+import zork.utils.Dictionary;
+import zork.utils.Timer;
 import zork.Game;
 
 public class BombParty extends Minigame {
@@ -13,14 +15,14 @@ public class BombParty extends Minigame {
     private int score;
 
     public BombParty() {
-        super("Bomb Party",(int) 1e9);
+        super("Bomb Party");
     }
 
     public void play() {
         in = new Scanner(System.in);
 
         Game.print("/bWelcome to Bomb Party! Try to survive as long as possible.");
-        Game.print("/bTo play, write a word that contains the syllable in /rRED%/b once the console tells you to.");
+        Game.print("/bTo play, write a word that contains the syllable in /rRED/b once the console tells you to.");
         System.out.print("Type start once you have understood the rules: ");
 
         finished = false;
@@ -33,21 +35,23 @@ public class BombParty extends Minigame {
     private void nextRound() {
         try {
             // Random syllable generation (1-2 vowels for simplicity)
-            String vowels = "aeiou";
+            String letters = "abcdefghilmnoprstu";
             syllable = "";
-            for (int i = 0; i < 1 + (int)(Math.random() * 2); i++) {
-                syllable += vowels.charAt((int)(Math.random() * vowels.length()));
+            for (int i = 0; i < 2; i++) {
+                syllable += letters.charAt((int)(Math.random() * letters.length()));
             }
 
             Game.print("/rSyllable: " + syllable);
             
             Game.print("/bIt's your turn. You have 10 seconds to respond.");
-            long startTime = System.currentTimeMillis();
-            String response = in.nextLine();
-            long responseTime = (System.currentTimeMillis() - startTime) / 1000;
 
-            if (responseTime > 10 || !isValidWord(response) || !response.contains(syllable)) {
-                Game.print("/bYou have been eliminated!");
+            Timer time = new Timer(10);
+
+            time.start();
+            String response = in.nextLine().toLowerCase();
+
+            if (time.isOver()|| !isValidWord(response) || !response.contains(syllable)) {
+                Game.print("/rYou have been eliminated!/b");
                 finished = true;
                 Game.player.setResult(false);
                 return;
@@ -66,8 +70,7 @@ public class BombParty extends Minigame {
 
     // Placeholder method. Replace with a method that checks the word in a real dictionary.
     private boolean isValidWord(String word) {
-        // Check the word in your dictionary here
-        return true;
+        return Dictionary.exists(word);
     }
 
     @Override

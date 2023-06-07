@@ -12,7 +12,7 @@ public class TicTacToe extends Minigame {
     private static final int PLAYER = 0, COM = 1;
     private boolean finished = false;
 
-    public TicTacToe() { super("Tic Tac Toe", (int) 1e9); }
+    public TicTacToe() { super("Tic Tac Toe"); }
 
     public void startGame(String... args) {
         in = new Scanner(System.in);

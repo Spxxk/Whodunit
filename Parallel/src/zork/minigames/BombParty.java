@@ -68,7 +68,6 @@ public class BombParty extends Minigame {
         }
     }
 
-    // Placeholder method. Replace with a method that checks the word in a real dictionary.
     private boolean isValidWord(String word) {
         return Dictionary.exists(word);
     }

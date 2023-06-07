@@ -13,6 +13,10 @@ public class Card implements Comparable<Card> {
         return rank;
     }
 
+    public String getSuit() {
+        return suit;
+    }
+
     @Override
     public int compareTo(Card other) {
         return Integer.compare(this.rank, other.rank);
@@ -22,7 +26,7 @@ public class Card implements Comparable<Card> {
     public String toString() {
         String rankString;
         switch(rank) {
-            case 1:
+            case 14: // Ace is now represented as 14
                 rankString = "Ace";
                 break;
             case 11:

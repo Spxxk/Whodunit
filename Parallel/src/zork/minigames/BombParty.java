@@ -3,14 +3,14 @@ package zork.minigames;
 import java.util.*;
 
 import zork.proto.Minigame;
+import zork.Game;
 
 public class BombParty extends Minigame {
 
     private Scanner in;
     private String syllable;
     private boolean finished;
-
-    public static final String RED = "\u001B[31m", WHITE = "\u001B[0m";
+    private int score;
 
     public BombParty() {
         super("Bomb Party",(int) 1e9);
@@ -19,9 +19,9 @@ public class BombParty extends Minigame {
     public void play() {
         in = new Scanner(System.in);
 
-        System.out.println("Welcome to Bomb Party! Try to survive as long as possible.");
-        System.out.printf("To play, write a word that contains the syllable in %sRED%2s once the console tells you to.%n", RED, WHITE);
-        System.out.printf("Type start once you have understood the rules: ");
+        Game.print("/bWelcome to Bomb Party! Try to survive as long as possible.");
+        Game.print("/bTo play, write a word that contains the syllable in /rRED%/b once the console tells you to.");
+        System.out.print("Type start once you have understood the rules: ");
 
         finished = false;
 
@@ -39,16 +39,25 @@ public class BombParty extends Minigame {
                 syllable += vowels.charAt((int)(Math.random() * vowels.length()));
             }
 
-            System.out.println(RED + "Syllable: " + syllable + WHITE);
+            Game.print("/rSyllable: " + syllable);
             
-            System.out.println("It's your turn. You have 10 seconds to respond.");
+            Game.print("/bIt's your turn. You have 10 seconds to respond.");
             long startTime = System.currentTimeMillis();
             String response = in.nextLine();
             long responseTime = (System.currentTimeMillis() - startTime) / 1000;
 
             if (responseTime > 10 || !isValidWord(response) || !response.contains(syllable)) {
-                System.out.println("You have been eliminated!");
+                Game.print("/bYou have been eliminated!");
                 finished = true;
+                Game.player.setResult(false);
+                return;
+            }
+
+            System.out.println();
+            score++;
+            if(score >= 10) {
+                Game.player.setResult(true);
+                finished = false;
             }
         } catch (Exception e) {
             e.printStackTrace();

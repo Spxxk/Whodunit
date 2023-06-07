@@ -12,6 +12,7 @@ public class Poker extends Minigame {
     private Player user;
     private List<Player> npcs;
     private Deck deck;
+    private List<Card> communityCards;
     private int pot;
     private int currentBet;
     private int roundCount;
@@ -23,6 +24,7 @@ public class Poker extends Minigame {
         this.deck = new Deck();
         this.user = new Player("User", 250);
         this.npcs = new ArrayList<>();
+        this.communityCards = new ArrayList<>();
         for (int i = 1; i <= 3; i++) {
             this.npcs.add(new Player("NPC" + i, 250));
         }
@@ -32,16 +34,21 @@ public class Poker extends Minigame {
     }
 
     public void startGame(String... args) {
-        Game.print("WELCOME TO CAGA's POKER DUNGEON");
-        Game.print("Welcome! You are about to play a classic game of poker.");
-        Game.print("Here are some instructions to get you started:");
-        Game.print("\n1. You will start the game with the $250 from the wallet you found.");
+        Game.print("Brent: Finally you made it here");
+        Game.print("Brent: If you can be me and my henchmen I will turn myself in for killing Glenn");
+        Game.print("Brent: But if you lose... well... you don't what to find out");
+        Game.print("\nHere are some instructions to get you started:");
+        Game.print("1. You will start the game with the $250 from the wallet you found.");
         Game.print("2. You will be playing against 3 opponents.");
-        Game.print("3. Each round begins with you and the opponents being dealt 2 cards from a shuffled deck.");
+        Game.print("3. The game begins with you and the opponents being dealt 2 cards from a shuffled deck.");
         Game.print("4. In each betting round, you can choose to 'bet', 'raise', or 'call'.");
-        Game.print("5. The game continues until you lose all your money or reach $800");
-        Game.print("\nIf you succumb to CAGASUGE you will be eaten and die a painful death");
-        Game.print("\nCAGASUGE IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...");
+        Game.print("5. Brent has made it so you cannot check to make the game harder");
+        Game.print("6. The flop or the cards on the table are first presented after the first betting round.");
+        Game.print("7. After each betting round one card is added to the community pile.");
+        Game.print("8. Then when there are 5 cards in the pile there will be one last betting round.");
+        Game.print("9. The game continues until you lose all your money or reach $800");
+        Game.print("\nIf you succumb to Brent you will...");
+        Game.print("\nBRENT IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...");
 
         try {
             Thread.sleep(2000); // Delay before the game starts
@@ -50,18 +57,25 @@ public class Poker extends Minigame {
         }
 
         while (true) {
-            playRound();
-            Game.print("Would you like to play again? (yes/no)");
-            String playAgain = scanner.nextLine().toLowerCase();
-            if (!"yes".equals(playAgain)) {
+            if (user.getBank() >= 800) {
+                Game.print("Congratulations! You won the game with $" + user.getBank() + " in your bank.");
                 break;
+            } else if (user.getBank() <= 0) {
+                Game.print("You lost all your money. Better luck next time!");
+                break;
+            } else {
+                playRound();
             }
         }
     }
 
+    private static final String ANSI_RESET = "\u001B[0m"; //changeign the color for player vs npc
+    private static final String ANSI_GREEN = "\u001B[32m";
     public void playRound() {
+        
         this.deck = new Deck();
         this.deck.shuffle();
+        this.communityCards.clear();
     
         for (int i = 0; i < 2; i++) {
             this.user.addCard(this.deck.dealCard());
@@ -70,8 +84,9 @@ public class Poker extends Minigame {
             }
         }
     
-        System.out.println("Your hand: " + this.user.getHand());
-        System.out.println("Your bank: $" + this.user.getBank());
+        System.out.println("Your hand: " + ANSI_GREEN + this.user.getHand() + ANSI_RESET);
+        System.out.println("Your bank: $" + ANSI_GREEN + this.user.getBank() + ANSI_RESET);
+    
     
         for (Player npc : npcs) {
             System.out.println(npc.getName() + "'s hand: " + npc.getHand());
@@ -88,7 +103,7 @@ public class Poker extends Minigame {
     
         roundCount++;
     
-        while (roundCount <= 3) {
+        while (roundCount <= 4) {
             System.out.println("Would you like to 'bet', 'call', or 'raise'? ");
             String decision = scanner.nextLine().toLowerCase();
 
@@ -149,9 +164,10 @@ public class Poker extends Minigame {
 
             roundCount++;
 
-            if (roundCount >= 2 && roundCount <= 5) {
-                System.out.println("Dealing flop...");
-                dealFlop(roundCount);
+            if (roundCount == 2) {
+                dealFlop();  // Dealing the Flop (3 cards) in the poker I played with OMCH we were given 3 flop cards then 2 more community cards later
+            } else if (roundCount == 3 || roundCount == 4) {
+                dealCommunityCard();  // Dealing the Turn (1 card) and the River (1 card)
             }
         }
 
@@ -192,17 +208,20 @@ public class Poker extends Minigame {
         this.roundCount = 0;
     }
 
-    private void dealFlop(int numCards) {
+    private void dealFlop() {
         System.out.println("Dealing flop...");
-        List<Card> flopCards = new ArrayList<>();
-        for (int i = 0; i < numCards; i++) {
-            flopCards.add(this.deck.dealCard());
+        for (int i = 0; i < 3; i++) {
+            this.communityCards.add(this.deck.dealCard());
         }
-        if (numCards == 5) {
-            flopCards.add(this.deck.dealCard());
-        }
-        System.out.println("Flop: " + flopCards);
+        System.out.println("Flop: " + this.communityCards);
     }
+    
+    private void dealCommunityCard() {
+        System.out.println("Dealing a community card...");
+        this.communityCards.add(this.deck.dealCard());
+        System.out.println("Community cards: " + this.communityCards);
+    }
+    
 
     private int getPlayerBet() {
         System.out.println("How much would you like to bet?");
@@ -226,16 +245,292 @@ public class Poker extends Minigame {
         return minBet + (int) (Math.random() * ((maxBet - minBet) / 10 + 1)) * 10;
     }
 
-    private Player determineWinner() {
-        Card highestCardUser = user.getHighestCard();
-        Player winner = user;
-        for (Player npc : npcs) {
-            Card highestCardNPC = npc.getHighestCard();
-            if (highestCardNPC.getRank() > highestCardUser.getRank()) {
-                highestCardUser = highestCardNPC;
-                winner = npc;
+    //These are all like the things you can get in poker_______________________________________
+    private boolean hasRoyalFlush(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+        Collections.sort(combinedCards);
+    
+        for (int i = 0; i <= combinedCards.size() - 5; i++) {
+            if (combinedCards.get(i).getRank() == 10 &&
+                combinedCards.get(i).getSuit() == combinedCards.get(i + 1).getSuit() &&
+                combinedCards.get(i + 1).getRank() == 11 &&
+                combinedCards.get(i + 1).getSuit() == combinedCards.get(i + 2).getSuit() &&
+                combinedCards.get(i + 2).getRank() == 12 &&
+                combinedCards.get(i + 2).getSuit() == combinedCards.get(i + 3).getSuit() &&
+                combinedCards.get(i + 3).getRank() == 13 &&
+                combinedCards.get(i + 3).getSuit() == combinedCards.get(i + 4).getSuit() &&
+                combinedCards.get(i + 4).getRank() == 14) {
+                return true;
             }
         }
-        return winner;
+    
+        return false;
     }
-}
+
+
+    private boolean hasStraightFlush(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+        combinedCards.sort(Comparator.comparing(Card::getRank));
+    
+        for (int i = 0; i <= combinedCards.size() - 5; i++) {
+            if (isSameSuit(combinedCards.subList(i, i + 5)) && isSequential(combinedCards.subList(i, i + 5))) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    private boolean isSameSuit(List<Card> cards) {
+        String suit = cards.get(0).getSuit();
+        for (Card card : cards) {
+            if (!card.getSuit().equals(suit)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private boolean isSequential(List<Card> cards) {
+        for (int i = 0; i < cards.size() - 1; i++) {
+            if (cards.get(i).getRank() + 1 != cards.get(i + 1).getRank()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean hasFourOfAKind(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+    
+        Map<Integer, Integer> rankCounts = new HashMap<>();
+        for (Card card : combinedCards) {
+            rankCounts.put(card.getRank(), rankCounts.getOrDefault(card.getRank(), 0) + 1);
+        }
+    
+        for (Integer count : rankCounts.values()) {
+            if (count == 4) {
+                return true;
+            }
+        }
+    
+        return false;
+    }
+
+    private boolean hasFullHouse(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+    
+        Map<Integer, Integer> rankCounts = new HashMap<>();
+        for (Card card : combinedCards) {
+            rankCounts.put(card.getRank(), rankCounts.getOrDefault(card.getRank(), 0) + 1);
+        }
+    
+        boolean hasThreeOfAKind = false;
+        boolean hasPair = false;
+    
+        for (Integer count : rankCounts.values()) {
+            if (count == 3) {
+                hasThreeOfAKind = true;
+            } else if (count == 2) {
+                hasPair = true;
+            }
+        }
+    
+        return hasThreeOfAKind && hasPair;
+    }
+    
+    private boolean hasFlush(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+    
+        Map<String, Integer> suitCounts = new HashMap<>();
+        for (Card card : combinedCards) {
+            suitCounts.put(card.getSuit(), suitCounts.getOrDefault(card.getSuit(), 0) + 1);
+        }
+    
+        for (Integer count : suitCounts.values()) {
+            if (count >= 5) {
+                return true;
+            }
+        }
+    
+        return false;
+    }
+
+    private boolean hasStraight(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+        Collections.sort(combinedCards);
+    
+        int currentStreak = 1;
+        for (int i = 0; i < combinedCards.size() - 1; i++) {
+            if (combinedCards.get(i).getRank() + 1 == combinedCards.get(i + 1).getRank()) {
+                currentStreak++;
+                if (currentStreak == 5) {
+                    return true;
+                }
+            } else if (combinedCards.get(i).getRank() != combinedCards.get(i + 1).getRank()) {
+                currentStreak = 1;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasThreeOfAKind(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+    
+        Map<Integer, Integer> rankCounts = new HashMap<>();
+        for (Card card : combinedCards) {
+            rankCounts.put(card.getRank(), rankCounts.getOrDefault(card.getRank(), 0) + 1);
+        }
+    
+        return rankCounts.values().stream().anyMatch(count -> count == 3);
+    }
+
+    private boolean hasTwoPair(Player player) {
+        List<Card> combinedCards = new ArrayList<>(player.getHand());
+        combinedCards.addAll(communityCards);
+        
+        int pairCount = 0;
+        List<Integer> pairedRanks = new ArrayList<>();
+    
+        for (Card card : combinedCards) {
+            int count = 0;
+            if (pairedRanks.contains(card.getRank())) {
+                continue;
+            }
+            for (Card otherCard : combinedCards) {
+                if (card.getRank() == otherCard.getRank()) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                pairCount++;
+                pairedRanks.add(card.getRank());
+            }
+        }
+        return pairCount >= 2;
+    }
+
+    private boolean hasPair(Player player) {
+        Map<Integer, Integer> cardCounts = new HashMap<>();
+        for (Card card : player.getHand()) {
+            cardCounts.put(card.getRank(), cardCounts.getOrDefault(card.getRank(), 0) + 1);
+        }
+        for (int count : cardCounts.values()) {
+            if (count >= 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Player getHighestCardWinner() {
+        Player highestCardPlayer = user;
+        Card highestCard = user.getHighestCard();
+    
+        for (Player npc : npcs) {
+            Card npcHighestCard = npc.getHighestCard();
+            if (npcHighestCard.compareTo(highestCard) > 0) {
+                highestCardPlayer = npc;
+                highestCard = npcHighestCard;
+            }
+        }
+    
+        return highestCardPlayer;
+    }
+    
+    
+    
+    //_________________________________________
+
+    private List<Player> getAllPlayers() {
+        List<Player> allPlayers = new ArrayList<>();
+        allPlayers.add(user);
+        allPlayers.addAll(npcs);
+        return allPlayers;
+    }
+    
+    
+    private Player determineWinner() {
+        // Start by checking if any player has a Royal Flush
+        for (Player player : getAllPlayers()) {
+            if (hasRoyalFlush(player)) {
+                System.out.println(player.getName() + " has a Royal Flush!");
+                return player;  // The player with the Royal Flush wins
+            }
+        }
+    
+        // Check if any player has a Straight Flush
+        for (Player player : getAllPlayers()) {
+            if (hasStraightFlush(player)) {
+                System.out.println(player.getName() + " has a Straight Flush!");
+                return player;  // The player with the Straight Flush wins
+            }
+        }
+    
+        // Check if any player has a Four of a Kind
+        for (Player player : getAllPlayers()) {
+            if (hasFourOfAKind(player)) {
+                System.out.println(player.getName() + " has a Four of a Kind!");
+                return player;  // The player with the Four of a Kind wins
+            }
+        }
+    
+        // Check if any player has a Full House
+        for (Player player : getAllPlayers()) {
+            if (hasFullHouse(player)) {
+                System.out.println(player.getName() + " has a Full House!");
+                return player;  // The player with the Full House wins
+            }
+        }
+    
+        // Check if any player has a Flush
+        for (Player player : getAllPlayers()) {
+            if (hasFlush(player)) {
+                System.out.println(player.getName() + " has a Flush!");
+                return player;  // The player with the Flush wins
+            }
+        }
+    
+        // Check if any player has a Straight
+        for (Player player : getAllPlayers()) {
+            if (hasStraight(player)) {
+                System.out.println(player.getName() + " has a Straight!");
+                return player;  // The player with the Straight wins
+            }
+        }
+    
+        // Check if any player has Three of a Kind
+        for (Player player : getAllPlayers()) {
+            if (hasThreeOfAKind(player)) {
+                System.out.println(player.getName() + " has Three of a Kind!");
+                return player;  // The player with Three of a Kind wins
+            }
+        }
+    
+        // Check if any player has Two Pair
+        for (Player player : getAllPlayers()) {
+            if (hasTwoPair(player)) {
+                System.out.println(player.getName() + " has Two Pair!");
+                return player;  // The player with Two Pair wins
+            }
+        }
+    
+        // Check if any player has a Pair
+        for (Player player : getAllPlayers()) {
+            if (hasPair(player)) {
+                System.out.println(player.getName() + " has a Pair!");
+                return player;  // The player with a Pair wins
+            }
+        }
+    
+        // If no player has any of the above hands then the person itht he highest card wins
+        return getHighestCardWinner();
+    }
+}    

@@ -32,16 +32,16 @@ public class Poker extends Minigame {
     }
 
     public void startGame(String... args) {
-        Game.print("WELCOME TO CAGA's POKER DUNGEON");
-        Game.print("Welcome! You are about to play a classic game of poker.");
-        Game.print("Here are some instructions to get you started:");
-        Game.print("\n1. You will start the game with the $250 from the wallet you found.");
-        Game.print("2. You will be playing against 3 opponents.");
-        Game.print("3. Each round begins with you and the opponents being dealt 2 cards from a shuffled deck.");
-        Game.print("4. In each betting round, you can choose to 'bet', 'raise', or 'call'.");
-        Game.print("5. The game continues until you lose all your money or reach $800");
-        Game.print("\nIf you succumb to CAGASUGE you will be eaten and die a painful death");
-        Game.print("\nCAGASUGE IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...");
+        Game.print("/bWELCOME TO CAGA's POKER DUNGEON");
+        Game.print("/bWelcome! You are about to play a classic game of poker.");
+        Game.print("/bHere are some instructions to get you started:");
+        Game.print("/b\n1. You will start the game with the $250 from the wallet you found.");
+        Game.print("/b2. You will be playing against 3 opponents.");
+        Game.print("/b3. Each round begins with you and the opponents being dealt 2 cards from a shuffled deck.");
+        Game.print("/b4. In each betting round, you can choose to 'bet', 'raise', or 'call'.");
+        Game.print("/b5. The game continues until you lose all your money or reach $800");
+        Game.print("/b\nIf you succumb to CAGASUGE you will be eaten and die a painful death");
+        Game.print("/b\nCAGASUGE IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...");
 
         try {
             Thread.sleep(2000); // Delay before the game starts
@@ -51,7 +51,7 @@ public class Poker extends Minigame {
 
         while (true) {
             playRound();
-            Game.print("Would you like to play again? (yes/no)");
+            Game.print("/bWould you like to play again? (yes/no)");
             String playAgain = scanner.nextLine().toLowerCase();
             if (!"yes".equals(playAgain)) {
                 break;

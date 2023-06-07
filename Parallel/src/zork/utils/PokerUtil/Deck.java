@@ -24,4 +24,8 @@ public class Deck {
     public Card dealCard() {
         return this.cards.remove(0);
     }
+
+    public String dealCards() {
+        return null;
+    }
 }

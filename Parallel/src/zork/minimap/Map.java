@@ -1,4 +1,5 @@
 package zork.minimap;
+import zork.minimap.CustomOutputStream;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.PrintStream;
 
 public class Map extends JFrame {
 
@@ -35,6 +37,10 @@ public class Map extends JFrame {
 
     public Map() {
         player = new Player(0, 0);
+
+        JTextArea textArea = new JTextArea(50, 10);
+        PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
+        System.setOut(printStream);
 
         map = new BufferedImage(MAP_WIDTH, MAP_HEIGHT, BufferedImage.TYPE_INT_RGB);
         drawMap(map.createGraphics(), 1);

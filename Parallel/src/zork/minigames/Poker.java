@@ -59,9 +59,11 @@ public class Poker extends Minigame {
         while (true) {
             if (user.getBank() >= 800) {
                 Game.print("Congratulations! You won the game with $" + user.getBank() + " in your bank.");
+                Game.player.setResult(true);
                 break;
             } else if (user.getBank() <= 0) {
                 Game.print("You lost all your money. Better luck next time!");
+                Game.player.setResult(false);
                 break;
             } else {
                 playRound();
@@ -89,7 +91,7 @@ public class Poker extends Minigame {
     
     
         for (Player npc : npcs) {
-            System.out.println(npc.getName() + "'s hand: " + npc.getHand());
+            System.out.println(npc.getName() + "'s hand: [X of Xs, X of Xs]");
             System.out.println(npc.getName() + "'s bank: $" + npc.getBank());
         }
     
@@ -110,6 +112,11 @@ public class Poker extends Minigame {
             int betAmount;
             switch (decision) {
                 case "bet":
+                    if(getHighestBet() > user.getBank()) {
+                        System.out.println("You don't have enough money to bet.");
+                        System.out.println("You folded your turn.");
+                        break;
+                    }
                     betAmount = getPlayerBet();
                     if (betAmount > this.user.getBank()) {
                         System.out.println("You don't have enough money to bet $" + betAmount + ".");
@@ -224,12 +231,16 @@ public class Poker extends Minigame {
     
 
     private int getPlayerBet() {
-        System.out.println("How much would you like to bet?");
+        System.out.println("How much would you like to bet? You must bet higher than " + getHighestBet() + ".");
         while (true) {
             try {
                 int bet = Integer.parseInt(scanner.nextLine());
                 if (bet <= this.user.getBank()) {
-                    return bet;
+                    if(bet > getHighestBet())
+                        return bet;
+                    else {
+                        System.out.println("You need to bet higher than " + getHighestBet() + ".");
+                    }
                 } else {
                     System.out.println("You can't bet more than you have. Your bank: " + this.user.getBank());
                 }
@@ -237,6 +248,15 @@ public class Poker extends Minigame {
                 System.out.println("Please enter a valid bet.");
             }
         }
+    }
+
+    private int getHighestBet() {
+        int highest = user.getBet();
+        for (Player p : npcs) {
+            highest = p.getBet() > highest ? p.getBet() : highest;
+        }
+
+        return highest;
     }
 
     private int getRandomBetAmount(Player player) {

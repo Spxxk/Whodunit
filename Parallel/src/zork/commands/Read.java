@@ -14,7 +14,7 @@ public class Read extends Command {
         String itemName = Item.arrayToString(args);
 
         switch(itemName.toLowerCase()) {
-            case "brent's diary":
+            case "brent's diary": // name of the item with case in front of it
             case "letter":
             case "welcome letter":
                 for (Item item : Game.player.getInventory().getContents()) {

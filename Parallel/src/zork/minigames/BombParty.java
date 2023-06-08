@@ -62,7 +62,7 @@ public class BombParty extends Minigame {
             System.out.println();
             score++; // Score is incremented
 
-            if(score >= 10) { // If we reach round 10, then we won
+            if(score >= 5) { // If we reach round 5, then we won
                 Game.player.setResult(true); // Status to won
                 finished = true; // Game is done
             }

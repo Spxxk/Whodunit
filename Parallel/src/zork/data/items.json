@@ -407,6 +407,41 @@
             "weight": 1,
             "isOpenable": false,
             "needsContext": false
+        },
+        {
+            "id": "computer",
+            "name": "Computer",
+            "weight": 200,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "morse",
+            "name": "Morse Code",
+            "weight": 0,
+            "isOpenable": true,
+            "needsContext": false
+        },
+        {
+            "id": "coat",
+            "name": "Coat",
+            "weight": 5,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "pen",
+            "name": "Pen",
+            "weight": 0,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "comb",
+            "name": "Comb",
+            "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
         }
     ]
 }

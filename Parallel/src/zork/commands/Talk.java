@@ -20,10 +20,11 @@ public class Talk extends Command {
         if (args[0].equalsIgnoreCase("to")) { // Check if the request is worded correctly
             for (Character ch : Game.player.getCurrentRoom().getCharacters()) { // Iterate over all present characters
                 if(("to " + ch.getName()).equalsIgnoreCase(Item.arrayToString(args))) { // Check if we found the right one
-                    Game.player.setCharacterTalkingTo(ch); // Set the status
+                    Game.dialogueLoop(ch.getId());
                     return;
                 }
             }
+            
             try {
                 throw new CharacterNotFoundException(Item.arrayToString(args).substring(3)); // If we get here that means the NPC is not present, or they don't exist
             } catch (CharacterNotFoundException e) {

@@ -8,7 +8,6 @@ public class Player {
     private final Inventory playerInventory;
     private Room currentRoom;
     private String name;
-    private Character characterTalkingTo;
     private boolean wonMinigame;
     
     public Player(int inventoryLimit) {
@@ -45,14 +44,6 @@ public class Player {
 
     public String getPlayerName() {
         return this.name;
-    }
-
-    public Character getCharacterTalkingTo() {
-        return characterTalkingTo;
-    }
-
-    public void setCharacterTalkingTo(Character c) {
-        characterTalkingTo = c;
     }
 
     public void setResult(boolean b) {

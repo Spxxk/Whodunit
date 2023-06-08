@@ -8,7 +8,6 @@ import zork.proto.Room;
 import zork.proto.Character;
 import zork.proto.Command;
 import zork.threads.CommandListener;
-import zork.threads.DialogueThread;
 import zork.utils.CommandLoader;
 import zork.utils.Dictionary;
 import zork.utils.Give;
@@ -37,7 +36,7 @@ public class Game {
 
     private static Game game = new Game();
 
-    private static final Thread cmdListener = new CommandListener(), dialogueThread = new DialogueThread();
+    private static final Thread cmdListener = new CommandListener();
 
 	static final String GREEN_TEXT = "\033[1;32m", RESET = "\033[0m", RED_TEXT = "\033[1;31m", BLUE_TEXT = "\033[1;34m";
 
@@ -170,7 +169,6 @@ public class Game {
 		print("/b" + Game.player.getCurrentRoom().longDescription());
 		
         cmdListener.start();
-		dialogueThread.start();		
 	}
 
 	private void printStory() throws InterruptedException {

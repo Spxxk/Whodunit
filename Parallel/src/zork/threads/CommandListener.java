@@ -13,18 +13,16 @@ public class CommandListener extends Thread {
     @Override
     public void run() {
         while (true) {
-            if(Game.player.getCharacterTalkingTo() == null) {
-                try {
-                    System.out.println("--------------");
-                    
-                    CommandContext res = Parser.getCommand();
+            try {
+                System.out.println("--------------");
+                
+                CommandContext res = Parser.getCommand();
 
-                    System.out.println("--------------");
+                System.out.println("--------------");
 
-                    res.runCommand();
-                } catch (CommandNotFoundException e) {
-                    e.printStackTrace(getName());
-                }
+                res.runCommand();
+            } catch (CommandNotFoundException e) {
+                e.printStackTrace(getName());
             }
         }
     }

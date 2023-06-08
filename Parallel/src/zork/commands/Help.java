@@ -10,6 +10,9 @@ public class Help extends Command{
 
     @Override
     public void runCommand(String... args) {
+
+        // Help!!
+        
         System.out.println("Hi there, I see that you need a little bit of help. Here are some things you should know...");
         
         System.out.printf("-------------------------------------------------------------------%n");

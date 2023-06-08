@@ -35,32 +35,33 @@ public class MemoryNumbers extends Minigame {
 
     private void nextRound() {
         try {
-            nums += (int) (Math.random() * 10);
+            nums += (int) (Math.random() * 10); // Generate a random number
 
-            Game.print("/r" + nums);
-            Thread.sleep(2000);
+            Game.print("/r" + nums); // The new number
+
+            Thread.sleep(2000); // 2 seconds to look at the number
             printLines();
             
             System.out.print("Repeat number here: ");
 
-            String input;
-            if(in.hasNextLine()) { 
-                input = in.nextLine();
+            String input = in.nextLine();
 
-                if(!input.equals(nums)) {
-                    Game.print("/bCorrect number was [/r" + nums + "/b], you recieved a score of " + score + ".");
-                    finished = true;
-                    if(score >= 8) {
-                        Game.print("/bYou defeated MR MINATO!");
-                        Game.player.setResult(true);
-                    } else 
-                        Game.player.setResult(false);
-                    return;
-                }
-
-                score++;
-                System.out.printf("Round %s%n", score);
+            if(!input.equals(nums)) { // If the answer is incorrect
+                Game.print("/bCorrect number was [/r" + nums + "/b], you recieved a score of " + score + "."); // Display the right answer
+                finished = true; // Game is done
+                if(score >= 8) { // If we get to 8 though, we win
+                    Game.print("/bYou defeated MR MINATO!"); // Inform the user
+                    Game.player.setResult(true); // Status won
+                } else 
+                    Game.player.setResult(false); // Status lost
+                return;
             }
+
+            // Number is right if we get here
+
+            score++; // Increment the score
+            System.out.printf("Round %d%n", score); // Displaying the round #
+
         } catch (Exception e) {
             e.printStackTrace();
         }

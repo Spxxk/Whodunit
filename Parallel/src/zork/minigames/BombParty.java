@@ -34,7 +34,7 @@ public class BombParty extends Minigame {
 
     private void nextRound() {
         try {
-            // Random syllable generation (1-2 vowels for simplicity)
+            // Random syllable generation (some uncommon letters are removed so that it is easier)
             String letters = "abcdefghilmnoprstu";
             syllable = "";
             for (int i = 0; i < 2; i++) {
@@ -45,25 +45,28 @@ public class BombParty extends Minigame {
             
             Game.print("/bIt's your turn. You have 10 seconds to respond.");
 
-            Timer time = new Timer(10);
+            Timer time = new Timer(10); // Timer for each round
 
-            time.start();
-            String response = in.nextLine().toLowerCase();
+            time.start(); // Start the timer
+            String response = in.nextLine().toLowerCase(); // User input
 
-            if (time.isOver()|| !isValidWord(response) || !response.contains(syllable)) {
-                Game.print("/rYou have been eliminated!/b");
-                finished = true;
-                Game.player.setResult(false);
+            if (time.isOver()|| !response.contains(syllable) || !isValidWord(response)) { // If time has ran out, or the word does not contain the required subsegment, or if it is not a valid english word, then we cannot continue
+                Game.print("/rYou have been eliminated!/b"); // Inform the player
+                finished = true; // Game is done
+                Game.player.setResult(false); // Status to lost
                 return;
             }
 
+            // If we get here, it means that we have passed
+
             System.out.println();
-            score++;
-            if(score >= 10) {
-                Game.player.setResult(true);
-                finished = false;
+            score++; // Score is incremented
+
+            if(score >= 10) { // If we reach round 10, then we won
+                Game.player.setResult(true); // Status to won
+                finished = true; // Game is done
             }
-        } catch (Exception e) {
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
     }

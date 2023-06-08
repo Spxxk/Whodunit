@@ -17,7 +17,7 @@ public class TicTacToe extends Minigame {
     public void startGame(String... args) {
         in = new Scanner(System.in);
 
-        initializeGrid();
+        initializeGrid(); // Reset grid
         finished = false;
 
         Game.print("/bWelcome to Tic Tac Toe! Defeat MR MCMULLEN to be able to move on.");
@@ -27,9 +27,9 @@ public class TicTacToe extends Minigame {
     }
     
     private void comTurn() {
-        displayGrid();
+        displayGrid(); // Print the grid out
 
-        addToGrid(COM, comAsker());
+        addToGrid(COM, comAsker()); // Modify grid with user input
     }
 
 

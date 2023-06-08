@@ -14,15 +14,15 @@ public class Look extends Command {
 
     @Override
     public void runCommand(String... args) {
-        ArrayList<Item> items = Game.player.getCurrentRoom().getRoomItems().getContents();
-        ArrayList<Character> chars = Game.player.getCurrentRoom().getCharacters();
+        ArrayList<Item> items = Game.player.getCurrentRoom().getRoomItems().getContents(); // The items in the room
+        ArrayList<Character> chars = Game.player.getCurrentRoom().getCharacters(); // The characters present in the room
 
-        if(items.size() == 0 && chars.size() == 0) {
+        if (items.size() == 0 && chars.size() == 0) { // Check if there is nothing in the room
             System.out.println("The room is empty.");
             return;
         }
 
-        if(items.size() > 0) {
+        if (items.size() > 0) { // If there are items
             System.out.print("Items: ");
             for (Item i : items) {
                 System.out.print(i.getName());
@@ -32,7 +32,7 @@ public class Look extends Command {
             if(chars.size() > 0) System.out.println();
         }
 
-        if(chars.size() > 0) {
+        if (chars.size() > 0) { // If there are characters
             System.out.print("Characters: ");
             for (Character ch : chars) {
                 System.out.print(ch.getName());

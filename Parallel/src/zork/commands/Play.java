@@ -14,20 +14,20 @@ public class Play extends Command {
     @Override
     public void runCommand(String... args) {
 
-        String minigame = Item.arrayToString(args);
+        String minigame = Item.arrayToString(args); // Find the minigame name
 
         try {
-            GameThread gt = new GameThread(MinigameLoader.getMinigame(minigame));
+            GameThread gt = new GameThread(MinigameLoader.getMinigame(minigame)); // Game Thread
 
-            gt.start();
-            gt.join();
+            gt.start(); 
+            gt.join(); // Pause the current thread until the game is done
 
-            Thread.sleep(1000);
-            System.out.println();
+            Thread.sleep(1000); // Delay after the game is finished
+
         } catch (MinigameNotFoundException e) {
-            e.printStackTrace("cmdHandler");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            e.printStackTrace("cmdHandler"); // If we can't find the minigame
+        } catch (InterruptedException e) { 
+            e.printStackTrace(); // Internal error
         }
     }
 }

@@ -54,6 +54,7 @@ public class BombParty extends Minigame {
                 Game.print("/rYou have been eliminated!/b"); // Inform the player
                 finished = true; // Game is done
                 Game.player.setResult(false); // Status to lost
+                score = 0; // reset the score
                 return;
             }
 
@@ -64,6 +65,7 @@ public class BombParty extends Minigame {
 
             if(score >= 5) { // If we reach round 5, then we won
                 Game.player.setResult(true); // Status to won
+                score = 0; // reset the score
                 finished = true; // Game is done
             }
         } catch (IllegalAccessException e) {

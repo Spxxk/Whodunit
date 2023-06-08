@@ -243,7 +243,7 @@
         {
             "id": "t shirt",
             "name": "t-shirt",
-            "weight": 0.05,
+            "weight": 101,
             "isOpenable": false,
             "needsContext": false
         },
@@ -447,6 +447,27 @@
             "id": "pokerTable",
             "name": "Poker Table",
             "weight": 120,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "glennPaper",
+            "name": "Piece of Paper",
+            "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "glennClosetNote",
+            "name": "Mysterious Note",
+            "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "glennBody",
+            "name": "Glenn's Body",
+            "weight": 130,
             "isOpenable": false,
             "needsContext": false
         }

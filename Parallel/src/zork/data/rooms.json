@@ -110,7 +110,7 @@
         { "id": null }
       ],
       "items": [
-        { "id": "glennClosetKey" }, { "id": "sweater" }
+        { "id": "brentClosetKey" }, { "id": "sweater" }
       ],
       "exits": [
         {
@@ -446,14 +446,14 @@
     {
       "id": "glennCloset",
       "name": "Glenn's Closet",
-      "description": "You are in Glenn's closet.",
+      "description": "You are in Glenn's closet. You see Glenn's dead body inside, which makes you break down.",
       "capacity": 150,
       "keyid": "glennClosetKey",
       "npcs": [
         { "id": null }
       ],
       "items": [
-        { "id": "tennisCourtKey"}, { "id": "tennis shoes"}
+        { "id": "tennisCourtKey"}, { "id": "tennis shoes"}, { "id": "glennBody"}, { "id": "glennClosetNote"}
       ],
       "exits": [
         {
@@ -647,7 +647,7 @@
         { "id": "walletOwner" }
       ],
       "items": [
-        { "id": "sandals"}, { "id": "water gun"}, { "id": "brentClosetKey"}
+        { "id": "sandals"}, { "id": "water gun"}
       ],
       "exits": [
         {

@@ -57,6 +57,21 @@ public class Check extends Command {
                     Game.print("/b" + itemName + " does not need to be checked.");
                 }
                 break;
+
+            case "Glenn's Room":
+                if(itemName.equalsIgnoreCase("t-shirt")){
+                    if(CharacterConstants.CHECKED_TSHIRT) {
+                        Game.print("You already checked the t-shirt.");
+                    }
+                    Game.print("You picked up one of Glenn's t-shirts which was on the ground, and a piece of paper fell out of it.");
+                    Game.print("You pick up the paper and stash it in your inventory.");
+                    if(Give.giveItem(Game.itemList.get("glennPaper"), null))  {
+                        CharacterConstants.CHECKED_TSHIRT = true;
+                    }
+                } else {
+                    Game.print("/b" + itemName + " does not need to be checked.");
+                }
+
             case "Cellar":
                 if(itemName.equalsIgnoreCase("Crate")) {
                     if(CharacterConstants.CHECKED_CRATE_CELLAR) {

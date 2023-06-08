@@ -227,7 +227,7 @@ public class Game {
 				break;
 
 			case "walletOwner":
-				if(!CharacterConstants.GAVE_WALLET && CharacterConstants.GAVE_ROOM_KEY) {
+				if(!CharacterConstants.GAVE_WALLET && CharacterConstants.READ_NOTE) {
 					print("Hey there /p! This resort is pretty nice, huh?");
 					print("Anyways, I heard that there's something going on at the casino later, but you need money to get in.");
 					print("I have a wallet with $250 for you, but only if you can get 60 words per minute on a typing test.");
@@ -264,7 +264,7 @@ public class Game {
 				break;
 
 			case "invitationMan":
-				if(!CharacterConstants.GAVE_INVITATION && CharacterConstants.GAVE_ROOM_KEY) {
+				if(!CharacterConstants.GAVE_INVITATION && CharacterConstants.READ_NOTE) {
 					print("Hello there, you must be /p!");
 					print("I am supposed to attend an event in the casino's private poker room, but I won't be able to make it");
 					print("The invitation can be all yours, but only if you beat me in Tic Tac Toe.");
@@ -298,7 +298,7 @@ public class Game {
 				break;
 
 			case "hotelStaff":
-				if(!CharacterConstants.GAVE_INFO && CharacterConstants.GAVE_ROOM_KEY) {
+				if(!CharacterConstants.GAVE_INFO && CharacterConstants.READ_NOTE) {
 					print("Hello? Is that /p? What are you doing here?");
 					print("Okay, fine, I'll let you stay, even though I'm not supposed to.");
 					print("Anyways, I've heard you were investigating some issues around the hotel, and I may be able to help you out.");

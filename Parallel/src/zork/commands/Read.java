@@ -14,6 +14,7 @@ public class Read extends Command {
         String itemName = Item.arrayToString(args);
 
         switch(itemName.toLowerCase()) {
+            case "piece of paper":
             case "morse code":
             case "brent's diary": // name of the item with case in front of it
             case "letter":
@@ -50,6 +51,27 @@ public class Read extends Command {
                         if(item.getId().equalsIgnoreCase("morse")) {
                             Game.print("/dbThere seems to be a strange sequence on the paper.");
                             Game.print("/dbIt looks like Morse code: - .-. .- -.-. . / - .... . / - .- .. .-.. / --- ..-. / .-- .... .- - / -.-- --- ..- / ... . . --..-- / .. -. / . -. -.. .. -. --. ... --..-- / - .... . / -.- . -.-- / .-- .. .-.. .-.. / -... . .-.-.- / ..- -. .-. .- ...- . .-.. / -.-. --- -.. . --..-- / ..-. .. -. -.. / - .... . / -. .- -- . .--..-- / .- -. -.. / - .... . -. / -.-- --- ..- .----. .-.. .-.. / .-- .. -. / - .... .. ... / -.. . .- -.. .-.. -.-- / --. .- -- . .-.-.-");
+                        }
+                        if(item.getId().equalsIgnoreCase("glennPaper")) {
+                            Game.print("/bThe paper looks like a letter that was meant to be sent to you by Glenn. It reads:");
+                            Game.print("/dbDear /p,");
+                            Game.print("/dbThere's so much cool stuff to do at this resort. The pool is super deep too!");
+                            Game.print("/dbWe should go diving some time on our trip. Let me know when you want to.");
+                            Game.print("");
+                            Game.print("/dbPeace out,");
+                            Game.print("/db    Glenn");
+                            Game.print("/bTears roll down your eyes as your read the letter.");
+                        }
+                        if(item.getId().equalsIgnoreCase("glennClosetNote")) {
+                            Game.print("/bThe note looks like some kind of clue. Who could it have been written by? It reads:");
+                            Game.print("/dbYou must be in a great state of confusion and misery, with all that has happened so far.");
+                            Game.print("/dbUnfortunately, it is not done, there is still more digging to do.");
+                            Game.print("/dbTo find what you are looking for, you will need to explore more than you ever have before.");
+                            Game.print("/dbAt the end of the road, your patience, intelligence, and will to succeed");
+                            Game.print("/dbwill be put to the test. Demonstrate these qualities, and good things will happen.");
+                            Game.print("/dbGood luck with your adventures.");
+                            Game.print("/bThis note makes you feel determined to find out what really happened to Glenn.");
+                            CharacterConstants.READ_NOTE = true;
                         }
 
                         return;

@@ -130,16 +130,12 @@ public class Check extends Command {
             case "Private Poker Table":
                  if(itemName.equalsIgnoreCase("coat")) {
                     if(CharacterConstants.CHECKED_COAT) {
-                    Game.print("/bYou already checked inside the coat.");
-                    return;
+                        Game.print("/bYou already checked inside the coat.");
+                        return;
                     }
-                Game.print("/bYou checked inside the coat.");
-                Game.print("/bYou found a small piece of paper with a strange sequence.");
-                Game.print("/bIt looks like Morse code: - .-. .- -.-. . / - .... . / - .- .. .-.. / --- ..-. / .-- .... .- - / -.-- --- ..- / ... . . --..-- / .. -. / . -. -.. .. -. --. ... --..-- / - .... . / -.- . -.-- / .-- .. .-.. .-.. / -... . .-.-.- / ..- -. .-. .- ...- . .-.. / -.-. --- -.. . --..-- / ..-. .. -. -.. / - .... . / -. .- -- . .--..-- / .- -. -.. / - .... . -. / -.-- --- ..- .----. .-.. .-.. / .-- .. -. / - .... .. ... / -.. . .- -.. .-.. -.-- / --. .- -- . .-.-.-");
-                if(Give.giveItem(Game.itemList.get("MorseCode"), null))  {
-                Game.print("/bType /rInventory/b into the console to see your current items.");
-                CharacterConstants.CHECKED_COAT = true;
-            }
+                    Game.print("/bYou checked inside the coat.");
+                    Game.print("/bYou found a small piece of paper with a strange sequence.");
+                    if(Give.giveItem(Game.itemList.get("morse"), null))  { CharacterConstants.CHECKED_COAT = true; }
             } else {
                 Game.print("/b" + itemName + " does not need to be checked.");
             }

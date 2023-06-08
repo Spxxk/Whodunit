@@ -70,8 +70,7 @@ public class Go extends Command {
                 }
 
                 if (e.getAdjacentRoom().equals("privatePokerTable")) {
-                    Game.print("\n/bAs you enter the private poker table room, you notice a coat hanging on the wall.");
-                    Game.print("/bThere seems to be something inside the coat. Maybe you should check it.");
+                    Game.print("\n/bAs you enter the private poker table room, you notice a coat hanging on the wall, the pockets bulging.");
                 }
 
                 return;

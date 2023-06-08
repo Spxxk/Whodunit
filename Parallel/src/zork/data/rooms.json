@@ -902,7 +902,7 @@
           "adjacentRoom": "casino"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "east",
           "adjacentRoom": "privatePokerTable"
         }
@@ -911,16 +911,14 @@
     {
       "id": "privatePokerTable",
       "name": "Private Poker Table",
-      "description": "You are inside a private room, with a poker table in the middle.",
-      "capacity": 150,
+      "description": "Even though you know this is the private poker table room, it oddly doesn't have a poker table.",
+      "capacity": 500,
       "keyid": "privatePokerTableKey",
       "npcs": [
-        { "id": "brentAndFriends" }
+        { "id": null }
       ],
       "items": [
-        {
-          "id": null
-        }
+        { "id": "comb" }, { "id": "computer" }, { "id": "pen" }, { "id": "coat" }
       ],
       "exits": [
         {

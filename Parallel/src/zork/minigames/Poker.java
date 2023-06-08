@@ -236,7 +236,7 @@ public class Poker extends Minigame {
             try {
                 int bet = Integer.parseInt(scanner.nextLine());
                 if (bet <= this.user.getBank()) {
-                    if(bet > getHighestBet())
+                    if(bet >= getHighestBet())
                         return bet;
                     else {
                         System.out.println("You need to bet higher than " + getHighestBet() + ".");

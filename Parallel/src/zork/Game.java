@@ -57,7 +57,7 @@ public class Game {
 			Music music = new Music();
 			
 			music.play();
-            player = new Player("userRoom",100);
+            player = new Player("pokerTables",100);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

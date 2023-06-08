@@ -418,21 +418,21 @@
         {
             "id": "morse",
             "name": "Morse Code",
-            "weight": 0,
-            "isOpenable": true,
+            "weight": 1,
+            "isOpenable": false,
             "needsContext": false
         },
         {
             "id": "coat",
             "name": "Coat",
-            "weight": 5,
+            "weight": 105,
             "isOpenable": false,
             "needsContext": false
         },
         {
             "id": "pen",
             "name": "Pen",
-            "weight": 0,
+            "weight": 1,
             "isOpenable": false,
             "needsContext": false
         },
@@ -440,6 +440,13 @@
             "id": "comb",
             "name": "Comb",
             "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "pokerTable",
+            "name": "Poker Table",
+            "weight": 120,
             "isOpenable": false,
             "needsContext": false
         }

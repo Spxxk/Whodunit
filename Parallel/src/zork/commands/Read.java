@@ -14,6 +14,7 @@ public class Read extends Command {
         String itemName = Item.arrayToString(args);
 
         switch(itemName.toLowerCase()) {
+            case "morse code":
             case "brent's diary": // name of the item with case in front of it
             case "letter":
             case "welcome letter":
@@ -45,6 +46,10 @@ public class Read extends Command {
                             Game.print("/dbIt makes me so angry that he always gets all the attention from Emily.");
                             Game.print("/dbIt's enough to make a grown man make some bad decisions.");
                             Game.print("/dbBut there's also /rhim/db...");
+                        }
+                        if(item.getId().equalsIgnoreCase("morse")) {
+                            Game.print("/dbThere seems to be a strange sequence on the paper.");
+                            Game.print("/dbIt looks like Morse code: - .-. .- -.-. . / - .... . / - .- .. .-.. / --- ..-. / .-- .... .- - / -.-- --- ..- / ... . . --..-- / .. -. / . -. -.. .. -. --. ... --..-- / - .... . / -.- . -.-- / .-- .. .-.. .-.. / -... . .-.-.- / ..- -. .-. .- ...- . .-.. / -.-. --- -.. . --..-- / ..-. .. -. -.. / - .... . / -. .- -- . .--..-- / .- -. -.. / - .... . -. / -.-- --- ..- .----. .-.. .-.. / .-- .. -. / - .... .. ... / -.. . .- -.. .-.. -.-- / --. .- -- . .-.-.-");
                         }
 
                         return;

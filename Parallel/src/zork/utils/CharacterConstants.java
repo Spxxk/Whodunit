@@ -16,4 +16,6 @@ public class CharacterConstants {
     public static boolean CHECKED_NIGHSTAND_BRENT_ROOM = false;
     public static boolean CHECKED_BED_BRENT_ROOM = false;
     public static boolean CHECKED_COAT = false;
+
+    public static boolean USED_COMPUTER = false;
 }

@@ -118,7 +118,10 @@ public class Check extends Command {
                     Game.print("/bYou found Brent's diary!");
                     if(Give.giveItem(Game.itemList.get("diary"), null))
                         CharacterConstants.CHECKED_BED_BRENT_ROOM = true;
+                } else {     
+                    Game.print("/b" + itemName + " does not need to be checked.");
                 }
+                break;
 
             default:
                 Game.print("/b" + itemName + " does not need to be checked.");

@@ -14,6 +14,7 @@ public class Read extends Command {
         String itemName = Item.arrayToString(args);
 
         switch(itemName.toLowerCase()) {
+            case "brent's diary":
             case "letter":
             case "welcome letter":
                 for (Item item : Game.player.getInventory().getContents()) {
@@ -38,6 +39,12 @@ public class Read extends Command {
                                 Game.print("/bThe page was covered in tears, making you cry for your friend as well.");
                                 CharacterConstants.READ_LETTER_FROM_BRENT = true;
                             } catch(InterruptedException e) {}
+                        }
+                        if(item.getId().equalsIgnoreCase("diary")) {
+                            Game.print("/dbJuly 5th, 2023 - Every time I look at him, I start hyperventilating");
+                            Game.print("/dbIt makes me so angry that he always gets all the attention from Emily.");
+                            Game.print("/dbIt's enough to make a grown man make some bad decisions.");
+                            Game.print("/dbBut there's also /rhim/db...");
                         }
 
                         return;

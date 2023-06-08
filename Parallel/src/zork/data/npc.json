@@ -34,6 +34,16 @@
             "id": "littleGirl",
             "name": "Little Girl",
             "description": "There appears to be a girl, age 5 or 6, standing in the hallway waiting for someone."
+        },
+        {
+            "id": "lebronJames",
+            "name": "Lebron James",
+            "description": "The famous basketball player, Lebron James, is playing another person in basketball."
+        },
+        {
+            "id": "scottieBarnes",
+            "name": "Scottie Barnes",
+            "description": "Is that Scottie Barnes? You start blushing."
         }
     ]
 }

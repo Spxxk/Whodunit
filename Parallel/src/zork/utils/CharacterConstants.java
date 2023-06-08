@@ -9,6 +9,7 @@ public class CharacterConstants {
     public static boolean GAVE_INVITATION = false;
     public static boolean GAVE_INFO = false;
 
+    public static boolean CHECKED_LEBRONS_BAG = false;
     public static boolean CHECKED_NIGHSTAND_YOUR_ROOM = false;
     public static boolean CHECKED_BATHTUB_YOUR_BATHROOM = false;
     public static boolean CHECKED_CRATE_CELLAR = false;

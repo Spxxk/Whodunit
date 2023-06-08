@@ -19,7 +19,7 @@ public class MemoryNumbers extends Minigame {
     public void play() {
         in = new Scanner(System.in);
 
-        Game.print("\n/bWelcome to Memory Numbers! Get a score of 8 than MR MINATO to win.");
+        Game.print("\n/bWelcome to Memory Numbers! Get a score of 8 to defeat MR MINATO.");
         Game.print("/bTo play, write the number in /rRED/b once the console tells you to.");
         System.out.print("Type start once you have understood the rules: ");
 

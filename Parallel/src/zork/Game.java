@@ -351,6 +351,18 @@ public class Game {
 				print("Hi mister! Mommy told me to stay upstairs while she goes downstairs and checks out the crime scene.");
 				print("You can get downstairs by going /reast/g of here and then south on the elevator.");
 				break;
+
+			case "scottieBarnes":
+				print("What's good /p! Great to see you at the resort.");
+				print("We should run some 1's sometime, hit me up when you want to.");
+				break;
+
+			case "lebronJames":
+				print("Yo /p, I'm running a 1v1 with my best friend Scottie.");
+				print("I have a pair signed shoes for you, but I can't grab them because the king is busy.");
+				print("Check the stands if you want them.");
+				print("See ya, /p.");
+				break;
 		}
 	}
 

@@ -26,7 +26,7 @@ public class TypingTest extends Minigame {
         String sentence = "";
         String[] sentenceArray = new String[20];
 
-        Game.print("/bWelcome to the typing test! Write these red words faster than 60wpm to evade the computer's radiation:");
+        Game.print("/bWelcome to the typing test! Write faster than 60wpm to defeat the owner of the wallet:");
         for (int i = 0, n = 0; i < 20; i++, n = (int) (Math.random() * words.length)) {
             sentence = i == 0 ? words[n] : sentence + " " + words[n];
             sentenceArray[i] = words[n];

@@ -451,6 +451,20 @@
             "needsContext": false
         },
         {
+            "id": "signedShoes",
+            "name": "Lebron Shoes",
+            "weight": 4,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "lebronBag",
+            "name": "Lebron's Bag",
+            "weight": 105,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
             "id": "glennPaper",
             "name": "Piece of Paper",
             "weight": 1,

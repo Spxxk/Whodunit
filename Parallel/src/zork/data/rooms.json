@@ -694,7 +694,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "lebronJames" }, { "id": "scottieBarnes" }
       ],
       "items": [
         {
@@ -754,7 +754,7 @@
         { "id": null }
       ],
       "items": [
-        { "id": "2 bullets (stands)"}
+        { "id": "2 bullets (stands)" }, { "id": "lebronBag" }
       ],
       "exits": [
         {

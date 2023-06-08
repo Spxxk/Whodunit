@@ -9,7 +9,6 @@ public class Item extends OpenableObject {
     private double weight;
     private String name, id;
     private boolean isOpenable;
-    private boolean needsContext;
 
     private final String _hash; 
     

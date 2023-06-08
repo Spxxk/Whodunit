@@ -156,6 +156,17 @@ public class Check extends Command {
             }
             break;
 
+            case "Stands":
+                if(itemName.equalsIgnoreCase("Lebron's Bag")) {
+                    if(CharacterConstants.CHECKED_LEBRONS_BAG) {
+                        Game.print("/bLebron's bag is empty. You already took his shoes.");
+                        return;
+                    }
+                    Game.print("/bYou checked inside of Lebron's bag.");
+                    Game.print("/bYou found the signed shoes he made for you.");
+                    if(Give.giveItem(Game.itemList.get("signedShoes"), null))  { CharacterConstants.CHECKED_LEBRONS_BAG = true; }
+                }
+
         }
     }
 }

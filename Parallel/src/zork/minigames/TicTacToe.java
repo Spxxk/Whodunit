@@ -27,9 +27,11 @@ public class TicTacToe extends Minigame {
     }
     
     private void comTurn() {
-        displayGrid(); // Print the grid out
+        if(!finished) {
+            displayGrid(); // Print the grid out
 
-        addToGrid(COM, comAsker()); // Modify grid with user input
+            addToGrid(COM, comAsker()); // Modify grid with user input
+        }
     }
 
 
@@ -167,13 +169,11 @@ public class TicTacToe extends Minigame {
     }
 
     private void displayGrid() {
-        if(!finished) {
-            for (int i = 0; i < grid.length; i++) {
-                for (int j = 0; j < grid[i].length; j++) {
-                    System.out.print(grid[i][j] + " ");
-                }
-                System.out.println();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                System.out.print(grid[i][j] + " ");
             }
+            System.out.println();
         }
     }
 }

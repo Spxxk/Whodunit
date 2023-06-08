@@ -42,6 +42,7 @@ public class Use extends Command {
                     break;
                 } else if(password.equalsIgnoreCase("no") || password.equalsIgnoreCase("quit")) {
                     Game.print("/bYou decided to put down the keyboard and continue looking around.");
+                    return;
                 } else {
                     Game.print("/dbACESS DENIED! WRONG PASSWORD\n");
                     Game.print("/dbPASSWORD?");

@@ -386,6 +386,27 @@
             "weight": 0.1,
             "isOpenable": false,
             "needsContext": false
+        },
+        {
+            "id": "bed",
+            "name": "Bed",
+            "weight": 120,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "pen",
+            "name": "Ballpoint Pen",
+            "weight": 0.1,
+            "isOpenable": false,
+            "needsContext": false
+        },
+        {
+            "id": "diary",
+            "name": "Brent's Diary",
+            "weight": 1,
+            "isOpenable": false,
+            "needsContext": false
         }
     ]
 }

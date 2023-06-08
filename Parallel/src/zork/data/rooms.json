@@ -174,7 +174,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "littleGirl" }
       ],
       "items": [
         {
@@ -214,9 +214,7 @@
         { "id": null }
       ],
       "items": [
-        {
-          "id": null
-        }
+        { "id": "nightstand" }, { "id": "bed" }, { "id": "pen" }
       ],
       "exits": [
         {

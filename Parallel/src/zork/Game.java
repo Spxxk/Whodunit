@@ -343,6 +343,12 @@ public class Game {
 						printLoss();
 					}
 				}
+				break;
+
+			case "littleGirl":
+				print("Hi mister! Mommy told me to stay upstairs while she goes downstairs and checks out the crime scene.");
+				print("You can get downstairs by going /reast/g of here and then south on the elevator.");
+				break;
 		}
 	}
 

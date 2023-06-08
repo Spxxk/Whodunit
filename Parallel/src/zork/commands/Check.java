@@ -71,6 +71,7 @@ public class Check extends Command {
                 } else {
                     Game.print("/b" + itemName + " does not need to be checked.");
                 }
+                break;
 
             case "Cellar":
                 if(itemName.equalsIgnoreCase("Crate")) {
@@ -165,7 +166,10 @@ public class Check extends Command {
                     Game.print("/bYou checked inside of Lebron's bag.");
                     Game.print("/bYou found the signed shoes he made for you.");
                     if(Give.giveItem(Game.itemList.get("signedShoes"), null))  { CharacterConstants.CHECKED_LEBRONS_BAG = true; }
+                } else {     
+                    Game.print("/b" + itemName + " does not need to be checked.");
                 }
+                break;
 
         }
     }

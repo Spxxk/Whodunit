@@ -34,10 +34,7 @@ public class Poker extends Minigame {
     }
 
     public void startGame(String... args) {
-        Game.print("Brent: Finally you made it here");
-        Game.print("Brent: If you can be me and my henchmen I will turn myself in for killing Glenn");
-        Game.print("Brent: But if you lose... well... you don't what to find out");
-        Game.print("\nHere are some instructions to get you started:");
+        Game.print("\nHere are the rules we will play with, /p.");
         Game.print("1. You will start the game with the $250 from the wallet you found.");
         Game.print("2. You will be playing against 3 opponents.");
         Game.print("3. The game begins with you and the opponents being dealt 2 cards from a shuffled deck.");
@@ -47,8 +44,7 @@ public class Poker extends Minigame {
         Game.print("7. After each betting round one card is added to the community pile.");
         Game.print("8. Then when there are 5 cards in the pile there will be one last betting round.");
         Game.print("9. The game continues until you lose all your money or reach $800");
-        Game.print("\nIf you succumb to Brent you will...");
-        Game.print("\nBRENT IS GETTING READY ITS TIME TO FACE THE BIGGEST ONE OF THEM ALL!...");
+        Game.print("\nGood luck /p. You'll need it.");
 
         try {
             Thread.sleep(2000); // Delay before the game starts

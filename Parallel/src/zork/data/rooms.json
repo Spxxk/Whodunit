@@ -902,7 +902,7 @@
           "adjacentRoom": "casino"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "east",
           "adjacentRoom": "privatePokerTable"
         }

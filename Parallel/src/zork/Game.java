@@ -333,19 +333,17 @@ public class Game {
 				break;
 
 			case "brentAndFriends":
-				if(CharacterConstants.GAVE_ROOM_KEY) {
-					print("Well well well, if it isn't /p.");
-					print("It's a shame what happened to Glenn. But there's one thing I should let you know: it was ME!");
-					print("I get sick to my stomach when I see Glenn get all sorts of attention everywhere we go,");
-					print("so I decided to put an end to it. Now /p, we're gonna play a game of poker.");
-					print("If you win, you could turn me into the cops and I won't have any money to get a lawyer.");
-					print("But if you lose, it's all over for you.");
-					runMinigame("Poker");
-					if(player.getResult()){
-						printWin();
-					}else{
-						printLoss();
-					}
+				print("Well well well, if it isn't /p.");
+				print("It's a shame what happened to Glenn. But there's one thing I should let you know: it was ME!");
+				print("I get sick to my stomach when I see Glenn with Emily,");
+				print("so I decided to put an end to it. Now /p, we're gonna play a game of poker.");
+				print("If you win, you could turn me into the cops and I won't have any money to get a lawyer.");
+				print("But if you lose, it's all over for you.");
+				runMinigame("Poker");
+				if(player.getResult()){
+					printWin();
+				}else{
+					printLoss();
 				}
 				break;
 

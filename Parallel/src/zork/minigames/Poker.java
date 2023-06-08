@@ -110,13 +110,16 @@ public class Poker extends Minigame {
                 case "bet":
                     if(getHighestBet() > user.getBank()) {
                         System.out.println("You don't have enough money to bet.");
-                        System.out.println("You folded your turn.");
-                        break;
+                        betAmount = goAllIn();
+                        if(betAmount == -1)
+                            break;
                     }
-                    betAmount = getPlayerBet();
-                    if (betAmount > this.user.getBank()) {
-                        System.out.println("You don't have enough money to bet $" + betAmount + ".");
-                        continue;
+                    else {
+                        betAmount = getPlayerBet();
+                        if (betAmount > this.user.getBank()) {
+                            System.out.println("You don't have enough money to bet $" + betAmount + ".");
+                            continue;
+                        }
                     }
                     this.user.bet(betAmount);
                     this.pot += betAmount;
@@ -209,6 +212,24 @@ public class Poker extends Minigame {
         this.pot = 0;
         this.currentBet = 0;
         this.roundCount = 0;
+    }
+
+    private int goAllIn() {
+        Game.print("/bWould you like to go all in or fold?");
+        while (true) {
+            try {
+                String temp = scanner.nextLine();
+                if(temp.equalsIgnoreCase("all in") || temp.equalsIgnoreCase("bet")) {
+                    return user.getBank();
+                } else if(temp.equalsIgnoreCase("fold")) {
+                    return -1;
+                } else {
+                    Game.print("/bWould you like to go all in or fold?");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid bet.");
+            }
+        }
     }
 
     private void dealFlop() {

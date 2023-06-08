@@ -44,6 +44,11 @@
             "id": "scottieBarnes",
             "name": "Scottie Barnes",
             "description": "Is that Scottie Barnes? You start blushing."
+        },
+        {
+            "id": "arman",
+            "name": "Arman",
+            "description": "You see a boy standing there, looking at the poker tables. How did a minor get in?"
         }
     ]
 }

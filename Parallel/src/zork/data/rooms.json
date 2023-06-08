@@ -890,7 +890,7 @@
       "capacity": 150,
       "keyid": null,
       "npcs": [
-        { "id": null }
+        { "id": "arman" }
       ],
       "items": [
         { "id": "poker chips"}, { "id": "playing cards"}

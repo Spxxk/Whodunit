@@ -363,6 +363,13 @@ public class Game {
 				print("Check the stands if you want them.");
 				print("See ya, /p.");
 				break;
+
+			case "arman":
+				print("Lalalalala...");
+				print("You scared me? Who are you?... /p...");
+				print("Do you want to play a game with me? I call it BOMB PARTY!");
+				print("If you can make it past 5 rounds, I'll tell you where the private event is.");
+				print("Let's play!");
 		}
 	}
 

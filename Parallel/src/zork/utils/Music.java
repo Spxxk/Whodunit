@@ -1,4 +1,4 @@
-package zork.commands;
+package zork.utils;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;

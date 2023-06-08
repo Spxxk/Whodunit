@@ -7,12 +7,13 @@ import java.util.List;
 public class Player {
     private String name;
     private List<Card> hand;
-    private int bank;
+    private int bank, bet;
 
     public Player(String name, int bank) {
         this.name = name;
         this.hand = new ArrayList<>();
         this.bank = bank;
+        bet = 0;
     }
 
     public String getName() {
@@ -36,7 +37,12 @@ public class Player {
     }
 
     public void bet(int amount) {
+        this.bet = amount;
         this.bank -= amount;
+    }
+
+    public int getBet() {
+        return bet;
     }
 
     public void win(int amount) {

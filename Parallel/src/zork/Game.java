@@ -383,6 +383,7 @@ public class Game {
 					print("You know that if you want to play bomb party or any other minigame that you've played so far,");
 					print("You can type /rPlay/g into the console and then the name of the minigame.");
 				}
+				break;
 		}
 	}
 

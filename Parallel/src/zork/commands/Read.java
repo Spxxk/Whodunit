@@ -14,6 +14,7 @@ public class Read extends Command {
         String itemName = Item.arrayToString(args);
 
         switch(itemName.toLowerCase()) {
+            case "mysterious note":
             case "piece of paper":
             case "morse code":
             case "brent's diary": // name of the item with case in front of it

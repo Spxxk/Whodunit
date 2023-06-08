@@ -14,6 +14,7 @@ import zork.utils.Dictionary;
 import zork.utils.Give;
 import zork.utils.CharacterConstants;
 import zork.utils.MinigameLoader;
+import zork.utils.Music;
 import zork.commands.Play;
 
 import java.nio.file.Files;
@@ -53,6 +54,9 @@ public class Game {
 			initItems();
 			initRooms();
 
+			Music music = new Music();
+			
+			music.play();
             player = new Player("userRoom",100);
 		} catch (Exception e) {
 			e.printStackTrace();

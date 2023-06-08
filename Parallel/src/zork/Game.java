@@ -365,11 +365,24 @@ public class Game {
 				break;
 
 			case "arman":
-				print("Lalalalala...");
-				print("You scared me? Who are you?... /p...");
-				print("Do you want to play a game with me? I call it BOMB PARTY!");
-				print("If you can make it past 5 rounds, I'll tell you where the private event is.");
-				print("Let's play!");
+				if(!CharacterConstants.BEAT_ARMAN) {
+					print("Lalalalala...");
+					print("You scared me? Who are you?... /p...");
+					print("Do you want to play a game with me? I call it BOMB PARTY!");
+					print("If you can make it past 5 rounds, I'll tell you where the private event is.");
+					print("Let's play!");
+					runMinigame("Bomb Party");
+					if(player.getResult()) {
+						print("You won! You're better at evading the bombs than me.");
+						print("The Private Poker Table is /reast/g of here, but you'll need the invitation to get in.");
+						print("Let's play again some time!");
+					} else {
+						print("You really lost... try again sometime.");
+					}
+				} else {
+					print("You know that if you want to play bomb party or any other minigame that you've played so far,");
+					print("You can type /rPlay/g into the console and then the name of the minigame.");
+				}
 		}
 	}
 

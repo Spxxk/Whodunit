@@ -8,6 +8,7 @@ public class CharacterConstants {
     public static boolean GAVE_WALLET = false;
     public static boolean GAVE_INVITATION = false;
     public static boolean GAVE_INFO = false;
+    public static boolean BEAT_ARMAN = false;
 
     public static boolean CHECKED_LEBRONS_BAG = false;
     public static boolean CHECKED_NIGHSTAND_YOUR_ROOM = false;
